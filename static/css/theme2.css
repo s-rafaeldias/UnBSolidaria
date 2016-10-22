@@ -1,0 +1,431 @@
+/* TABLE OF CONTENT
+    -------------------------------------------------- 
+
+    1. NAVBAR
+    2. ABOUT US
+    3. SERVICE
+    4. PORTFOLIO
+    5. TEAM
+    6. PRICE TABLES
+    7. PROCESS
+    8. CLIENTS
+    9. FACTS
+    10. CONTACT    
+    11. FOOTER
+    12. BORDERS
+    13. RESPONSIVE CSS
+     
+    */
+
+
+/* 1. Navbar
+-------------- */
+
+.navbar-inverse {
+  background-color: #000;
+  -webkit-box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.9);
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.9);
+
+}
+
+/* 2. About Us
+-------------- */
+
+    #about {
+	    background: #fff;
+	    padding: 120px 0px ;
+	    display: block;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+	    z-index: 900;
+        -webkit-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.9);
+	    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.9);
+    }
+    
+    #about h1 {
+	    color: #443e44;  
+    }
+
+/* 3. Service
+-------------- */
+    
+    #service {
+	    background: #000;
+	    padding: 120px 0px;
+	    display: block;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+	    z-index: 900;
+	    text-align: center;
+    }
+    
+     #service h1 {
+	    color: #fff;
+    }
+    
+    .service-col:hover {
+	    background: #fff;
+	    color: #000;
+    }
+    
+    .service-col h4 {
+	    color: #fff;
+	}
+	
+	.service-col:hover h4 {
+	    color: #e67e22 !important;
+	    border-bottom: 1px solid #000;
+    }
+    
+    .service-col p {
+	    color: #9e968f;
+    }
+    
+     .service-col:hover p {
+	    color: #000;
+    }
+    
+    .service-col:hover > div {
+        background: #e67e22;
+        color: #fff;
+    }
+    
+    .icon-wrench, .icon-mobile, .icon-desktop {
+	    background-color:#fff;
+        color: #e67e22;
+    }
+
+/* 4. Portfolio
+-------------- */
+    
+    #portfolio {
+	    background: #fff;
+	    padding: 120px 0px ;
+	    display: block;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+	    z-index: 900;
+    }
+    
+    .caption {
+        color: #fff !important;
+    }
+    
+    .caption h5 {
+        color: #e67e22;
+	    border-bottom: 1px solid #fff;
+	}
+    
+/* 5. Team
+-------------- */
+    
+    #team {
+	    background: #000;
+	    padding: 120px 0px ;
+	    display: block;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+	    z-index: 900;
+	    text-align: center;
+    }
+    
+    #team h1 {
+	    color: #fff;
+    }
+    
+    .team:hover {
+	    background-color: #fff;
+	    color: #000;
+    }
+    
+    .team h5 {
+        color: #fff;
+    }
+
+    .job {
+        color: #443e44 !important;
+        border-bottom: 1px dashed #9e968f;
+    }
+    
+    .team p {
+	    color: #9e968f;
+    }
+    
+    .team:hover p {
+	    padding: 10px;
+	    color: #000;
+    }
+    
+    .team a {
+	    color: #9e968f;
+    }
+    
+    .team:hover a {
+	    color: #000;
+    }
+    
+    .member1, .member2, .member3, .member4 {
+        color: #e67e22;
+    }
+    
+    .team-member1:hover > div {
+        color: #000;
+        border: 5px solid #e67e22;
+    }
+    .team-member2:hover > div {
+        color: #000;
+        border: 5px solid #e67e22;
+    }
+    .team-member3:hover > div {
+        color: #000;
+        border: 5px solid #e67e22;
+    }
+    .team-member4:hover > div {
+        color: #000;
+        border: 5px solid #e67e22;
+    }
+    
+    .icon-social {
+        background: #fff;
+        color: #000;
+    }
+    
+    /* Fun Facts */
+    
+    .fun-facts h4 {
+	   color: #fff;
+    }
+    
+    .fun-fact h5 {
+	    color: #fff;
+    }
+    
+    .fun-fact:hover h4 {
+	    color: #e67e22;
+    }
+    
+    
+/* 6. Price
+-------------- */
+    
+    #price {
+	    background: #fff;
+	    padding: 120px 0px ;
+	    display: block;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+	    z-index: 900;
+    }
+    
+    .price-table {
+    	border: 1px solid #443e44;
+    }
+    
+    .price-table:hover {
+        background: #e67e22;
+    }
+    
+    .the-price {
+		background-color: #443e44;
+    }
+    
+    .table-feature {
+    	border: 2px solid #e67e22;
+	}
+	
+	.table-feature:hover {
+       background: #e67e22;
+    }
+    
+/* 7. Process
+-------------- */
+    
+    #process {
+	    background: #000;
+	    padding: 120px 0px ;
+	    display: block;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+	    z-index: 900;
+    }
+    
+    #process h1 {
+	    color: #fff;
+    }
+    
+    .our-process { 
+        background: #000 url(../img/process/our-process.svg) no-repeat center; 
+    }
+    
+    .process-con h5 {  
+        color: #afbdc9;
+    }
+    
+    .process-img { 
+        background-color: #fff;
+        color: #e67e22;
+    }
+    
+    .process-img:hover {
+	    background: #e67e22;
+	    color: #fff;
+    }
+
+/* 8. Clients
+-------------- */
+    
+    #clients {
+	    background: #fff;
+	    padding: 120px 0px ;
+	    display: block;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+	    z-index: 1000;
+    }
+    
+    .testemonials p {
+	    color: #443e44;
+    }
+    
+    .testemonials .author {
+	    color: #e67e22;
+    }
+    
+    .nbs-flexisel-item {
+        border-bottom: 1px solid #443e44;
+    }
+    
+    .nbs-flexisel-nav-left,
+    .nbs-flexisel-nav-right {
+        background-color: #443e44 !important;
+    }
+    
+    .nbs-flexisel-nav-left:hover,
+    .nbs-flexisel-nav-right:hover {
+        background-color: #e67e22 !important;
+    }
+    
+/* 9. FACTS
+-------------- */
+    
+    #facts {
+	    background: #000 url("../img/pattern_theme_1.svg") repeat;
+	    padding: 120px 0px ;
+	    display: block;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+	    z-index: 900;
+	    -webkit-box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.9);
+	    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.9);
+    }
+    
+   .fun-fact h5 {
+	    color: #fff;
+    }
+    
+    .fun-fact h3 {
+	    color: #fff;
+    }
+    
+    .fun-fact p {
+	    color: #fff;
+	    font-size: 60px;
+    }
+    
+    .fun-fact:hover p {
+	    color: #e67e22;
+    }     
+          
+/* 10. Contact
+-------------- */
+   
+    #contact {
+	    background: #fff;
+	    padding: 120px 0px ;
+	    display: block;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+	    z-index: 900;
+	    -webkit-box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.9);
+	    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.9);
+    }
+    
+/* 11. Footer
+-------------- */
+    
+    #foot {
+	    background: #000;
+	    padding: 15px 0px ;
+	    display: block;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+	    z-index: 900;
+	    -webkit-box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.9);
+	    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.9);
+    }
+    
+    .bottom-con h5 {
+	    color: #fff;
+    }
+    
+    .bottom-con p {
+        padding-left: 30%;
+	    text-align: left;
+	    color: #fff;
+    }
+    
+    .footer a:hover {
+	    color: #e67e22;
+    }
+    
+    /* GOING UP ARROW */
+    
+    .up {
+	    background: #fff;
+    }
+    
+    .up span:hover {
+		color: #e67e22 ;
+	}
+	
+	.up span {
+	    color: #443e44;
+	}
+	
+/* 12. Borders
+-------------- */
+
+    .head-border-white {
+	    background: #fff;
+    }
+    
+    .head-border-grey {
+	    background: #443e44;
+    }	
+
+/* 13. RESPONSIVE CSS
+-------------- */
+    
+    @media only screen and (max-width: 767px) {
+	    
+	.our-process { 
+       background: #000 url(../img/process/our-process-mobil.svg) no-repeat center top; 
+       min-height: 1200px;
+       margin-bottom: 150px;
+    }
+    
+    .process-con h5 {  
+       background: #000; 
+    }
+    
+    }

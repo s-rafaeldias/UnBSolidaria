@@ -1,0 +1,146 @@
+/* COLOR SWITCH PANEL 
+---------------------*/
+
+.editor {
+    position: fixed;
+    top: 150px;
+    left: -150px;
+    z-index: 3000;
+    text-align: center;
+}
+
+.editor p {
+	font-size: 12px;
+	color: #fff;
+	padding-top: 5px;
+}
+
+.editor .panel {
+    position: relative;
+    float: left;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: auto;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid #e67e22;
+    padding: 20px;
+    background-color: rgba(15, 15, 15, 0.8);
+    z-index: 3000;
+}
+
+.editor .panel h5 {
+    color: #fff;
+    font-weight: 300;
+    text-align: center;
+    border-bottom: 1px dashed #e67e22;
+    padding-bottom: 10px;
+}
+
+.editor .switch{
+    position: relative;
+    float: left;
+    top: 70px;
+    left: -1px;
+    right: 1px;
+    width: 45px;
+    height: 50px;
+    background-color: #e67e22;
+    border: 1px solid #e67e22;
+    z-index: 3000;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+}
+
+.editor .switch i{
+    position: absolute;
+    left: 8px;
+    top: 10px;
+    color: #fff;
+}
+
+/* STYLE CIRCLES */
+
+.circle-skin { 
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin: 20px 0px 0px 20px;
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+
+.circle-skin:hover { 
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+}
+
+.left{
+     float: left;
+	 width: 15px;
+     height: 30px;
+     border-radius: 50px 0 0 50px;
+     -moz-border-radius: 50px 0 0 50px;
+     -webkit-border-radius: 50px 0 0 50px;
+}
+.right{
+     float: right;
+	 width: 15px;
+     height: 30px;
+     border-radius: 0px 50px 50px 0;
+     -moz-border-radius: 0px 50px 50px 0;
+     -webkit-border-radius: 0px 50px 50px 0;
+}
+
+.skin1-l {
+	background: #27ae60;
+}
+
+.skin1-r {
+	background: #2c3e50;
+}
+
+.skin2-l {
+	background: #fff;
+}
+
+.skin2-r {
+	background: #000;
+}
+
+.skin3-l {
+	background: #3498db;
+}
+
+.skin3-r {
+	background: #9b59b6;
+}
+
+.skin4-l {
+	background: #d35400;
+}
+
+.skin4-r {
+	background: #34495e;
+}
+
+.skin5-l {
+	background: #f1c40f;
+}
+
+.skin5-r {
+	background: #16a085;
+}
+
+.skin6-l {
+	background: #c0392b;
+}
+
+.skin6-r {
+	background: #000;
+}

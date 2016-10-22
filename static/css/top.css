@@ -1,0 +1,26 @@
+/* BACK TO THE TOP BUTTON */
+
+#top-bt {
+	visibility: hidden;
+}
+
+.button-top {
+    position: fixed;
+    top: 220px;
+    right: -3px;
+    width: 45px;
+    height: 50px;
+    background-color: #e67e22;
+    border: 1px solid #e67e22;
+    z-index: 3000;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    cursor: pointer;
+}
+
+.button-top i {
+    position: absolute;
+    left: 8px;
+    top: 12px;
+    color: #fff;
+}

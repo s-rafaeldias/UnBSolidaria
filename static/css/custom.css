@@ -1,0 +1,1363 @@
+/* TABLE OF CONTENT
+    -------------------------------------------------- 
+    
+    1. HEADINGS
+    2. NAVBAR
+    3. SLIDER
+    4. ABOUT US
+    5. SERVICE
+    6. PORTFOLIO
+    7. TEAM
+    8. PRICE TABLES
+    9. PROCESS
+    10. CLIENTS
+    11. FACTS
+    12. CONTACT    
+    13. FOOTER
+    14. FEATURE STYLES
+    15. RESPONSIVE CSS
+     
+    */
+    
+    /* 1. HEADINGS
+    -------------------------------------------------- */
+    
+    h1 {
+	    font-size: 60px;
+	    text-transform: uppercase;
+	    text-align: center;
+    }
+    
+    h2 {
+	    font-size:50px;
+	    text-align: center;
+    }
+    
+    h3 {
+	    font-size: 40px;
+	    text-align: center;
+	}
+	
+	h4 {
+	    font-size: 30px;
+	}
+	
+	h5 {
+		font-size: 20px;
+	}
+	
+	h6 {
+		font-size: 12px;
+	}
+	
+	.subhead {
+		color: #fff;
+		text-align: center;
+	}
+
+    /* 2. NAVBAR
+    -------------------------------------------------- */
+
+    #menu {
+	    z-index: 11000;
+    }
+
+    /* 3. SLIDER BACKGROUND
+    -------------------------------------------------- */
+    
+    #top-slider {
+    	width: 100%;
+    	height: 600px;
+     	text-align: center;
+    	z-index: 100;
+    }
+
+    #top-slider .slider-bg {
+    	background: url(../img/carousel-bg.jpg) 0 0 repeat fixed;	
+    	margin: 0 auto;
+    	padding: 0;
+    	position: absolute;
+    	z-index: 100;
+    	width: 100%;
+    	height: 800px;
+    }
+
+    /* 4. ABOUT US
+    -------------------------------------------------- */
+    
+    /* BUTTONS (YOU CAN DELET THIS IF YOU DONT USE IT) */
+    
+    .btn-buy {
+	    text-align: right;
+	    margin: 0px 0px 60px 0px;
+    }
+    
+    .btn-like {
+	    text-align: left;
+	    margin: 0px 0px 60px 0px;
+    }
+    
+    .btn-top {
+	    text-transform: uppercase;
+        font-size: 20px;
+	    padding: 10px 20px
+    }
+
+     /* #Skills */
+
+    .skills {
+    	padding-top: 5px;
+    	padding-bottom: 20px;
+    }
+
+    #skillbar { 
+    	list-style: none;
+    	width: auto;
+    	margin: 5px auto 0;
+    	position: relative;
+    	padding: 5px 0;
+    }
+
+    #skillbar li { 
+        margin-top: 35px;
+    	margin-bottom: 15px; 
+    	background: #dcd5d5;  
+    	height: 10px; 
+    }
+
+    #skillbar li p {
+        padding-top: 15px;
+        text-align: left;
+        margin-left: 2px;
+        font-size: 12px;
+    }
+
+    .skillbar { 
+    	height: 6px; 
+    	margin: 2px 2px;  
+    	position: absolute;
+    }
+
+    .html {
+    	width: 95%;  /* YOUR SKILL VALUE HERE */
+    	-moz-animation: html 15s ease-out;
+    	-webkit-animation: html 15s ease-out;
+    	background-color: #e67e22;
+    }
+
+    .css {
+    	width: 90%; /* YOUR SKILL VALUE HERE */
+    	-moz-animation: css 15s ease-out;
+    	-webkit-animation: css 15s ease-out;
+    	background-color: #e67e22;
+    }
+
+    .java {
+    	width: 55%; /* YOUR SKILL VALUE HERE */
+    	-moz-animation: java 15s ease-out;
+    	-webkit-animation: java 15s ease-out;
+    	background-color: #e67e22;
+    }
+
+    .php {
+    	width: 65%; /* YOUR SKILL VALUE HERE */
+    	-moz-animation: php 15s ease-out;
+    	-webkit-animation: php 15s ease-out;
+    	background-color: #e67e22;	
+    }
+
+    .psd {
+    	width: 85%; /* YOUR SKILL VALUE HERE */
+    	-moz-animation: psd 15s ease-out;
+    	-webkit-animation: psd 15s ease-out;
+    	background-color: #e67e22;	
+    }
+    
+    /* animation keyframes */
+
+    @-moz-keyframes html {0%  { width:0px;} 100%{ width:95%;}  }
+    @-moz-keyframes css        { 0%  { width:0px;} 100%{ width:90%;}  }
+    @-moz-keyframes java      { 0%  { width:0px;} 100%{ width:55%;}  }
+    @-moz-keyframes php   { 0%  { width:0px;} 100%{ width:65%;}  }
+    @-moz-keyframes psd   { 0%  { width:0px;} 100%{ width:85%;}  }
+
+    @-webkit-keyframes html       { 0%  { width:0px;} 100%{ width:95%;}  }
+    @-webkit-keyframes css        { 0%  { width:0px;} 100%{ width:90%;}  }
+    @-webkit-keyframes java      { 0%  { width:0px;} 100%{ width:55%;}  }
+    @-webkit-keyframes php   { 0%  { width:0px;} 100% { width:65%;}  }
+    @-webkit-keyframes psd   { 0%  { width:0px;} 100% { width:85%;}  }
+    
+    /* 5. SERVICE
+    -------------------------------------------------- */
+
+    .service {
+        padding: 0px 40px 20px 40px;
+    }
+    
+    .service-col {
+	    margin: 0px 10px;
+	    padding: 30px 10px;
+	    -webkit-transition:  ease-out 0.6s;
+        -moz-transition: ease-out 0.6s;
+        -o-transition: ease-out 0.6s;
+        transition: ease-out 0.6s;
+    }
+    
+    .service-col h4 {
+	    border-bottom: 1px solid transparent;
+	    padding: 10px 0px;
+    }
+    
+    .service-col p {
+	    padding: 10px;
+    }
+    
+    .service-col:hover {
+	    -webkit-transition: all 0.6s linear;
+        -moz-transition: all 0.6s linear;
+        -o-transition: all 0.6s linear;
+        -ms-transition: all 0.6s linear;
+        transition: all 0.6s linear;
+    }
+    
+    .service-col:hover p {
+	    padding: 10px;
+    }
+
+    .service-col:hover > div {
+        text-shadow: 1px -1px 0px rgba(0,0,0,0.5);
+	    -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+    }
+    
+    /* Icon rotation effect  */
+    
+    .rotate {
+	    -webkit-transition-duration: 0.8s;
+        -moz-transition-duration: 0.8s;
+        -o-transition-duration: 0.8s;
+        transition-duration: 0.8s;
+        border-radius: 50%;
+    }
+    
+    .rotate:hover {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        border-radius: 50%;   
+    }
+    
+   /* Icons  */
+    
+    .icon-wrench, .icon-mobile {
+        background: url('../img/icon-bg.png') repeat-x center center;
+        position: relative;
+        display: inline-block;
+        width: 140px;
+        height: 140px;
+        padding-top: 25px;
+        border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+    }
+    
+    .icon-desktop {
+        background: url('../img/icon-bg.png') repeat-x center center;
+        position: relative;
+        display: inline-block;
+        width: 140px;
+        height: 140px;
+        padding-top: 22px;
+        border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+    }
+    
+    .webdesign {
+	    z-index: 1000;
+    }
+    
+    /* Hire Us Button  */
+    
+    .service-btn {
+	    margin-top: 40px;
+    }
+    
+    .btn-hire {
+        text-transform: uppercase;
+        font-size: 20px;
+	    padding: 10px 20px;
+    }
+
+    /* 6. PORTFOLIO
+    -------------------------------------------------- */
+    
+    /* Filter */
+    
+    .filter-list ul{
+        text-align: center;
+    }
+    
+    .filter-list ul li {
+        margin-left: 5px;
+        cursor: pointer;
+    }
+
+    /* images grid and hover effect */
+    
+    .gallery {
+	    margin: 34px 0px 0px 0px;
+    }
+    
+    #Grid .mix{
+        opacity: 0;
+        display: none;
+    }
+
+    .images {
+	    margin: 10px 0px;
+    }
+
+    .overlay {
+        position: relative;
+        overflow: hidden;
+    }
+ 
+    .caption {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.75);
+        width: 100%;
+        height: 100%;
+        padding: 2%;
+        display: none;
+        text-align: center;
+        z-index: 2;
+    }
+    
+    .caption h5 {
+	    margin-top: 15%;
+	    margin-left: 10px;
+	    margin-right: 10px;
+    }
+    
+    .caption p {
+	    font-size: 12px;
+    }
+
+    /* 7. TEAM
+    -------------------------------------------------- */
+    
+    .team {
+	    margin: 0px 10px;
+	    padding: 30px 10px;
+	    -webkit-transition:  ease-out 0.6s;
+        -moz-transition: ease-out 0.6s;
+        -o-transition: ease-out 0.6s;
+        transition: ease-out 0.6s;
+    }
+
+    .job {
+        font-size: 12px;
+    }
+    
+    .team p {
+	    padding: 10px;
+    }
+    
+    .team:hover {
+	    -webkit-transition: all 0.6s linear;
+        -moz-transition: all 0.6s linear;
+        -o-transition: all 0.6s linear;
+        -ms-transition: all 0.6s linear;
+        transition: all 0.6s linear;
+    }
+    
+    .team:hover p {
+	    padding: 10px;
+    }  
+    
+   /* Team Member Images  */
+    
+    .member1 {
+        background: url('../img/team/1.jpg') center center no-repeat; /* YOUR IMAGE HERE */
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        position: relative;
+        display: inline-block;
+        width: 140px;
+        height: 140px;
+        padding-top: 25px;
+        border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+    }
+    
+    .member2 {
+        background: url('../img/team/1.jpg') center center no-repeat; /* YOUR IMAGE HERE */
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        position: relative;
+        display: inline-block;
+        width: 140px;
+        height: 140px;
+        padding-top: 25px;
+        border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+    }
+    
+    .member3 {
+        background: url('../img/team/1.jpg') center center no-repeat; /* YOUR IMAGE HERE */
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        position: relative;
+        display: inline-block;
+        width: 140px;
+        height: 140px;
+        padding-top: 25px;
+        border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+    }
+    
+    .member4 {
+        background: url('../img/team/1.jpg') center center no-repeat; /* YOUR IMAGE HERE */
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        position: relative;
+        display: inline-block;
+        width: 140px;
+        height: 140px;
+        padding-top: 25px;
+        border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+    }
+    
+    /* Team Member Hover Images  */
+    
+    .team-member1:hover > div {
+        background: url('../img/team/backside/1.jpg') center center no-repeat; /* YOUR IMAGE HERE */
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+	    -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+    }
+    
+    .team-member2:hover > div {
+        background: url('../img/team/backside/1.jpg') center center no-repeat; /* YOUR IMAGE HERE */
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+	    -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+    }
+    
+    .team-member3:hover > div {
+        background: url('../img/team/backside/1.jpg') center center no-repeat; /* YOUR IMAGE HERE */
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+	    -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+    }
+    
+    .team-member4:hover > div {
+        background: url('../img/team/backside/1.jpg') center center no-repeat; /* YOUR IMAGE HERE */
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+	    -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+    }
+    
+    /* TEAM MEMBER SOCIAL ICONS */
+    
+    .social-team a{
+	    padding: 0px 5px;
+    }
+    
+    .icon-social {
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+    }
+
+    /* 8. PRICE
+    -------------------------------------------------- */
+    
+    .tables {
+	    padding-bottom: 60px;
+    }
+
+    .price-table {
+	    text-align: center;
+    	margin-bottom: 20px;
+	}
+	
+	.price-table:hover {
+      -webkit-transition: all 0.6s linear;
+      -moz-transition: all 0.6s linear;
+      -o-transition: all 0.6s linear;
+      -ms-transition: all 0.6s linear;
+      transition: all 0.6s linear;
+    }
+	
+	.price-table-body {
+		padding: 0px;
+		text-align: center;
+	}
+	
+	.price-table-heading h3 {
+	    font-weight: 400;
+	    font-size: 28px;
+	    line-height: 1em;
+	    padding: 30px;
+	    margin: 0;
+	}
+
+	.the-price {
+		padding: 20px;
+		margin: 0;
+	}
+	
+	.the-price h1 {
+	    font-size: 50px;
+		line-height: 1em;
+	    margin: 0;
+	}
+
+	.month
+	{
+	    font-size: 16px;
+	}
+	
+	.price-table-footer {
+		padding: 30px;
+	}
+	
+	.table-feature {
+		margin-top: -60px;
+		-webkit-transition:  ease-out 0.6s;
+        -moz-transition: ease-out 0.6s;
+        -o-transition: ease-out 0.6s;
+        transition: ease-out 0.6s;
+	}
+	
+	.table-feature:hover {
+       -webkit-transition: all 0.6s linear;
+       -moz-transition: all 0.6s linear;
+       -o-transition: all 0.6s linear;
+       -ms-transition: all 0.6s linear;
+       transition: all 0.6s linear;
+    }
+    
+     /* 9. PROCESS
+    -------------------------------------------------- */
+    
+   /* OUR PROCESS SECTION */
+
+    .our-process { 
+        width: 100%; 
+        position: relative; 
+        min-height: 460px; 
+        text-align: center; 
+        margin: 10px 0;
+    }
+     
+    .process { 
+        position: relative; 
+        height: 320px; 
+        padding-top: 40px; 
+        width: 960px; 
+        margin: 0 auto;
+    }
+     
+    .process-con { 
+        position:relative; 
+        margin: 0 20px; 
+        float: left; 
+        width: auto; 
+        height: 320px;
+    }
+    
+    .process-con h5 { 
+        font-weight: 400; 
+        margin-top: 15px;
+        text-align: center; 
+        position: relative; 
+    }
+    
+    .process-con.img1 .process-img { 
+        margin-top: 70px;
+    }
+    
+    .process-con.img2 .process-img { 
+        margin-top: 60px;
+    }
+     
+    .process-con.img3 .process-img { 
+        margin-top: 50px;
+    }
+    
+    .process-img { 
+        background:url('../img/icon-bg.png') repeat-x center center;
+        text-shadow: 1px -1px 0px rgba(0,0,0,0.5);
+        position: relative;
+        display: inline-block;
+        overflow: hidden; 
+        width: 250px; 
+        height: 250px;  
+        border-radius: 50%;
+        padding-top: 25px; 
+    }
+ 
+     /* 10. CLIENTS
+    -------------------------------------------------- */
+    
+    .testemonials p {
+	    text-align: center;
+	    font-size: 20px;
+    }
+    
+    /*	CLIENT CAROUSEL SETTINGS  */
+
+    #clientslider {
+        display: none;
+    }
+
+    .nbs-flexisel-container {
+        position: relative;
+        max-width: 100%;
+    }
+    
+    .nbs-flexisel-ul {
+        position: relative;
+        width: 9999px;
+        margin: 0px;
+        padding: 0px;
+        list-style-type: none;   
+        text-align: center; 
+    }
+
+    .nbs-flexisel-inner {
+        overflow: hidden;
+        float: left;
+        width: 100%;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px; 
+    }
+
+    .nbs-flexisel-item {
+        float: left;
+        margin: 0px;
+        padding: 0px;
+        cursor: pointer;
+        position: relative;
+        line-height: 0px;
+    }
+    
+    .nbs-flexisel-item img {
+        width: 100%;
+        cursor: pointer;
+        position: relative;
+        margin-top: 40px;
+        margin-bottom: 10px;
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+   /* CLIENT SLIDER Navigation  */
+
+    .nbs-flexisel-nav-left,
+    .nbs-flexisel-nav-right {
+        width: 30px;
+        height: 30px; 
+        margin-top: 15px;
+        margin-left: 10px;
+        cursor: pointer;
+        z-index: 100;
+        float: left;
+    }
+
+    .nbs-flexisel-nav-left {
+        left: 10px;
+        background: url(../img/button-previous.png) no-repeat;
+    }
+
+    .nbs-flexisel-nav-right {
+        background: url(../img/button-next.png) no-repeat;
+    }
+    
+     /* 11. FUN FACTS
+    -------------------------------------------------- */
+    
+    .fun-facts {
+	    margin: 60px 0px !important;
+    }
+
+    .fun-fact {
+	    padding: 10px 0px;
+	    text-align: center;
+    }
+    
+     /* 12. CONTACT
+    -------------------------------------------------- */
+
+    #map {
+	    height: 500px;
+	    z-index: 400 !important;
+	    position: relative;
+    }
+    
+    iframe {
+	    padding-bottom: -10px; 
+	    width: 100%;
+	    height: 500px;
+    }
+    
+    /* SOCIAL MEDIA ICON DIVIDER  */
+    
+    #divider {
+    	width: 100%;
+    	height: 500px;
+     	text-align: center;
+    	z-index: 200;
+    }
+
+    #divider .divider-bg {
+    	background: url("../img/img-divider-img.jpg") repeat 0 0 fixed;	
+    	margin: 0 auto;
+    	padding: 0;
+    	position: absolute;
+    	z-index: 200;
+    	width: 100%;
+    	height: 500px;
+    }
+    
+    .social-icons {
+	    padding-top: 220px;
+    }
+    
+     a.social-media {
+    	padding: 10px;
+		position: relative;
+		z-index: 300;
+		text-align: center;
+    }
+    
+    /* 13. FOOTER
+    -------------------------------------------------- */
+    
+    /* BOTTOM CONTENT */
+    
+    .bottom-con {
+	    padding-bottom: 20px;
+    }
+    
+    .bottom-con h5 {
+        text-align: center;
+    }
+    
+    .bottom-con p {
+        padding-left: 30%;
+	    text-align: left;
+    }
+    
+    .newsletter {
+	    margin-top: 15px;
+	    padding: 0px 50px 0px 50px;
+	    text-align: center;
+    }
+    
+    /* GOING UP ARROW */
+
+    .up{
+	    width: 100px;
+	    height: 100px;
+	    border-radius: 50%;
+	    position: absolute;
+	    top: -85px;
+	    left: 50%;
+	    margin-left: -50px;
+	    -webkit-transition:  ease-out 0.5s;
+        -moz-transition: ease-out 0.5s;
+        -o-transition: ease-out 0.5s;
+        transition: ease-out 0.5s;
+        z-index: 1000;
+	}
+	
+	.up:hover{
+		top: -50px;
+		-webkit-transition: all 0.5s linear;
+        -moz-transition: all 0.5s linear;
+        -o-transition: all 0.5s linear;
+        -ms-transition: all 0.5s linear;
+        transition: all 0.5s linear;
+        z-index: 1000;
+	}
+	
+	.up span {
+	    font-size: 40px; 
+	    margin-top: 45px;
+	    margin-left: 32px;
+	}
+	
+	/* 14. FEATURE STYLES
+    -------------------------------------------------- */
+
+    /* HEADING BOARDERS */
+    
+    .head-border-white {
+	    width: 20%;
+	    height: 0px;
+    }
+    
+    .head-border-grey {
+	    width: 20%;
+	    height: 1px;
+    }
+
+    /* IMAGE STYLES  */
+    
+    /* rotate effect  */
+    
+    #rotate {
+	    -webkit-transition-duration: 0.8s;
+        -moz-transition-duration: 0.8s;
+        -o-transition-duration: 0.8s;
+        transition-duration: 0.8s;
+        border-radius: 50%;
+    }
+    
+    #rotate:hover {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        border-radius: 50%;
+    }
+    
+    /* zoom effect  */
+     
+    #zoom {
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        transition: all 1s ease;
+    }
+    
+    #zoom:hover {
+        width: 280px;
+        height: 280px;
+        border: 4px solid #334d66;
+        border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+    }
+    
+    /* SOCIAL FONT ICON STYLES  */
+    
+    /* hover color styles  */
+    
+    .twitter i:hover {
+	    color: #00aced;
+    }
+    
+    .facebook i:hover {
+	    color: #3b5998;
+    }
+    
+    .linkedin i:hover {
+	    color: #007bb6;
+    }
+    
+    .pinterest i:hover {
+	    color: #cb2027;
+    }
+    
+    .google i:hover {
+	    color: #dd4b39;
+    }
+    
+    .tumblr i:hover {
+	    color: #32506d;
+    }
+    
+    .vimeo i:hover {
+	    color: #aad450;
+    }
+    
+    .instagram i:hover {
+	    color: #3f729b;
+    }
+    
+    /* FONT STYLES  */
+    
+    .head {
+	    margin-bottom: 60px;
+    }
+    
+	/* different font colors  */
+    
+    .red {
+	    color: #a6340c;
+    }
+    
+    .orange {
+	    color: #e67e22;
+    }   
+    
+    .yellow {
+	    color: #f1c40f;
+    }  
+    
+    .blue {
+	    color: #2b3959;
+    }  
+    
+    .d-grey {
+	    color: #443e44;
+    }  
+    
+    l-grey {
+	    color: #9e968f;
+    }
+    
+    .grey {
+	    color: #dcd5d5;
+    }
+    
+    .cloudy {
+	    color: #ecf0f1;
+    }
+    
+    .white {
+	    color: #fff;
+    }
+    
+    .black {
+	    color: #000;
+    }
+    
+    .center {
+	    text-align: center;
+    }
+
+    /* 15. MEDIA RESPONSIVE
+    -------------------------------------------------- */
+    
+    @media only screen and (min-width: 1200px) {
+    
+    /* Top Slider */
+    
+     #top-slider .slider-bg {
+        background-size: cover;
+    }
+    
+    .slider-caption {
+	    padding-top: 10px;
+    }
+
+    .slider-image {
+        padding-top: 10px;
+        margin: 0 auto;
+    }
+    
+    /* About Us */
+    
+    .agency-image {
+	    padding-top: 40px;
+	    padding-bottom: 60px;
+    }
+    
+    /* Our Process */
+    
+    .process { 
+        width: 1000px;
+       }
+       
+    .process-con { 
+        margin: 0 20px;
+    }
+    
+    /* Social Media Divider */
+    
+    #divider .divider-bg {
+        background-size: cover;
+    }
+
+    }
+
+    @media (max-width: 979px) {
+    
+    /* Price Table */
+    
+    .table-feature {
+		margin-top: 10px;
+	}
+	
+	/* Top Slider */
+    
+    .slider-caption {
+	    padding-top: 10px;
+    }
+
+    .slider-image {
+        padding-top: 10px;
+        margin: 0 auto;
+    }
+    
+    /* Navbar */
+    
+     .container.navbar-wrapper {
+        margin-bottom: 0;
+        width: auto;
+     }
+     
+     .navbar-inner {
+        border-radius: 0;
+        margin: 1px 0;
+     }
+     
+     /* Filter */
+
+    .filter-list ul{
+        text-align: center;
+    }
+    
+    /* Our Process */
+      
+     .process { 
+        width: 760px;
+     }
+      
+    .process-con.img1  { 
+        margin-top: 100px;
+    }
+    
+    .process-con.img2  { 
+        margin-top: 30px;
+    }
+     
+    .process-con.img3  { 
+        margin-top: 20px;
+    }
+    
+    /* Contact Form */
+      
+    .input-group {
+	    max-width: 300px !important;
+	    float: none;
+        margin: 0 auto;
+    }
+	
+	.form {
+		padding-bottom: 50px;
+	}
+	
+	
+	.requi {
+	    padding-left: 15px;
+	    font-size: 12px;
+    }
+
+    }
+
+    @media only screen and (max-width: 767px) {
+    
+    
+    /* Top Slider */
+    
+    #top-slider {
+    	width: 100%;
+    	height: 500px;
+     	text-align: center;
+    	z-index: 100;
+    }
+
+    #top-slider .slider-bg {
+   	 	margin: 0 auto;
+		padding: 0;
+		position: absolute;
+		z-index: 100;
+		width: 100%;
+		height: 600px;
+    }
+    
+    .slide {
+	    padding-top: 30%;
+    }
+    
+    /* Team */
+   
+   .team {
+      -webkit-transition:  none;
+      -moz-transition: none;
+      -o-transition: none;
+      transition: none;
+    }
+    
+    .team:hover {
+        -webkit-transition: none;
+        -moz-transition: none;
+        -o-transition: none;
+        -ms-transition: none;
+        transition: none;
+    }
+    
+    /* Filter */
+    
+    .filter-list ul{
+        text-align: center;
+    }
+    
+    /* Process */
+    
+    .our-process { 
+       background: #000 url(../img/our-process-mobil.svg) no-repeat center top; 
+    }
+
+    .process { 
+       width: 300px; 
+       height: auto;  
+       padding-top: 20px;
+    }
+       
+    .process-con.img1 { 
+       margin-left: 10px; 
+       margin-right: 0; 
+       height: auto;
+     }
+       
+    .process-con.img2 { 
+       margin-left: 10px; 
+       margin-right: 0; 
+       margin-top: 10px; 
+       height:auto;
+    }
+      
+    .process-con.img3 { 
+       margin-left: 10px; 
+       margin-right: 0; 
+       margin-top: 10px; 
+       height:auto;
+    }
+
+    .process-con h5 { 
+       display:inline-block;  
+       padding: 5px 1px;
+    }
+    
+    /* Contact Form */
+    
+    .requi {
+	    padding-left: 15px;
+	    font-size: 12px;
+    }
+    
+    /* Social Media Divider */
+    
+    .social-icons {
+	    padding-top: 120px;
+    }
+    
+    #divider .divider-bg {
+    	margin: 0 auto;
+		padding: 0;
+		position: absolute;
+		z-index: 300;
+		width: 100%;
+		height: 600px;
+    }
+
+    }
+    
+    @media (max-width: 489px) {
+    
+    /* Filter */
+    
+    .filter-list ul{
+        text-align: center;
+    }
+    
+    .filter-list ul li {
+        margin-left: 5px;
+        cursor: pointer;
+        font-size: 12px;
+    }
+    
+    .nav-pills > li > a {
+        position: relative;
+        display: block;
+        padding: 5px 10px
+    }
+    
+    .gallery ul li {
+      margin: 0;
+      padding: 0px 0;
+      float: left;
+    }
+    
+    .gallery ul li:hover {
+      margin: 0;
+      padding: 0px 0;
+      float: left;
+    }
+    
+   .gallery ul li:hover img {
+      opacity: 0.1;
+    }
+    
+    .gallery ul li:hover strong {
+      font-size: 12px;
+      margin: 0;
+      padding: 10px 0;
+      position: absolute;
+      display: block;
+      text-align: center;
+      bottom: 55%;
+      opacity: 0.9;
+    }
+    
+    .gallery ul li:hover p {
+      font-size: 12px;
+      margin: 0;
+      padding: 0px 0px 20px 0px;
+      position: absolute;
+      width: 100%;
+      display: block;
+      text-align: center;
+      bottom: 0;
+    }
+
+    .gallery ul li:hover p span {
+      margin-top: 20px;
+      font-size: 12px;
+      display: block;
+    }
+
+    }
+    
+    @media (max-width: 379px) {
+    
+    /* Heading */
+    
+    h1 {
+	    font-size: 50px;
+    }
+    
+    /* Top Slider */
+
+    #top-slider {
+    	width: 100%;
+    	height: 350px;
+     	text-align: center;
+    	z-index: 100;
+    }
+    
+    #top-slider .slider-bg {
+   	 	margin: 0 auto;
+		padding: 0;
+		position: absolute;
+		z-index: 100;
+		width: 100%;
+		height: 400px;
+    }
+    
+    /* Button */
+    
+    .btn-top {
+	    text-transform: uppercase;
+        font-size: 10px;
+	    padding: 10px 20px
+    }
+    
+    /* About Us */
+    
+    .agency-heading {
+        text-align: center;
+        font-size: 50px;
+    }
+    
+    /* Filter */
+    
+    .filter-list ul{
+        text-align: center;
+    }
+    
+    .filter-list ul li {
+        margin-top: 5px;
+        margin-left: 5px;
+        cursor: pointer;
+        font-size: 10px;
+    }
+    
+    .nav-pills > li > a {
+        position: relative;
+        display: block;
+        padding: 5px 10px
+    }
+
+    .team-grid  {
+        position: relative;
+        display: inline-block;
+        width: 180px;
+        height: 180px;
+    }
+    
+    .media-object {
+	    display: none;
+    }
+    
+    /* Social Media Divider */
+    
+    .social-icons {
+	    padding-top: 40px;
+    }
+    
+    #divider .divider-bg {
+    	background: cover;
+    }
+
+    }
