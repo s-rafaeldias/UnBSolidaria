@@ -12,7 +12,7 @@
  3. ``` virtualenv . ```
  4. ``` git clone https://github.com/RafaelDiasSilveira/UnBSolidaria.git```
  5. ``` source bin/activate ```
- 6. ``` cd UnbSolidaria ```
+ 6. ``` cd UnBSolidaria ```
  7. ``` pip install -r requirements.txt ```
  8. ``` python manage.py makemigrations ```
  9. ``` python manage.py migrate ```
