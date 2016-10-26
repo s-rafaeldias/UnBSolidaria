@@ -1,6 +1,6 @@
 /*
  * jQuery styleSwitcher Plugin
- * Examples and documentation at: 
+ * Examples and documentation at:
  * http://www.immortalwolf.com/demo/jquery-style-switcher/
  * Copyright (c) 2011 immortal wolf
  * Version: 1.4 (27-JAN-2011)
@@ -8,17 +8,17 @@
  * http://en.wikipedia.org/wiki/Gpl
  * http://en.wikipedia.org/wiki/MIT_License
  * Requires: jQuery v1.2.6 or later
- * 
+ *
  * @version 1.4 changelog:
  * 		- added cookie support
  * 		- allow usage of either JavaScript or PHP for
- * 			cookie management via jQuery config options 
+ * 			cookie management via jQuery config options
  */
- 
+
 (function($) {
-	$.fn.styleSwitcher = function(options){		
-		var defaults = {	
-			slidein: true, preview: true, container: this.selector, directory: "css/", useCookie: true, cookieExpires: 30, manageCookieLoad:true	
+	$.fn.styleSwitcher = function(options){
+		var defaults = {
+			slidein: true, preview: true, container: this.selector, directory: "static/css/", useCookie: true, cookieExpires: 30, manageCookieLoad:true
 		};
 		var opts = $.extend(defaults, options);
 		// if using cookies and using JavaScript to load css
@@ -31,9 +31,9 @@
 				baseStyle = newStyle;
 			}
 			else{
-				
+
 			}
-		}		
+		}
 		// if using slidein
 		if(opts.slidein){
 			$(opts.container).slideDown("slow");
@@ -47,13 +47,13 @@
 				function () {
 					var newStyle = opts.directory + this.id + ".css";
 					$("link[id=theme]").attr("href",newStyle);
-				}, 
+				},
 				function () {
 					$("link[id=theme]").attr("href",baseStyle);
 				}
 			);
 		}
-		
+
 		$(opts.container + " a").click(
 			function () {
 				var newStyle = opts.directory + this.id + ".css";
@@ -64,7 +64,7 @@
 				}
 			}
 		);
-		
+
 	};
 	function createCookie(name,value,days) {
 		if (days) {
@@ -74,7 +74,7 @@
 		}
 		else var expires = "";
 		document.cookie = name+"="+value+expires+"; path=/";
-	}	
+	}
 	function readCookie(name) {
 		var nameEQ = name + "=";
 		var ca = document.cookie.split(';');
@@ -84,7 +84,7 @@
 			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
 		}
 		return null;
-	}	
+	}
 	function eraseCookie(name) {
 		createCookie(name,"",-1);
 	}
