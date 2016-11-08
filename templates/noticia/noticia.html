@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div id="about">
+
+ <div class="container">
+
+    <div class="center-block head">
+
+       <h1>{{noticia.titulo}}</h1>
+       <hr class="head-border-grey">
+       <h2>{{noticia.subtitulo}}</h2>
+
+    </div>
+
+        <div class="agency col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1">
+            {{noticia.texto}}
+       </div>
+
+ </div>
+</div>
+
+{% endblock content %}

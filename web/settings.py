@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'unbsolidaria'
+    'unbsolidaria',
+    'contato',
+    'noticia'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -82,7 +84,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '3306',
     }
 }
 
@@ -128,3 +130,13 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+
+# Email configuration
+EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
+DEFAULT_FROM_EMAIL = 'unbsolidaria <unbsolidariadesenv@gmail.com>'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'unbsolidariadesenv@gmail.com'
+EMAIL_HOST_PASSWORD = 'unbunbunb'
+EMAIL_PORT = 587
