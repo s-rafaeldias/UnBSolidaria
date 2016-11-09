@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div id="noticias">
+  <div class="container" role="listbox">
+    {% for noticia in noticias %}
+    <div class="row">
+      <div class="content">
+        <!-- <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide"> -->
+        <div class="container">
+          <div class="noticia">
+            <h2>{{noticia.titulo}}</h2>
+            <p>{{noticia.subtitulo}}</p>
+            <hr class="head-border-grey">
+            <div class="texto">
+              {{ noticia.texto|truncatechars:500 }} 
+            </div>
+            <div class="leia">
+              <a href="/noticia/?noticia={{ noticia.pk }}"> Leia mais</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="row center">
+      <table border="0" width="530" style="display:inline" id="pagination" >
+        <thead>
+          <tr>
+            {% if noticias.has_previous %}
+            <th align="left">
+              <a href="?page={{ noticias.previous_page_number }}" class="btn btn-black" >
+                Anterior</a>
+              </th>
+              {% else %}
+              <th align="left" class="btn btn-default">Anterior</th>
+              {% endif %}
+
+              {% for n in noticias.paginator.page_range %}
+              {% ifequal noticias.number n %}
+              <th align="center"><div class="page active">{{n}}</div></th>
+              {% else %}
+              <th align="center">
+                <div class="page">
+                  <a href="?page={{n}}" title="Pagina{{ n }}">{{n}}</a>
+                </div>
+              </th>
+              {% endifequal %}
+              {% endfor %}
+
+              {% if noticias.has_next %}
+              <th align="right"><a href="?page={{noticias.next_page_number}}"
+               class="btn btn-black">Proxima</a></th>
+               {% else %}
+               <th align="right" class="btn btn-default">Proxima</th>
+               {% endif %}
+             </tr>
+           </thead>
+         </table>
+       </div>
+     </div>
+   </div>
+   {% endblock content %}

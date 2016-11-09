@@ -1,0 +1,272 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<!-- ThreeSixty Creativity Website Template -->
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Unb Solidaria</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ThreeSixty Bootstrap Template">
+  <meta name="author" content="Fabian Bentz Webdesign">
+
+  <!-- google web fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,300italic,500,400italic,700' rel='stylesheet' type='text/css'>
+
+  <!-- CSS Styles -->
+
+  <!-- bootstrap css -->
+  <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+
+  <!-- custom css -->
+  <link href="{% static "css/custom.css" %}" rel="stylesheet"><!-- custom css -->
+
+  <!-- unbsolidaria custom css -->
+  <link href="{% static "css/unbsolidaria.css" %}" rel="stylesheet">
+
+  <!-- standart theme css -->
+  <link rel="stylesheet" id="theme" href="{% static "css/theme1.css" %}" type="text/css" />
+
+  <!-- Font Awesome Icons css -->
+  <link rel="stylesheet" href="{% static "font-awesome/css/font-awesome.min.css" %}">
+
+  <!-- BxSlider and Sequence Slider css -->
+  <link rel="stylesheet" href="{% static "css/jquery.bxslider.css" %}" type="text/css" />
+  <link rel="stylesheet" media="screen" href="{% static "css/sequence-slider.css" %}" />
+
+  <!-- Magnific Popup core CSS file -->
+  <link rel="stylesheet" href="{% static "css/magnific-popup.css" %}">
+
+  <!-- Color Switch Panel css -->
+  <link rel="stylesheet" href="{% static "css/color.switch.css" %}" type="text/css" />
+
+  <!-- Back to Top Button css -->
+  <link rel="stylesheet" href="{% static "css/top.css" %}" type="text/css" />
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="{% static "js/html5shiv.js" %}"></script>
+      <![endif]-->
+
+      <!-- Fav and touch icons -->
+      <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+      <link rel="apple-touch-icon" href="{% static "img/apple-touch-icon.png" %}">
+      <link rel="apple-touch-icon" sizes="72x72" href="{% static "img/apple-touch-icon-72x72.png" %}">
+      <link rel="apple-touch-icon" sizes="114x114" href="{% static "img/apple-touch-icon-114x114.png" %}">
+
+
+      <!-- Your Google Analytics Code Here!! -->
+
+
+    </head>
+
+    <body>
+
+<!-- START PRIMARY LAYOUT
+  ======================== -->
+
+  <!-- Back to Top Button (visible after scrolling 1200px down) Change Styles at the top.css file -->
+
+  <div class="button-top" id="top-bt">
+
+    <a href="#about"><i class="fa fa-sort-desc fa-3x"></i></a>
+
+  </div>
+
+  <!-- Back to Top Button END -->
+
+  <!-- NAVBAR -->
+
+  <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+
+  <nav class="navbar navbar-inverse navbar-static-top" role="navigation" id="menu">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <!-- MENU LINKS -->
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav" id="navigation">
+          <li class="{% if request.resolver_match.url_name == 'inicio' %}active{% endif %}">
+            <a href="/">Inicio</a>
+          </li>
+          <li class="{% if request.resolver_match.url_name == 'contato' %}active{% endif %}">
+            <a href="/contato">Contato</a>
+          </li>
+          <li class="{% if request.resolver_match.url_name == 'noticia' %}active{% endif %}">
+            <a href="/noticias">Notícias</a>
+          </li>
+          <li class="{% if request.resolver_match.url_name == 'faq' %}active{% endif %}">
+            <a href="/faq">FAQ</a>
+          </li>
+          <li>
+            <a href="/admin">Admin</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- NAVBAR END -->
+
+  <!-- SEQUENCE SLIDER Change Styles at the sequence-slider.css file -->
+
+  {% block content %}
+  {% endblock content %}
+
+  <!-- BOTTOM -->
+
+  <div id="foot">
+
+    <div class="container">
+     <div class="row">
+
+      <div class="col-lg-4 col-md-4">
+        <div class="bottom-con">
+
+         <h5>Visit Us</h5>
+         <hr class="head-border-white">
+
+         <div class="">
+           <p><i class="fa fa-location-arrow"><span> 10 Lorum Ipsum Street</span></i></p>
+           <p><i class="fa fa-map-marker"><span> 68123 Mannheim</span></i></p>
+           <p><i class="fa fa-flag"><span> Germany</span></i></p>
+         </div>
+
+       </div>
+     </div>
+
+     <div class="col-lg-4 col-md-4">
+      <div class="bottom-con">
+
+       <h5>Write Us</h5>
+       <hr class="head-border-white">
+
+       <div class="">
+         <p><i class="fa fa-phone"><span> +49 621 123 321 123</span></i></p>
+         <p><i class="fa fa-envelope"><span> info@fabianbentz.de</span></i></p>
+         <p><i class="fa fa-print"><span> +49 621 123 321 124</span></i></p>
+       </div>
+
+     </div>
+   </div>
+
+   <div class="col-lg-4 col-md-4">
+
+    <div class="bottom-con">
+
+      <h5>Newsletter</h5>
+      <hr class="head-border-white">
+
+      <form action="#" method="post" class="newsletter">
+        <div class="input-group">
+          <span class="input-group-addon .glyphicon-envelope"><i class="fa fa-envelope orange"></i></span>
+          <input type="email" class="form-control input-md" placeholder="Enter email">
+        </div>
+        <br>
+
+        <div class="control-group submit center">
+          <input type="submit" value="Subscribe Now!" class="btn btn-md btn-primary" />
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="col-lg-12 col-md-12 footer">
+   <p class="pull-right"><a href="#about">Back to top</a></p>
+   <p>&copy; 2013 ThreeSixty Website Template. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+ </div>
+
+</div>
+</div>
+
+</div>
+
+
+
+<!-- END PRIMARY LAYOUT
+  ====================== -->
+
+
+<!-- JAVASCRIPT
+  ================================================== -->
+
+  <!-- BOOTSTRAP JAVASCRIPT -->
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+
+  <!-- CUSTOM JAVASCRIPT -->
+  <!-- Custom Functions -->
+  <script type="text/javascript" src="{% static "js/functions.js" %}"></script>
+
+  <!-- Portfolio with mixitup filter and prettyphoto -->
+  <script type="text/javascript" src="{% static "js/jquery.mixitup.min.js" %}"></script>
+  <!-- Magnific Popup core JS file -->
+  <script type="text/javascript" src="{% static "js/magnific.js" %}"></script>
+
+  <!-- BxSlider -->
+  <script type="text/javascript" src="{% static "js/jquery.bxslider.min.js" %}"></script>
+
+  <!-- Sequence Slider -->
+  <script type="text/javascript" src="{% static "js/jquery.sequence-min.js" %}"></script>
+
+  <!-- Parallax Background -->
+  <script type="text/javascript" src="{% static "js/nbw-parallax.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/jquery.inview.js" %}"></script>
+
+  <!-- Smooth Scrolling -->
+  <script type="text/javascript" src="{% static "js/smoothscroll.js" %}"></script>
+
+  <!-- Sticky Navigation -->
+  <script type="text/javascript" src="{% static "js/jquery.sticky.js" %}"></script>
+
+  <!-- Style Switcher -->
+  <script type="text/javascript" src="{% static "js/jquery.style-switcher.js" %}"></script>
+
+  <!-- Clients Slider -->
+  <script type="text/javascript" src="{% static "js/jquery.flexisel.js" %}"></script>
+
+  <!-- Retina JS -->
+  <script type="text/javascript" src="{% static "js/retina-1.1.0.min.js" %}"></script>
+
+
+
+  {% if mensagem %}
+  <script type="text/javascript">
+    $(function(){
+      $('#myModal').modal('show');
+    });
+  </script>
+  {% endif %}
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Mensagem</h4>
+        </div>
+        <div class="modal-body">
+          {{mensagem}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

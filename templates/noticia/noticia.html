@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div id="noticias">
+
+ <div class="container">
+
+    <div class="noticia center-block">
+
+       <h2>{{noticia.titulo}}</h2>
+       <p>{{noticia.subtitulo}}</p>
+       <hr class="head-border-grey">
+        <div class="texto">
+            {{noticia.texto}}
+       </div>
+
+    </div>
+	<a href="/noticias">Voltar para lista de noticias.</a>
+
+ </div>
+</div>
+
+{% endblock content %}
