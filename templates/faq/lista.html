@@ -3,22 +3,18 @@
 
 {% block content %}
 
-<div id="noticias">
+<div id="perguntas">
   <div class="container" role="listbox">
-    {% for noticia in noticias %}
+    {% for pergunta in perguntas %}
     <div class="row">
       <div class="content">
         <!-- <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide"> -->
         <div class="container">
-          <div class="noticia">
-            <h2>{{noticia.titulo}}</h2>
-            <p>{{noticia.subtitulo}}</p>
+          <div class="pergunta">
+            <h3>{{pergunta.pergunta}}</h3>
             <hr class="head-border-grey">
             <div class="texto">
-              {{ noticia.texto|truncatechars:500 }} 
-            </div>
-            <div class="leia">
-              <a href="/noticia/?noticia={{ noticia.pk }}"> Leia mais</a>
+              {{ pergunta.resposta }} 
             </div>
           </div>
         </div>
@@ -29,17 +25,17 @@
       <table border="0" width="530" style="display:inline" id="pagination" >
         <thead>
           <tr>
-            {% if noticias.has_previous %}
+            {% if perguntas.has_previous %}
             <th align="left">
-              <a href="?page={{ noticias.previous_page_number }}" class="btn btn-black" >
+              <a href="?page={{ perguntas.previous_page_number }}" class="btn btn-black" >
                 Anterior</a>
               </th>
               {% else %}
               <th align="left" class="btn btn-default">Anterior</th>
               {% endif %}
 
-              {% for n in noticias.paginator.page_range %}
-              {% ifequal noticias.number n %}
+              {% for n in perguntas.paginator.page_range %}
+              {% ifequal perguntas.number n %}
               <th align="center"><div class="page active">{{n}}</div></th>
               {% else %}
               <th align="center">
@@ -50,8 +46,8 @@
               {% endifequal %}
               {% endfor %}
 
-              {% if noticias.has_next %}
-              <th align="right"><a href="?page={{noticias.next_page_number}}"
+              {% if perguntas.has_next %}
+              <th align="right"><a href="?page={{perguntas.next_page_number}}"
                class="btn btn-black">Proxima</a></th>
                {% else %}
                <th align="right" class="btn btn-default">Proxima</th>
@@ -62,4 +58,5 @@
        </div>
      </div>
    </div>
+
    {% endblock content %}

@@ -19,8 +19,8 @@ from django.contrib import admin
 
 urlpatterns = [
 url(r'', include("unbsolidaria.urls")),
-url(r'', include("contato.urls")),
 url(r'', include("noticia.urls")),
+url(r'', include("contato.urls")),
+url(r'', include("faq.urls")),
 url(r'^admin/', admin.site.urls),
 ]
-

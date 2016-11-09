@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'unbsolidaria',
     'contato',
-    'noticia'
+    'noticia',
+    'faq'
 ]
 
 MIDDLEWARE_CLASSES = [
