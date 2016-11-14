@@ -1,7 +1,9 @@
 from django.conf.urls import url
+from . import views
 
-from .views import (index)
 
 urlpatterns = [
-url(r'^$', index, name="inicio"),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^register/$', views.UserFromView.as_view(), name='register'),
 ]
+
