@@ -1,10 +1,21 @@
 from django.shortcuts import render
+from django.shortcuts import render_to_response
+from noticia.models import Noticia
+from django.shortcuts import get_object_or_404
+from django.template import RequestContext
+from django.views import generic
+
+from django.core.paginator import Paginator, EmptyPage, InvalidPage
+
 
 # Create your views here.
 
 class IndexView(generic.ListView):
     template_name = '../templates/index.html'
     context_object_name = {}
+
+    def get_queryset(self):
+        return Noticia.objects.all()
 
 def contato(request):
     if request.method == 'GET':

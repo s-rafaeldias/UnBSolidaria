@@ -1,13 +1,13 @@
 from django.conf.urls import url
 
-from .views import (index)
+from . import views
 
 urlpatterns = [
-    # Urls para usuários não logados
+    # Urls para usuarios nao logados
     url(r'^$', views.IndexView.as_view(), name="index"),
-    url(r'^/noticias/$', index, name="noticias"),
-    url(r'^/contato/$', index, name="contato"),
-    url(r'^/faq/$', index, name="faq"),
-    url(r'^/login/$', index, name="login"),
-    url(r'^/signup/$', index, name="signup"),
+    # url(r'^/noticias/$', noticias, name="noticias"),
+    # url(r'^/contato/$', contato, name="contato"),
+    # url(r'^/faq/$', faq, name="faq"),
+    # url(r'^/login/$', login, name="login"),
+    # url(r'^/signup/$', signup, name="signup"),
 ]

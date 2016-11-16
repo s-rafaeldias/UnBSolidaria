@@ -5,7 +5,7 @@ from django.db import models
 # Create your models here.
 
 
-# Tabela de Notícias
+# Tabela de Noticias
 class Noticia(models.Model):
         titulo = models.CharField(max_length=100)
         subtitulo = models.CharField(max_length=400, default='')
@@ -14,10 +14,10 @@ class Noticia(models.Model):
         dataNoticia = models.DateTimeField('data da noticia', auto_now_add=False)
 
         def __unicode__(self):
-                return self.titulo
+            return self.titulo
 
         def __str__(self):
-                return self.titulo
+            return self.titulo
 
 # Tabela de FAQ
 class FAQ(models.Model):
@@ -30,5 +30,5 @@ class FAQ(models.Model):
         return self.pergunta
 
     def __str__(self):
-        pass self.pergunta
+        return self.pergunta
 
