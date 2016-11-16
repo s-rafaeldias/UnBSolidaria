@@ -13,3 +13,6 @@ class Noticia(models.Model):
 
         def __unicode__(self):
                 return self.titulo
+
+        def __str__(self):
+                return self.titulo
