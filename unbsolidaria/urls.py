@@ -5,9 +5,9 @@ from . import views
 urlpatterns = [
     # Urls para usuarios nao logados
     url(r'^$', views.IndexView.as_view(), name="index"),
-    # url(r'^/noticias/$', noticias, name="noticias"),
-    # url(r'^/contato/$', contato, name="contato"),
-    # url(r'^/faq/$', faq, name="faq"),
-    # url(r'^/login/$', login, name="login"),
-    # url(r'^/signup/$', signup, name="signup"),
+    url(r'^noticias/$', views.noticias, name="noticias"),
+    url(r'^contato/$', views.contato, name="contato"),
+    url(r'^faq/$', views.faq, name="faq"),
+    # url(r'^login/$', views.login, name="login"),
+    # url(r'^signup/$', views.signup, name="signup"),
 ]
