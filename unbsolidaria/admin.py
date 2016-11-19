@@ -1,12 +1,4 @@
 from django.contrib import admin
-<<<<<<< HEAD
-from faq.models import FAQ
-from noticia.models import Noticia
-
-
-admin.site.register(FAQ)
-admin.site.register(Noticia)
-=======
 from django.db import models
 from django import forms
 
@@ -34,4 +26,3 @@ class NoticiaAdmin(admin.ModelAdmin):
 
 admin.site.register(Noticia, NoticiaAdmin)
 ##########################################################################
->>>>>>> 9094f0b0dd74f572e4cf0fff7705c2e393cae616

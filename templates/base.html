@@ -94,20 +94,20 @@
       <!-- MENU LINKS -->
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav" id="navigation">
-          <li class="{% if request.resolver_match.url_name == 'inicio' %}active{% endif %}">
-            <a href="/">Inicio</a>
-          </li>
-          <li class="{% if request.resolver_match.url_name == 'contato' %}active{% endif %}">
-            <a href="/contato">Contato</a>
-          </li>
-          <li class="{% if request.resolver_match.url_name == 'noticia' %}active{% endif %}">
-            <a href="/noticias">Notícias</a>
-          </li>
-          <li class="{% if request.resolver_match.url_name == 'faq' %}active{% endif %}">
-            <a href="/faq">FAQ</a>
+          <li>
+            <a href="{% url 'index' %}">Inicio</a>
           </li>
           <li>
-            <a href="/admin">Admin</a>
+            <a href="{% url 'contato' %}">Contato</a>
+          </li>
+          <li>
+            <a href="{% url 'noticias' %}">Notícias</a>
+          </li>
+          <li>
+            <a href="{% url 'faq' %}">FAQ</a>
+          </li>
+          <li>
+            <a href="{% url 'registrar' %}">Registrar</a>
           </li>
         </ul>
       </div>

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from django.contrib.auth.models import User
 from django import forms
 
 
@@ -11,3 +12,11 @@ class ContactForm(forms.Form):
         widget=forms.TextInput(attrs={'class':INPUT_CLASS,'placeholder': 'Assunto*'}))
     message = forms.CharField(required=True,
         widget=forms.Textarea(attrs={'class':INPUT_CLASS,'placeholder': 'Mensagem*'}))
+
+
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password']
