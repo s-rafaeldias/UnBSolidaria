@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+	{% block content %}
+
+
+<!DOCTYPE html>
+
+<!-- ThreeSixty Creativity Website Template -->
+
+<html lang="en">
+  
+
+<body>
+<div class = "panel panel-primary">
+   <div class = "panel-heading">
+      <h4 class = "panel-title">Editar trabalho</h4>
+   </div>
+<form method = 'POST' action='' enctype='multipart/form-data'> {% csrf_token %}
+	{{ form.as_p }}
+<a href="/orgposlogin" onClick="alert('Trabalho editado com sucesso!');"><button>Confirmar</button></a>
+</form>
+<a href="/orgposlogin"><button>Voltar</button></a>
+
+</div>
+</body>
+</html>
+{% endblock content %}
