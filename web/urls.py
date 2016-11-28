@@ -18,6 +18,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'', include("unbsolidaria.urls")),
-    url(r'^admin/', admin.site.urls),
+url(r'', include("unbsolidaria.urls")),
+url(r'', include("noticia.urls")),
+url(r'', include("contato.urls")),
+url(r'', include("faq.urls")),
+url(r'', include("volposlogin.urls")),
+url(r'', include("orgposlogin.urls")),
+url(r'', include("trabespecifico.urls")),
+url(r'^admin/', admin.site.urls),
 ]

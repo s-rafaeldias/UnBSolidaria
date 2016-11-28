@@ -38,6 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'unbsolidaria',
+    'contato',
+    'noticia',
+    'faq',
+    'volposlogin',
+    'trabespecifico',
+    'orgposlogin'
 ]
 
 MIDDLEWARE_CLASSES = [
