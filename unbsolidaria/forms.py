@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django import forms
-
+from .models import Andamento
 
 class ContactForm(forms.Form):
     INPUT_CLASS = 'form-control input-lg'
@@ -11,3 +11,14 @@ class ContactForm(forms.Form):
         widget=forms.TextInput(attrs={'class':INPUT_CLASS,'placeholder': 'Assunto*'}))
     message = forms.CharField(required=True,
         widget=forms.Textarea(attrs={'class':INPUT_CLASS,'placeholder': 'Mensagem*'}))
+
+
+class AndamentoForm(forms.ModelForm):
+    class Meta:
+	model = Andamento
+	fields = [
+		"trabalho",
+		"subtitulo",
+		"descricao",
+		"image"
+		]

@@ -32,3 +32,22 @@ class FAQ(models.Model):
     def __str__(self):
         return self.pergunta
 
+class Andamento(models.Model):
+        trabalho = models.CharField(max_length=100)
+	subtitulo = models.CharField(max_length=100)
+        descricao = models.TextField('descricao', max_length=4000)
+	image = models.FileField()
+
+        def __unicode__(self):
+                return self.andamento
+
+
+class Realizados(models.Model):
+        trabalho = models.CharField(max_length=100)
+	subtitulo = models.CharField(max_length=100)
+        descricao = models.TextField('descricao', max_length=4000)
+	image = models.FileField(null=True, blank=True)
+
+        def __unicode__(self):
+                return self.realizados
+

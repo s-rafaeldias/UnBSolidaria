@@ -19,6 +19,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'', include("unbsolidaria.urls")),
-    url(r'', include("orgposlogin.urls")),
     url(r'^admin/', admin.site.urls),
 ]

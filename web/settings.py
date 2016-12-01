@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'unbsolidaria',
-    'orgposlogin'
 ]
 
 MIDDLEWARE_CLASSES = [
