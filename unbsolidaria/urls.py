@@ -1,5 +1,4 @@
 from django.conf.urls import url
-
 from . import views
 
 urlpatterns = [
@@ -8,6 +7,10 @@ urlpatterns = [
     url(r'^noticias/$', views.noticias, name="noticias"),
     url(r'^contato/$', views.contato, name="contato"),
     url(r'^faq/$', views.faq, name="faq"),
-    # url(r'^login/$', views.login, name="login"),
-    # url(r'^signup/$', views.signup, name="signup"),
+
+    # Urls para usuarios logados como Organizacao
+    url(r'^listaTrabalhos/$', views.TrabalhosView.as_view(), name="lista-trabalhos"),
+
+    # Urls para usuarios logados como Voluntarios
+
 ]
