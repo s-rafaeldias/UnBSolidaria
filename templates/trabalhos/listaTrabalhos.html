@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<!-- Trabalhos voluntário -->
+
+<div class = "panel panel-primary">
+   <div class = "panel-heading">
+      <h4 class = "panel-title">Trabalhos Voluntários</h4>
+   </div>
+
+   <div id="andamento" class = "panel-body">
+
+		<div class = "list-group">
+  		<a href = "#" class = "list-group-item active">
+     		<h3 class = "panel-title">Trabalhos</h3>
+   		</a>			<a href="/create"><button>Novo trabalho</button></a>
+
+      {% for anda in lista_trabalho %}
+
+      <a href = "#" class = "list-group-item">
+			<img width="64px" height="64px" src = {{anda.image}}.url alt = "Generic placeholder image">
+     		<h4 class = "list-group-item-heading">
+      	 	  	{{anda.titulo}}
+     		</h4>
+
+	 	   <h4 class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#andamento{{anda.id}}" aria-expanded="false" aria-controls="{{anda.titulo}}">
+			  <p class = "btn btn-primary btn-sm"  role = "button">Leia mais </p>
+  			</h4>
+
+
+     		<div id="andamento{{anda.id}}" class="collapse" role="tabpanel" aria-labelledby="{{anda.titulo}}">
+    	  		{{anda.descricao}}
+    		</div>
+			 <a href="/{{anda.id}}/update"><button>Editar</button></a>
+
+			<a href="/{{anda.id}}/delete"><input type="button" value="Excluir" onClick="alert('Trabalho excluido com sucesso!'); return true"></a>
+  		</a>
+      {% endfor %}
+
+			<!-- paginacao -->
+
+  {% if is_paginated %}
+    <div class="paginacao">
+        <span class="paginacao-links">
+            {% if lista_trabalho.has_previous %}
+            <a href="?page={{ lista_trabalho.previous_page_number }}">anterior</a>
+            {% endif %}
+            <span class="page-current">
+                P&aacute;gina {{ lista_trabalho.number }} de {{ lista_trabalho.paginator.num_pages }}.
+            </span>
+            {% if lista_trabalho.has_next %}
+            <a href="?page={{ lista_trabalho.next_page_number }}">pr&oacute;xima</a>
+            {% endif %}
+        </span>
+    </div>
+  {% endif %}
+
+      <!-- fim paginacao -->
+		</div>
+	</div>
+
+</div>
+{% endblock content %}

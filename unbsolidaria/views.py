@@ -1,11 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.shortcuts import render_to_response
-from .models import Noticia, FAQ
+from .models import Noticia, FAQ, Trabalho
 from django.shortcuts import get_object_or_404
 from django.template import RequestContext
 from django.views import generic
 from .forms import ContactForm
-
+from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 
 
@@ -71,3 +71,12 @@ def noticias(request):
 
     return render_to_response('noticia/lista.html',{'noticias':
     noticias}, context_instance=RequestContext(request))
+
+
+class TrabalhosView(generic.ListView):
+    template_name = '../templates/trabalhos/listaTrabalhos.html'
+    context_object_name = 'lista_trabalhos'
+    paginate_by = 2
+
+    def get_queryset(self):
+        return Trabalho.objects.all()
