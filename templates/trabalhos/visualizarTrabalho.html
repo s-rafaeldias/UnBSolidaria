@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+
+<h1>{{ object.headline }}</h1>
+<p>{{ object.content }}</p>
+<p>Titulo: {{ object.titulo }}</p>
+<p>Descricao: {{ object.descricao }}</p>
+<p>Data Inicio: {{ object.data_inicio }}</p>
+<p>Data Fim: {{ object.data_fim }}</p>
+
+
+
+{% endblock content %}

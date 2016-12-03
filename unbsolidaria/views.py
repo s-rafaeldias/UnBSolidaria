@@ -9,6 +9,8 @@ from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
+from django.views.generic.detail import DetailView
+from django.utils import timezone
 
 # Create your views here.
 
@@ -101,3 +103,9 @@ class TrabalhoDelete(generic.DeleteView):
     model = Trabalho
     success_url = reverse_lazy('lista-trabalhos')
 
+class TrabalhoDetailView(generic.DetailView):
+    template_name = '../templates/trabalhos/visualizarTrabalho.html'
+    model=Trabalho
+    def get_context_data(self, **kwargs):
+        context = super(TrabalhoDetailView, self).get_context_data(**kwargs)
+        return context
