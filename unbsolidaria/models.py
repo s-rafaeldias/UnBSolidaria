@@ -38,7 +38,7 @@ class Trabalho(models.Model):
     descricao = models.CharField(max_length=240)
     data_inicio = models.DateField(auto_now=False, auto_now_add=False)
     data_fim = models.DateField(auto_now=False, auto_now_add=False)
-    vagas = models.IntegerField()
+    vagas = models.IntegerField(default=0)
 
     def __unicode__(self):
         return self.titulo
