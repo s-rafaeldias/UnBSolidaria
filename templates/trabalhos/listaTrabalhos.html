@@ -9,32 +9,32 @@
       <h4 class = "panel-title">Trabalhos Voluntários</h4>
    </div>
 
-   <div id="andamento" class = "panel-body">
+   <div id="trabalhos" class = "panel-body">
 
 		<div class = "list-group">
   		<a href = "#" class = "list-group-item active">
      		<h3 class = "panel-title">Trabalhos</h3>
-   		</a>			<a href="/create"><button>Novo trabalho</button></a>
+   		</a>			<a href="/criarTrabalho"><button>Novo trabalho</button></a>
 
-      {% for anda in lista_trabalhos %}
+      {% for trabalho in lista_trabalhos %}
 
       <a href = "#" class = "list-group-item">
-			<img width="64px" height="64px" src = {{anda.image}}.url alt = "Generic placeholder image">
+			<img width="64px" height="64px" src = {{trabalho.image}}.url alt = "Generic placeholder image">
      		<h4 class = "list-group-item-heading">
-      	 	  	{{anda.titulo}}
+      	 	  	{{trabalho.titulo}}
      		</h4>
 
-	 	   <h4 class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#andamento{{anda.id}}" aria-expanded="false" aria-controls="{{anda.titulo}}">
+	 	   <h4 class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#trabalhos{{trabalho.id}}" aria-expanded="false" aria-controls="{{trabalho.titulo}}">
 			  <p class = "btn btn-primary btn-sm"  role = "button">Leia mais </p>
   			</h4>
 
 
-     		<div id="andamento{{anda.id}}" class="collapse" role="tabpanel" aria-labelledby="{{anda.titulo}}">
-    	  		{{anda.descricao}}
+     		<div id="trabalhos{{trabalho.id}}" class="collapse" role="tabpanel" aria-labelledby="{{trabalho.titulo}}">
+    	  		{{trabalho.descricao}}
     		</div>
-			 <a href="/{{anda.id}}/update"><button>Editar</button></a>
+			 <a href="/editarTrabalho/{{trabalho.id}}"><button>Editar</button></a>
 
-			<a href="/{{anda.id}}/delete"><input type="button" value="Excluir" onClick="alert('Trabalho excluido com sucesso!'); return true"></a>
+			<a href="/deletarTrabalho/{{trabalho.id}}"><input type="button" value="Excluir"></a>
   		</a>
       {% endfor %}
 
@@ -43,15 +43,21 @@
   {% if is_paginated %}
     <div class="paginacao">
         <span class="paginacao-links">
-            {% if lista_trabalhos.has_previous %}
-            <a href="?page={{ lista_trabalhos.previous_page_number }}">anterior</a>
+            {% if page_obj.has_previous %}
+            <th align="left">
+              <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-black" >
+                Anterior</a>
+              </th>
             {% endif %}
-            <span class="page-current">
-                P&aacute;gina {{ lista_trabalhos.number }} de {{ lista_trabalhos.paginator.num_pages }}.
+            {% if page_obj.has_next %}
+            <th align="left">
+              <a href="?page={{ page_obj.next_page_number }}" class="btn btn-black" >
+                Proxima</a>
+              </th>
+            {% endif %}
+             <span class="page-current">
+                P&aacute;gina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
             </span>
-            {% if lista_trabalhos.has_next %}
-            <a href="?page={{ lista_trabalhos.next_page_number }}">pr&oacute;xima</a>
-            {% endif %}
         </span>
     </div>
   {% endif %}

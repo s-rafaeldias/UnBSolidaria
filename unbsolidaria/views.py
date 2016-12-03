@@ -79,18 +79,16 @@ def noticias(request):
 class TrabalhosView(generic.ListView):
     template_name = '../templates/trabalhos/listaTrabalhos.html'
     context_object_name = 'lista_trabalhos'
-    paginate_by = 2
+    paginate_by = 5
 
     def get_queryset(self):
         return Trabalho.objects.all()
-
 
 class TrabalhoCreate(generic.CreateView):
     template_name = '../templates/trabalhos/criarTrabalho.html'
     model= Trabalho
     fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'dias']
     success_url='/listaTrabalhos'
-
 
 class TrabalhoUpdate(generic.UpdateView):
     template_name = '../templates/trabalhos/editarTrabalho.html'
