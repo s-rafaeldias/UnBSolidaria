@@ -32,6 +32,14 @@ class FAQ(models.Model):
     def __str__(self):
         return self.pergunta
 
+class Dia(models.Model):
+    descricao = models.CharField(max_length=20)
+
+    def __unicode__(self):
+        return self.descricao
+
+    def __str__(self):
+        return self.descricao
 
 class Trabalho(models.Model):
     titulo = models.CharField(max_length=45)
@@ -39,6 +47,7 @@ class Trabalho(models.Model):
     data_inicio = models.DateField(auto_now=False, auto_now_add=False)
     data_fim = models.DateField(auto_now=False, auto_now_add=False)
     vagas = models.IntegerField(default=0)
+    dias = models.ManyToManyField(Dia)
 
     def __unicode__(self):
         return self.titulo
@@ -58,17 +67,7 @@ class Endereco(models.Model):
         return self.cep
 
 
-class Dias(models.Model):
-    descricao = models.CharField(max_length=20)
-
-    def __unicode__(self):
-        return self.descricao
-
-    def __str__(self):
-        return self.descricao
-
-
-class Tags(models.Model):
+class Tag(models.Model):
     descricao = models.CharField(max_length=45)
 
     def __unicode__(self):
