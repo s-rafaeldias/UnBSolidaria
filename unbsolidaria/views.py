@@ -88,14 +88,14 @@ class TrabalhosView(generic.ListView):
 class TrabalhoCreate(generic.CreateView):
     template_name = '../templates/trabalhos/criarTrabalho.html'
     model= Trabalho
-    fields = ['titulo', 'descricao', 'data_inicio', 'data_fim']
+    fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim']
     success_url='/listaTrabalhos'
 
 
 class TrabalhoUpdate(generic.UpdateView):
     template_name = '../templates/trabalhos/editarTrabalho.html'
     model = Trabalho
-    fields = ['titulo', 'descricao', 'data_inicio', 'data_fim']
+    fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim']
     success_url='/listaTrabalhos'
 
 class TrabalhoDelete(generic.DeleteView):

@@ -32,17 +32,20 @@ class FAQ(models.Model):
     def __str__(self):
         return self.pergunta
 
+
 class Trabalho(models.Model):
     titulo = models.CharField(max_length=45)
     descricao = models.CharField(max_length=240)
     data_inicio = models.DateField(auto_now=False, auto_now_add=False)
     data_fim = models.DateField(auto_now=False, auto_now_add=False)
+    vagas = models.IntegerField()
 
     def __unicode__(self):
         return self.titulo
 
     def __str__(self):
         return self.titulo
+
 
 class Endereco(models.Model):
     descricao = models.CharField(max_length=120)
@@ -53,4 +56,14 @@ class Endereco(models.Model):
 
     def __str__(self):
         return self.cep
+
+
+class Dia(models.Model):
+    descricao = models.CharField(max_length=20)
+
+    def __unicode__(self):
+        return self.descricao
+
+    def __str__(self):
+        return self.descricao
 
