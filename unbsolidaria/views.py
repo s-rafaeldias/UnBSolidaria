@@ -84,13 +84,11 @@ class TrabalhosView(generic.ListView):
     def get_queryset(self):
         return Trabalho.objects.all()
 
-
 class TrabalhoCreate(generic.CreateView):
     template_name = '../templates/trabalhos/criarTrabalho.html'
     model= Trabalho
     fields = ['titulo', 'descricao', 'data_inicio', 'data_fim']
     success_url='/listaTrabalhos'
-
 
 class TrabalhoUpdate(generic.UpdateView):
     template_name = '../templates/trabalhos/editarTrabalho.html'

@@ -32,9 +32,9 @@
      		<div id="andamento{{anda.id}}" class="collapse" role="tabpanel" aria-labelledby="{{anda.titulo}}">
     	  		{{anda.descricao}}
     		</div>
-			 <a href="/{{anda.id}}/update"><button>Editar</button></a>
+			 <a href="/editarTrabalho/{{anda.id}"}><button>Editar</button></a>
 
-			<a href="/{{anda.id}}/delete"><input type="button" value="Excluir" onClick="alert('Trabalho excluido com sucesso!'); return true"></a>
+			<a href="/deletarTrabalho/{{anda.id}}"><input type="button" value="Excluir" return true"></a>
   		</a>
       {% endfor %}
 
@@ -43,14 +43,14 @@
   {% if is_paginated %}
     <div class="paginacao">
         <span class="paginacao-links">
-            {% if lista_trabalhos.has_previous %}
-            <a href="?page={{ lista_trabalhos.previous_page_number }}">anterior</a>
+            {% if lista_trabalho.has_previous %}
+            <a href="?page={{ lista_trabalho.previous_page_number }}">anterior</a>
             {% endif %}
             <span class="page-current">
-                P&aacute;gina {{ lista_trabalhos.number }} de {{ lista_trabalhos.paginator.num_pages }}.
+                P&aacute;gina {{ lista_trabalho.number }} de {{ lista_trabalho.paginator.num_pages }}.
             </span>
-            {% if lista_trabalhos.has_next %}
-            <a href="?page={{ lista_trabalhos.next_page_number }}">pr&oacute;xima</a>
+            {% if lista_trabalho.has_next %}
+            <a href="?page={{ lista_trabalho.next_page_number }}">pr&oacute;xima</a>
             {% endif %}
         </span>
     </div>
