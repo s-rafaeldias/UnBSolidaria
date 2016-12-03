@@ -58,7 +58,7 @@ class Endereco(models.Model):
         return self.cep
 
 
-class Dia(models.Model):
+class Dias(models.Model):
     descricao = models.CharField(max_length=20)
 
     def __unicode__(self):
@@ -67,3 +67,12 @@ class Dia(models.Model):
     def __str__(self):
         return self.descricao
 
+
+class Tags(models.Model):
+    descricao = models.CharField(max_length=45)
+
+    def __unicode__(self):
+        return self.descricao
+
+    def __str__(self):
+        return self.descricao
