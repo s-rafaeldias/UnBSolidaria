@@ -80,3 +80,4 @@ class TrabalhosView(generic.ListView):
 
     def get_queryset(self):
         return Trabalho.objects.all()
+
