@@ -10,7 +10,10 @@ urlpatterns = [
 
     # Urls para usuarios logados como Organizacao
     url(r'^listaTrabalhos/$', views.TrabalhosView.as_view(), name="lista-trabalhos"),
+    url(r'^criarTrabalho/$', views.TrabalhoCreate.as_view(), name="criar-trabalho"),
 
     # Urls para usuarios logados como Voluntarios
-
+   
 ]
+
+
