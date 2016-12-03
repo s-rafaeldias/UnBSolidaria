@@ -22,7 +22,7 @@ class IndexView(generic.ListView):
         return Noticia.objects.all()
 
 
-class UserFromView(View):
+class UserFormView(View):
     form_class = UserForm
     template_name = '../templates/registration_form.html'
 

@@ -26,3 +26,6 @@ class NoticiaAdmin(admin.ModelAdmin):
 
 admin.site.register(Noticia, NoticiaAdmin)
 ##########################################################################
+from models import User
+
+admin.site.register(User)
