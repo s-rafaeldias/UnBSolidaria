@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+	{% block content %}''
+<!-- Trabalhos sugeridos -->
+<div id="volposlogin">
+   
+{% for sugere in sugeridos %}
+   <a href = "#" class = "list-group-item"> 
+      <h4 class = "list-group-item-heading">
+		  <h4 class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#sugeridos{{sugere.id}}" aria-expanded="false" aria-controls="{{sugere.id}}">
+		   <img width="64px" height="64px" src =  {{sugere.image}}
+            alt = "Generic placeholder image">
+			  {{sugere.organizacao}} -  {{sugere.trabalho}}
+			  <span class = "glyphicon glyphicon-menu-down"></span>
+      	  </h4>
+	  </h4>
+       <div id="sugeridos{{sugere.id}}" class="collapse" role="tabpanel" aria-labelledby="org1">
+			 {{sugere.descricao}}
+      </div>
+	 <p class = "btn btn-primary btn-sm"  role = "button">Visitar Organizaçao </p>
+ 	 <button type = "button" class = "btn btn-primary btn-sm">
+     	<span class = "glyphicon glyphicon-thumbs-up"></span>
+  	 </button>
+	 <button type = "button" class = "btn btn-primary btn-sm">
+     	<span class = "glyphicon glyphicon-thumbs-down"></span> 
+  	 </button>
+	</a>
+	{% endfor %}
+  	
+		<!-- paginacao
+	
+	<div class="row center">
+      <table border="0" width="530" style="display:inline" id="pagination" >
+        <thead>
+          <tr>
+            {% if sugeridos.has_previous %}
+            <th align="left">
+              <a href="?page={{ sugeridos.previous_page_number }}" class="btn btn-black" >
+                Anterior</a>
+              </th>
+              {% else %}
+              <th align="left" class="btn btn-default">Anterior</th>
+              {% endif %}
+
+              {% for n in sugeridos.paginator.page_range %}
+              {% ifequal sugeridos.number n %}
+              <th align="center"><div class="page active">{{n}}</div></th>
+              {% else %}
+              <th align="center">
+                <div class="page">
+                  <a href="?page={{n}}" title="Pagina{{ n }}">{{n}}</a>
+                </div>
+              </th>
+              {% endifequal %}
+              {% endfor %}
+
+              {% if sugeridos.has_next %}
+              <th align="right"><a href="?page={{sugeridos.next_page_number}}"
+               class="btn btn-black">Proxima</a></th>
+               {% else %}
+               <th align="right" class="btn btn-default">Proxima</th>
+               {% endif %}
+             </tr>
+           </thead>
+         </table>
+       </div>
+     </div>
+   </div>
+	<!-- fim paginacao -->
+</div>
+	
+<!-- Fim Trabalhos sugeridos -->
+
+<!-- Contribuições -->
+	   
+
+ 	<div class = "list-group">
+   		<a href = "#" class = "list-group-item active">
+     		<h3 class = "panel-title">
+        		Trabalhos Disponíveis
+      		</h3>
+  		</a>
+   {% for anda in andamento %}
+  		<a href = "#" class = "list-group-item">
+			<h4>
+			<img width="64px" height="64px" src =  {{anda.image}}
+            alt = "Generic placeholder image">
+         		{{anda.trabalho}}
+			</h4>
+     	 <p class = "list-group-item-text">
+        	 {{anda.organizacao}}
+     	 </p>
+	     <h4 class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#andamento{{anda.id}}" aria-expanded="false" aria-controls="{{anda.id}}">
+		  	<p class = "btn btn-primary btn-sm"  role = "button">Leia mais </p>
+  		 </h4>
+			<p class = "btn btn-primary btn-sm"  role = "button">Se inscrever</p>
+     	<div id="andamento{{anda.id}}" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+      		{{anda.descricao}}
+     	 </div>
+   		</a>
+		{% endfor %}
+		<!-- paginacao -->
+	
+	<div class="row center">
+      <table border="0" width="530" style="display:inline" id="pagination" >
+        <thead>
+          <tr>
+            {% if andamento.has_previous %}
+            <th align="left">
+              <a href="?page={{ andamento.previous_page_number }}" class="btn btn-black" >
+                Anterior</a>
+              </th>
+              {% else %}
+              <th align="left" class="btn btn-default">Anterior</th>
+              {% endif %}
+
+              {% for n in andamento.paginator.page_range %}
+              {% ifequal andamento.number n %}
+              <th align="center"><div class="page active">{{n}}</div></th>
+              {% else %}
+              <th align="center">
+                <div class="page">
+                  <a href="?page={{n}}" title="Pagina{{ n }}">{{n}}</a>
+                </div>
+              </th>
+              {% endifequal %}
+              {% endfor %}
+
+              {% if andamento.has_next %}
+              <th align="right"><a href="?page={{andamento.next_page_number}}"
+               class="btn btn-black">Proxima</a></th>
+               {% else %}
+               <th align="right" class="btn btn-default">Proxima</th>
+               {% endif %}
+             </tr>
+           </thead>
+         </table>
+   </div>
+	<!-- fim paginacao -->
+	</div>
+</div>
+ 
+    	{% for realiza in realizados %}
+		<a href = "#" class = "list-group-item">
+      		<h4 class = "list-group-item-heading">
+		 	<img width="64px" height="64px" src = {{realiza.image}}
+            alt = "Generic placeholder image">
+		  	{{realiza.trabalho}}</h4>
+			<p class = "list-group-item-heading" >
+         		{{realiza.organizacao}}
+      		</p>
+      		<h4 class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#comentarios{{realiza.id}}" aria-expanded="false" aria-controls="collapse4">
+		  		<p class = "btn btn-primary btn-sm"  role = "button">Comentários </p>
+  	 		</h4>
+			 
+     		<div id="comentarios{{realiza.id}}" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+		{% for comenta in comentarios %}
+			{% ifequal comenta.realizados realiza.id %}
+ 			<p>
+	 			<img width="32px" height="32px" src = {{comenta.image}} 
+            	alt = "Generic placeholder image">
+		  		{{comenta.nome}}({{comenta.tipo}}): {{comenta.comentario}} 
+			</p>
+		{% endifequal %}
+			{% endfor %}
+      	 </div>
+   		</a>	
+	{% endfor %}
+		<!-- paginacao 
+	
+	<div class="row center">
+      <table border="0" width="530" style="display:inline" id="pagination" >
+        <thead>
+          <tr>
+            {% if realizados.has_previous %}
+            <th align="left">
+              <a href="?page={{ realizados.previous_page_number }}" class="btn btn-black" >
+                Anterior</a>
+              </th>
+              {% else %}
+              <th align="left" class="btn btn-default">Anterior</th>
+              {% endif %}
+
+              {% for n in realizados.paginator.page_range %}
+              {% ifequal realizados.number n %}
+              <th align="center"><div class="page active">{{n}}</div></th>
+              {% else %}
+              <th align="center">
+                <div class="page">
+                  <a href="?page={{n}}" title="Pagina{{ n }}">{{n}}</a>
+                </div>
+              </th>
+              {% endifequal %}
+              {% endfor %}
+
+              {% if realizados.has_next %}
+              <th align="right"><a href="?page={{realizados.next_page_number}}"
+               class="btn btn-black">Proxima</a></th>
+               {% else %}
+               <th align="right" class="btn btn-default">Proxima</th>
+               {% endif %}
+             </tr>
+           </thead>
+         </table>
+   		</div>
+	<!-- fim paginacao -->
+	</div>
+	   <!-- avaliacao 
+	<h5> Avaliação </h5>
+	<span class="likebtn-wrapper" data-identifier="likeButton1" datatheme="ugreen"></span><script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))
+		return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})
+		(document,"script","//w.likebtn.com/js/w/widget.js");</script>
+   </div>
+</div>
+ <!-- Fim avaliacao -->
+<!-- Fim Contribuições -->
+</div>
+</div>
+
+{% endblock content %}

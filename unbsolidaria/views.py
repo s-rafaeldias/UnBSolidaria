@@ -7,7 +7,8 @@ from django.views import generic
 from .forms import ContactForm
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
-
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 
 # Create your views here.
 
@@ -81,3 +82,21 @@ class TrabalhosView(generic.ListView):
     def get_queryset(self):
         return Trabalho.objects.all()
 
+
+class TrabalhoCreate(generic.CreateView):
+    template_name = '../templates/trabalhos/criarTrabalho.html'
+    model= Trabalho
+    fields = ['titulo', 'descricao', 'data_inicio', 'data_fim']
+    success_url='/listaTrabalhos'
+
+
+class TrabalhoUpdate(generic.UpdateView):
+    template_name = '../templates/trabalhos/editarTrabalho.html'
+    model = Trabalho
+    fields = ['titulo', 'descricao', 'data_inicio', 'data_fim']
+    success_url='/listaTrabalhos'
+
+class TrabalhoDelete(generic.DeleteView):
+    template_name = '../templates/trabalhos/deletarTrabalho.html'
+    model = Trabalho
+    success_url = reverse_lazy('lista-trabalhos')
