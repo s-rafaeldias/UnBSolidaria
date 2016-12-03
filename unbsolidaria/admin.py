@@ -4,7 +4,7 @@ from django import forms
 
 # Register your models here.
 ##########################################################################
-from .models import FAQ, Noticia, Trabalho, Dias, Endereco
+from .models import FAQ, Noticia, Trabalho, Dias, Endereco, Tags
 
 class FAQAdmin(admin.ModelAdmin):
     formfield_overrides = {
@@ -29,3 +29,4 @@ admin.site.register(Noticia, NoticiaAdmin)
 admin.site.register(Trabalho)
 admin.site.register(Dias)
 admin.site.register(Endereco)
+admin.site.register(Tags)
