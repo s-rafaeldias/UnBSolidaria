@@ -1,5 +1,8 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.shortcuts import render_to_response
+from django.utils.decorators import method_decorator
 from .models import Noticia, FAQ, Trabalho
 from django.shortcuts import get_object_or_404
 from django.template import RequestContext
@@ -123,7 +126,9 @@ def noticias(request):
     return render_to_response('noticia/lista.html', {'noticias': noticias}, context_instance=RequestContext(request))
 
 
-class TrabalhosView(generic.ListView):
+class TrabalhosView(LoginRequiredMixin, generic.ListView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/listaTrabalhos.html'
     context_object_name = 'lista_trabalhos'
     paginate_by = 5
@@ -131,26 +136,35 @@ class TrabalhosView(generic.ListView):
     def get_queryset(self):
         return Trabalho.objects.all()
 
-class TrabalhoCreate(generic.CreateView):
+class TrabalhoCreate(LoginRequiredMixin, generic.CreateView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/criarTrabalho.html'
     model= Trabalho
     fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'dias']
     success_url='/listaTrabalhos'
 
-class TrabalhoUpdate(generic.UpdateView):
+class TrabalhoUpdate(LoginRequiredMixin, generic.UpdateView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/editarTrabalho.html'
     model = Trabalho
     fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'dias']
     success_url='/listaTrabalhos'
 
-class TrabalhoDelete(generic.DeleteView):
+class TrabalhoDelete(LoginRequiredMixin, generic.DeleteView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/deletarTrabalho.html'
     model = Trabalho
     success_url = reverse_lazy('lista-trabalhos')
 
-class TrabalhoDetailView(generic.DetailView):
+class TrabalhoDetailView(LoginRequiredMixin, generic.DetailView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/visualizarTrabalho.html'
     model=Trabalho
+
     def get_context_data(self, **kwargs):
         context = super(TrabalhoDetailView, self).get_context_data(**kwargs)
         return context

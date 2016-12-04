@@ -133,3 +133,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'unbsolidariadesenv@gmail.com'
 EMAIL_HOST_PASSWORD = 'unbunbunb'
 EMAIL_PORT = 587
+
+LOGIN_URL = '/login'
+LOGIN_REDIRECT_URL = '../'

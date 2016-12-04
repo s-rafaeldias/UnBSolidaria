@@ -15,7 +15,5 @@ urlpatterns = [
     url(r'^visualizarTrabalho/(?P<pk>\d+)/$', views.TrabalhoDetailView.as_view(), name='visualizar-trabalho'),
     url(r'^registrar/$', views.UserFormView.as_view(), name='registrar'),
     url(r'^login/$', auth_views.login, name='login'),
-    url(r'^logout/$', auth_views.logout, name='logout'),
-    # url(r'^login/$', views.login, name="login"),
-    # url(r'^signup/$', views.signup, name="signup"),
+    url(r'^logout/$', auth_views.logout, {'next_page': '../'}, name='logout'),
 ]
