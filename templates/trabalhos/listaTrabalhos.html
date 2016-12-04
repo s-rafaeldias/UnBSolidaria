@@ -8,38 +8,29 @@
    <div class = "panel-heading">
       <h4 class = "panel-title">Trabalhos Voluntários</h4>
    </div>
-
    <div id="trabalhos" class = "panel-body">
 
 		<div class = "list-group">
   		<a href = "#" class = "list-group-item active">
-     		<h3 class = "panel-title">Trabalhos</h3>
-   		</a>			<a href="/criarTrabalho"><button>Novo trabalho</button></a>
+     		<h3 class = "panel-title">Trabalhos <a href="/criarTrabalho"><button class = "btn btn-primary btn-sm">Novo trabalho</button></a> </h3>
+   		</a>			
 
       {% for trabalho in lista_trabalhos %}
 
       <a href = "#" class = "list-group-item">
-			<img width="64px" height="64px" src = {{trabalho.image}}.url alt = "Generic placeholder image">
+        
      		<h4 class = "list-group-item-heading">
+        <!-- <img width="64px" height="64px" src = {{trabalho.image}}.url alt = "Generic placeholder image">-->
       	 	  	{{trabalho.titulo}}
-     		</h4>
-
-	 	   <h4 class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#trabalhos{{trabalho.id}}" aria-expanded="false" aria-controls="{{trabalho.titulo}}">
-			  <p class = "btn btn-primary btn-sm"  role = "button">Leia mais </p>
-  			</h4>
-
-
-     		<div id="trabalhos{{trabalho.id}}" class="collapse" role="tabpanel" aria-labelledby="{{trabalho.titulo}}">
-    	  		{{trabalho.descricao}}
-    		</div>
-			 <a href="/editarTrabalho/{{trabalho.id}}"><button>Editar</button></a>
-
-			<a href="/deletarTrabalho/{{trabalho.id}}"><input type="button" value="Excluir"></a>
+     		<h5>
+        <div> Descrição do trabalho</div></h5>{{trabalho.descricao}}
+  			
+        <a href="/visualizarTrabalho/{{trabalho.id}}"><button class = "btn btn-primary btn-sm">Abrir Trabalho</button></a>
   		</a>
       {% endfor %}
-
+</div>
 			<!-- paginacao -->
-
+<center>
   {% if is_paginated %}
     <div class="paginacao">
         <span class="paginacao-links">
@@ -61,10 +52,10 @@
         </span>
     </div>
   {% endif %}
+  </center>
 
       <!-- fim paginacao -->
 		</div>
 	</div>
-
 </div>
 {% endblock content %}
