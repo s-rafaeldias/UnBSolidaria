@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<!-- Trabalhos voluntário -->
+
+<div class = "panel panel-primary">
+   <div class = "panel-heading">
+      <h4 class = "panel-title">Lista de Voluntários</h4>
+   </div>
+   <div id="trabalhos" class = "panel-body">
+
+		<div class = "list-group">
+  		<a href = "#" class = "list-group-item active"><h3 class = "panel-title">Trabalhos  </h3></a>
+
+      {% for voluntario in lista_voluntarios %}
+
+        <p>{{ voluntario.voluntario }}</p>
+
+      {% endfor %}
+
+
+   <hr class="head-border">
+  </div>
+</div>
+
+
+			<!-- paginacao -->
+<center>
+
+  {% if is_paginated %}
+
+    <div class="paginacao">
+        <span class="paginacao-links">
+
+            {% if page_obj.has_previous %}
+            <th align="left">
+              <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-black" >
+                Anterior</a>
+              </th>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <th align="left">
+              <a href="?page={{ page_obj.next_page_number }}" class="btn btn-black" >
+                Proxima</a>
+              </th>
+            {% endif %}
+             <span class="page-current">
+                P&aacute;gina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+            </span>
+        </span>
+    </div>
+  {% endif %}
+  </center>
+<hr class="head-border">
+      <!-- fim paginacao -->
+</div>
+
+
+{% endblock content %}

@@ -165,15 +165,21 @@ class TrabalhoDetailView(LoginRequiredMixin, generic.DetailView):
 class TrabalhoUsuarioCreate(generic.CreateView):
     template_name = '../templates/trabalhoUsuario/new.html'
     model = UsuarioTrabalho
-    fields = ['organizacao', 'trabalho']
+    fields = ['organizacao', 'trabalho', 'voluntario']
     success_url = reverse_lazy('lista-trabalhos')
+
+    def get_context_data(self, **kwargs):
+        context = super(TrabalhoUsuarioCreate, self).get_context_data(**kwargs)
+        teste = self.kwargs['pk']
+        context['trabalho'] = Trabalho.objects.get(pk=teste)
+        return context
 
 class TrabalhoUsuarioUpdate(LoginRequiredMixin, generic.UpdateView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhoUsuario/update.html'
     model = UsuarioTrabalho
-    fields = ['organizacao', 'trabalho']
+    fields = ['organizacao', 'trabalho', 'voluntario']
     success_url='/listaTrabalhos'
 
 class TrabalhoUsuarioDelete(LoginRequiredMixin, generic.DeleteView):
@@ -183,3 +189,15 @@ class TrabalhoUsuarioDelete(LoginRequiredMixin, generic.DeleteView):
     model = UsuarioTrabalho
     success_url = reverse_lazy('lista-trabalhos')
 
+
+class TrabalhoUsuarioView(LoginRequiredMixin, generic.ListView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
+    template_name = '../templates/trabalhoUsuario/list.html'
+    context_object_name = 'lista_voluntarios'
+    paginate_by = 5
+
+    def get_queryset(self):
+        teste = self.kwargs['pk']
+        print teste
+        return UsuarioTrabalho.objects.all().filter(trabalho_id=teste)
