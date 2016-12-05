@@ -23,4 +23,6 @@ urlpatterns = [
     url(r'^user/(?P<pk>\d+)/delete/$', views.UserDelete.as_view(success_url='../'), name='user-delete'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': '../'}, name='logout'),
+
+    url(r"^report.pdf$", views.ReportPDFView.as_view(), name='report')
 ]

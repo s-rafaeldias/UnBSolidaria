@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'unbsolidaria',
+    'easy_pdf',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -108,7 +109,7 @@ AUTH_USER_MODEL = 'unbsolidaria.User'
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'America/Sao_paulo'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 

@@ -1,0 +1,29 @@
+{% extends "easy_pdf/base.html" %}
+
+{% block content %}
+<head>
+	<title>Report Unb Solidaria</title>
+</head>
+<div>
+
+   <center><h1 style="color:blue;">Relatório de Dados</h1></center>
+   <div>
+      <h2>Usuários do Sistema</h2>
+   </div>
+   <div>
+
+      {% for user in listauser %}
+
+      <div>   
+     	<h4>{{user.telephone}}</h4> 
+     	<hr>
+        <p>Descrição: {{user.description}}</p>
+      </div>
+ 
+      {% endfor %}
+
+   <hr>
+  </div>
+
+</div>
+{% endblock %}

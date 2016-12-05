@@ -217,3 +217,13 @@ class TrabalhoUsuarioView(LoginRequiredMixin, generic.ListView):
         teste = self.kwargs['pk']
         print teste
         return UsuarioTrabalho.objects.all().filter(trabalho_id=teste)
+
+from easy_pdf.views import PDFTemplateView
+
+class ReportPDFView(PDFTemplateView):
+    template_name = "report.html"
+
+    def get_context_data(self, **kwargs):
+        return super(ReportPDFView, self).get_context_data(
+        pagesize="A4", listauser=User.objects.all()
+        )
