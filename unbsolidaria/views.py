@@ -113,6 +113,11 @@ def faq(request):
 
     return render_to_response('faq/lista.html', {'perguntas': perguntas}, context_instance=RequestContext(request))
 
+class DetailsNoticia(generic.DeleteView):
+    model = Noticia
+    template_name = 'noticia/noticia.html'
+
+
 
 def noticias(request):
     noticias_list = Noticia.objects.all()
