@@ -12,8 +12,8 @@
 }
 
 #noticias .btn-default{
-    color:#fffffa;
-    background-color:#5bc0be;
+    color:#0b132b;
+    background-color:#fffffa;
     cursor:not-allowed;
 }
 
@@ -76,14 +76,14 @@
     background-color: #443e44;
 }
 
-.noticia{
+.noticia, .pergunta{
     min-height: 300px;
     background-color:#fffffa;
     margin: 20px;
     padding: 10px;
 }
 
-.noticia h2{
+.noticia h2, .pergunta h3{
     color:#0b132b;
     font-weight: 400;
     font-size: 50px;

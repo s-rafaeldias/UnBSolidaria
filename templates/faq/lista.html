@@ -20,41 +20,6 @@
       </div>
     </div>
     {% endfor %}
-    <div class="row center">
-      <table border="0" width="530" style="display:inline" id="pagination" >
-        <thead>
-          <tr>
-            {% if perguntas.has_previous %}
-            <th align="left">
-              <a href="?page={{ perguntas.previous_page_number }}" class="btn btn-black" >
-                Anterior</a>
-              </th>
-              {% else %}
-              <th align="left" class="btn btn-default">Anterior</th>
-              {% endif %}
-
-              {% for n in perguntas.paginator.page_range %}
-              {% ifequal perguntas.number n %}
-              <th align="center"><div class="page active">{{n}}</div></th>
-              {% else %}
-              <th align="center">
-                <div class="page">
-                  <a href="?page={{n}}" title="Pagina{{ n }}">{{n}}</a>
-                </div>
-              </th>
-              {% endifequal %}
-              {% endfor %}
-
-              {% if perguntas.has_next %}
-              <th align="right"><a href="?page={{perguntas.next_page_number}}"
-               class="btn btn-black">Proxima</a></th>
-               {% else %}
-               <th align="right" class="btn btn-default">Proxima</th>
-               {% endif %}
-             </tr>
-           </thead>
-         </table>
-       </div>
      </div>
    </div>
 
