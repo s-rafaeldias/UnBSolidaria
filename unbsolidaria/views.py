@@ -6,6 +6,7 @@ from django.http import BadHeaderError
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.shortcuts import render_to_response
+from .models import Noticia, FAQ,  UsuarioTrabalho
 from django.template import RequestContext
 from django.views import generic
 from .forms import ContactForm, UserForm
@@ -129,13 +130,13 @@ def noticias(request):
 
     return render_to_response('noticia/lista.html', {'noticias': noticias}, context_instance=RequestContext(request))
 
-
+#######################################################################################
 class TrabalhosView(LoginRequiredMixin, generic.ListView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/listaTrabalhos.html'
     context_object_name = 'lista_trabalhos'
-    paginate_by = 5
+    paginate_by = 5	
 
     def get_queryset(self):
         return Trabalho.objects.all()
@@ -148,7 +149,6 @@ class TrabalhoCreate(LoginRequiredMixin, generic.CreateView):
     model = Trabalho
     fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'dias']
     success_url = '/listaTrabalhos'
-
 
 class TrabalhoUpdate(LoginRequiredMixin, generic.UpdateView):
     login_url = '/login/'
@@ -176,3 +176,26 @@ class TrabalhoDetailView(LoginRequiredMixin, generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(TrabalhoDetailView, self).get_context_data(**kwargs)
         return context
+
+#######################################################################################
+class TrabalhoUsuarioCreate(generic.CreateView):
+    template_name = '../templates/trabalhoUsuario/new.html'
+    model = UsuarioTrabalho
+    fields = ['organizacao', 'trabalho']
+    success_url = reverse_lazy('lista-trabalhos')
+
+class TrabalhoUsuarioUpdate(LoginRequiredMixin, generic.UpdateView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
+    template_name = '../templates/trabalhoUsuario/update.html'
+    model = UsuarioTrabalho
+    fields = ['organizacao', 'trabalho']
+    success_url='/listaTrabalhos'
+
+class TrabalhoUsuarioDelete(LoginRequiredMixin, generic.DeleteView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
+    template_name = '../templates/trabalhoUsuario/delete.html'
+    model = UsuarioTrabalho
+    success_url = reverse_lazy('lista-trabalhos')
+

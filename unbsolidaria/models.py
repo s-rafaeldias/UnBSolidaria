@@ -66,11 +66,13 @@ class Dia(models.Model):
 
 class Trabalho(models.Model):
     titulo = models.CharField(max_length=45)
-    descricao = models.CharField(max_length=240)
+    descricao = models.TextField(max_length=240)
     data_inicio = models.DateField(auto_now=False, auto_now_add=False)
     data_fim = models.DateField(auto_now=False, auto_now_add=False)
     vagas = models.IntegerField(default=0)
     dias = models.ManyToManyField(Dia)
+    organizacao = models.ForeignKey(User, related_name="dono")
+    voluntarios = models.ManyToManyField(User, through='UsuarioTrabalho', through_fields=('trabalho', 'voluntario'))
 
     def __unicode__(self):
         return self.titulo
@@ -98,3 +100,8 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.descricao
+
+class UsuarioTrabalho(models.Model):
+    organizacao = models.ForeignKey(User, on_delete=models.CASCADE, related_name='organizacao')
+    voluntario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='voluntario')
+    trabalho = models.ForeignKey(Trabalho, on_delete=models.CASCADE)
