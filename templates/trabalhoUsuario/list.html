@@ -6,35 +6,24 @@
 
 <div class = "panel panel-primary">
    <div class = "panel-heading">
-      <h4 class = "panel-title">Trabalhos Voluntários</h4>
+      <h4 class = "panel-title">Lista de Voluntários</h4>
    </div>
    <div id="trabalhos" class = "panel-body">
 
 		<div class = "list-group">
-  		<a href = "#" class = "list-group-item active"><h3 class = "panel-title">Trabalhos  </h3></a>  
+  		<a href = "#" class = "list-group-item active"><h3 class = "panel-title">Trabalhos  </h3></a>
 
-      {% for trabalho in lista_trabalhos %}
+      {% for voluntario in lista_voluntarios %}
 
-      <div href = "#" class = "list-group-item">
-        
-     		<h4 class = "list-group-item-heading">
-        <!-- <img width="64px" height="64px" src = {{trabalho.image}}.url alt = "Generic placeholder image">-->
-      	 	  	{{trabalho.titulo}}  
-        </h4> 
-     	<hr class="head-border">
-      
-        <p>Descrição: {{trabalho.descricao}}</p>
-        <a href="/visualizarTrabalho/{{trabalho.id}}"><button class = "btn btn-primary btn-sm">Visualizar Trabalho</button></a>
-      </div>
- 
+        <p>{{ voluntario.voluntario }}</p>
+
       {% endfor %}
 
-      <center> <a href="/criarTrabalho"><button class = "btn btn-primary btn-sm">Novo trabalho</button></a></center>
 
    <hr class="head-border">
   </div>
 </div>
- 
+
 
 			<!-- paginacao -->
 <center>
@@ -43,7 +32,7 @@
 
     <div class="paginacao">
         <span class="paginacao-links">
-       
+
             {% if page_obj.has_previous %}
             <th align="left">
               <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-black" >

@@ -1,9 +1,19 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block content %}
+<div class = "panel panel-primary">
+   	<div class = "panel-heading">
+    	<h4 class = "panel-title">Deletar trabalho</h4>
+  	</div>
+  	 <div href = "#" class = "list-group-item">
+ <center> 
+
 <form action="" method="post">{% csrf_token %}
     <p>Are you sure you want to delete "{{ object }}"?</p>
-    <input type="submit" value="Confirm" />
+    <hr class="head-border">
+    <input class = "btn btn-primary btn-sm" type="submit" value="Confirm" />
 </form>
-
+</center> 
+</div>
+</div>
 {% endblock content %}

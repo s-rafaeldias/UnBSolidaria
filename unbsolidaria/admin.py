@@ -30,3 +30,7 @@ admin.site.register(Trabalho)
 admin.site.register(Dia)
 admin.site.register(Endereco)
 admin.site.register(Tag)
+##########################################################################
+from models import User
+
+admin.site.register(User)

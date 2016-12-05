@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<form action="" method="post">{% csrf_token %}
+
+    <input id="id_organizacao" type="hidden" name="organizacao" value="{{ trabalho.organizacao.id }}">
+    <input id="id_trabalho" type="hidden" name="trabalho" value="{{ trabalho.id }}">
+    <input id="id_voluntario" type="hidden" name="voluntario" value="{{ user.id }}">
+
+    <a style="color:black">Inscrever-se no trabalho {{ trabalho.titulo }}</a>
+    <input type="submit" value="Save" />
+</form>
+
+{% endblock content %}

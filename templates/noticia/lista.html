@@ -18,7 +18,7 @@
               {{ noticia.texto|truncatechars:500 }} 
             </div>
             <div class="leia">
-              <a href="/noticia/?noticia={{ noticia.pk }}"> Leia mais</a>
+              <a href="{% url 'leiamais' noticia.id%}"> Leia mais</a>
             </div>
           </div>
         </div>
