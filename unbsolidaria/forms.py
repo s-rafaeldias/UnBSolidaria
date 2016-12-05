@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from models import User
+from models import User, Trabalho
 from django import forms
 
 class ContactForm(forms.Form):
