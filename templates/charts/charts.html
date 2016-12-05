@@ -1,0 +1,28 @@
+{% extends '../templates/base.html' %}
+{% block content %}
+<head>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div id="div1"></div>
+<br>
+<div id="div2"></div>
+ 
+<script>
+$( "#div1" ).load("trabalhosgerados.html", function( response, status, xhr ) {
+  if ( status == "error" ) {
+    var msg = "Sorry but there was an error: ";
+    $( "#div1" ).html( msg + xhr.status + " " + xhr.statusText );
+  }
+});
+$( "#div2" ).load("numerovoluntarios.html", function( response, status, xhr ) {
+  if ( status == "error" ) {
+    var msg = "Sorry but there was an error: ";
+    $( "#div1" ).html( msg + xhr.status + " " + xhr.statusText );
+  }
+});
+</script>
+ 
+</body>
+{% endblock content %}

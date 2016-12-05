@@ -1,2 +1,5 @@
 Django==1.9
 MySQL-python==1.2.5
+django-easy-pdf
+xhtml2pdf>=0.0.6
+reportlab==2.7
