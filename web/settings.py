@@ -126,7 +126,6 @@ STATICFILES_DIRS = [
 ]
 
 # Email configuration
-EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
 DEFAULT_FROM_EMAIL = 'unbsolidaria <unbsolidariadesenv@gmail.com>'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'

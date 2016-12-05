@@ -76,6 +76,7 @@ class UserDelete(LoginRequiredMixin, generic.DeleteView):
     model = User
     success_url = reverse_lazy('../')
 
+
 def contato(request):
     if request.method == 'GET':
         form = ContactForm()
@@ -113,10 +114,10 @@ def faq(request):
 
     return render_to_response('faq/lista.html', {'perguntas': perguntas}, context_instance=RequestContext(request))
 
+
 class DetailsNoticia(generic.DeleteView):
     model = Noticia
     template_name = 'noticia/noticia.html'
-
 
 
 def noticias(request):
@@ -134,6 +135,7 @@ def noticias(request):
         noticias = paginator.page(paginator.num_pages)
 
     return render_to_response('noticia/lista.html', {'noticias': noticias}, context_instance=RequestContext(request))
+
 
 #######################################################################################
 class TrabalhosView(LoginRequiredMixin, generic.ListView):
@@ -155,6 +157,13 @@ class TrabalhoCreate(LoginRequiredMixin, generic.CreateView):
     fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'dias', 'organizacao']
     success_url = '/listaTrabalhos'
 
+    def get(self, request, *args, **kwargs):
+        if self.request.user.type == 1:
+            return super(TrabalhoCreate, self).get(request, *args, **kwargs)
+        else:
+            return redirect('../listaTrabalhos')
+
+
 class TrabalhoUpdate(LoginRequiredMixin, generic.UpdateView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
@@ -163,6 +172,14 @@ class TrabalhoUpdate(LoginRequiredMixin, generic.UpdateView):
     fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'dias']
     success_url = '/listaTrabalhos'
 
+    def get(self, request, *args, **kwargs):
+        if self.request.user.type == 1:
+            return super(TrabalhoUpdate, self).get(request, *args, **kwargs)
+        else:
+            return redirect('../listaTrabalhos')
+
+
+
 
 class TrabalhoDelete(LoginRequiredMixin, generic.DeleteView):
     login_url = '/login/'
@@ -170,6 +187,12 @@ class TrabalhoDelete(LoginRequiredMixin, generic.DeleteView):
     template_name = '../templates/trabalhos/deletarTrabalho.html'
     model = Trabalho
     success_url = reverse_lazy('lista-trabalhos')
+
+    def get(self, request, *args, **kwargs):
+        if self.request.user.type == 1:
+            return super(TrabalhoDelete, self).get(request, *args, **kwargs)
+        else:
+            return redirect('../listaTrabalhos')
 
 
 class TrabalhoDetailView(LoginRequiredMixin, generic.DetailView):
@@ -181,6 +204,7 @@ class TrabalhoDetailView(LoginRequiredMixin, generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(TrabalhoDetailView, self).get_context_data(**kwargs)
         return context
+
 
 #######################################################################################
 class TrabalhoUsuarioCreate(generic.CreateView):
@@ -195,6 +219,7 @@ class TrabalhoUsuarioCreate(generic.CreateView):
         context['trabalho'] = Trabalho.objects.get(pk=teste)
         return context
 
+
 class TrabalhoUsuarioUpdate(LoginRequiredMixin, generic.UpdateView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
@@ -202,6 +227,7 @@ class TrabalhoUsuarioUpdate(LoginRequiredMixin, generic.UpdateView):
     model = UsuarioTrabalho
     fields = ['organizacao', 'trabalho', 'voluntario']
     success_url='/listaTrabalhos'
+
 
 class TrabalhoUsuarioDelete(LoginRequiredMixin, generic.DeleteView):
     login_url = '/login/'
