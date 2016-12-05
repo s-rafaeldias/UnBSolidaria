@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Noticia, FAQ, Trabalho
+from django.views.generic import UpdateView, DeleteView
+from .models import Noticia, FAQ, Trabalho, User
 from django.core.mail import send_mail
 from django.http import BadHeaderError
 from django.http import HttpResponse
@@ -14,8 +15,8 @@ from django.contrib.auth import authenticate, login
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 from django.core.urlresolvers import reverse_lazy
 
-
 # Create your views here.
+
 
 class IndexView(generic.ListView):
     template_name = '../templates/index.html'
@@ -27,7 +28,7 @@ class IndexView(generic.ListView):
 
 class UserFormView(View):
     form_class = UserForm
-    template_name = '../templates/registration_form.html'
+    template_name = '../templates/user_form.html'
 
     # mostrar um form em branco
     def get(self, request):
@@ -59,6 +60,21 @@ class UserFormView(View):
         return render(request, self.template_name,
                       {'form': form})  # se o usuario nao for valido, returna ele pro formulario de novo
 
+
+class UserUpdate(LoginRequiredMixin, UpdateView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
+    model = User
+    fields = ['first_name', 'last_name', 'username', 'email', 'cpf', 'cnpj', 'telephone', 'type',
+              'gender', 'description']
+
+
+class UserDelete(LoginRequiredMixin, generic.DeleteView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
+    template_name = '../templates/trabalhos/deletarTrabalho.html'
+    model = User
+    success_url = reverse_lazy('../')
 
 def contato(request):
     if request.method == 'GET':

@@ -90,6 +90,7 @@
       <!-- MENU LINKS -->
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav" id="navigation">
+        {% if user.is_authenticated == False%}
           <li>
             <a href="{% url 'index' %}">Inicio</a>
           </li>
@@ -106,8 +107,35 @@
             <a href="{% url 'registrar' %}">Registrar</a>
           </li>
             <li>
-                {{ request.user }}
-            </li>
+                <a href="{% url 'login' %}">Login</a>
+          </li>
+        {% endif %}
+            {% if user.is_authenticated == True%}
+                <li>
+                     <a href="{% url 'index' %}">Inicio</a>
+                </li>
+                <li>
+                      <a href="{% url 'contato' %}">Contato</a>
+                </li>
+                <li>
+                     <a href="{% url 'noticias' %}">Notícias</a>
+                 </li>
+                 <li>
+                     <a href="{% url 'faq' %}">FAQ</a>
+                </li>
+                <li>
+                     <a href="{% url 'user-update' user.id %}">Editar</a>
+                 </li>
+                <li>
+                    <a href="{% url 'user-delete' user.id %}">Excluir usuário</a>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}">Logout</a>
+                </li>
+                <li>
+                    {{ request.user }}
+                </li>
+            {% endif %}
         </ul>
       </div>
     </div>
