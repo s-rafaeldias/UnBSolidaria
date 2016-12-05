@@ -10,16 +10,22 @@
   			<a href = "#" class = "list-group-item active">
      			<h3 class = "panel-title">{{trabalho.titulo}}</h3>
 			</a>
-
+		<div href = "#" class = "list-group-item">
 			<h1>{{ object.headline }}</h1>
 			<p>{{ object.content }}</p>
 			<p>Titulo: {{ object.titulo }}</p>
+			<hr class="head-border">
 			<p>Descricao: {{ object.descricao }}</p>
+			<hr class="head-border">
 			<p>Quantidade de vagas: {{ object.vagas }}</p>
+			<hr class="head-border">
 			<p>Data Inicio: {{ object.data_inicio }}</p>
+			<hr class="head-border">
 			<p>Data Fim: {{ object.data_fim }}</p>
 
+			</div>
 		 <center> 
+<hr class="head-border">
       <a href="/listaTrabalhos"><input type="button" class = "btn btn-primary btn-sm" value="Voltar"></a>
        <a href="/editarTrabalho/{{trabalho.id}}"><button class = "btn btn-primary btn-sm">Editar</button></a>
      <a href="/deletarTrabalho/{{trabalho.id}}"><input type="button" class = "btn btn-primary btn-sm" value="Excluir"></a>

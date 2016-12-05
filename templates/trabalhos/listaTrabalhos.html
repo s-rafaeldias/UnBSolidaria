@@ -11,29 +11,39 @@
    <div id="trabalhos" class = "panel-body">
 
 		<div class = "list-group">
-  		<a href = "#" class = "list-group-item active">
-     		<h3 class = "panel-title">Trabalhos <a href="/criarTrabalho"><button class = "btn btn-primary btn-sm">Novo trabalho</button></a> </h3>
-   		</a>			
+  		<a href = "#" class = "list-group-item active"><h3 class = "panel-title">Trabalhos  </h3></a>  
 
       {% for trabalho in lista_trabalhos %}
 
-      <a href = "#" class = "list-group-item">
+      <div href = "#" class = "list-group-item">
         
      		<h4 class = "list-group-item-heading">
         <!-- <img width="64px" height="64px" src = {{trabalho.image}}.url alt = "Generic placeholder image">-->
-      	 	  	{{trabalho.titulo}}
-     		<h5>
-        <div> Descrição do trabalho</div></h5>{{trabalho.descricao}}
-  			
-        <a href="/visualizarTrabalho/{{trabalho.id}}"><button class = "btn btn-primary btn-sm">Abrir Trabalho</button></a>
-  		</a>
+      	 	  	{{trabalho.titulo}}  
+        </h4> 
+     	<hr class="head-border">
+      
+        <p>Descrição: {{trabalho.descricao}}</p>
+        <a href="/visualizarTrabalho/{{trabalho.id}}"><button class = "btn btn-primary btn-sm">Visualizar Trabalho</button></a>
+      </div>
+ 
       {% endfor %}
+
+      <center> <a href="/criarTrabalho"><button class = "btn btn-primary btn-sm">Novo trabalho</button></a></center>
+
+   <hr class="head-border">
+  </div>
 </div>
+ 
+
 			<!-- paginacao -->
 <center>
+
   {% if is_paginated %}
+
     <div class="paginacao">
         <span class="paginacao-links">
+       
             {% if page_obj.has_previous %}
             <th align="left">
               <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-black" >
@@ -53,9 +63,9 @@
     </div>
   {% endif %}
   </center>
-
+<hr class="head-border">
       <!-- fim paginacao -->
-		</div>
-	</div>
 </div>
+
+
 {% endblock content %}

@@ -79,7 +79,7 @@ def noticias(request):
 class TrabalhosView(generic.ListView):
     template_name = '../templates/trabalhos/listaTrabalhos.html'
     context_object_name = 'lista_trabalhos'
-    paginate_by = 5
+    paginate_by = 5	
 
     def get_queryset(self):
         return Trabalho.objects.all()

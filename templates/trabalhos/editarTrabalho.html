@@ -10,13 +10,18 @@
   			<a href = "#" class = "list-group-item active">
      			<h3 class = "panel-title">{{trabalho.titulo}}</h3>
 			</a>
+
+      <div href = "#" class = "list-group-item">
+      <hr class="head-border">
+      <center>
 			<form action="" method="post">{% csrf_token %}
-			<center>
+			
     			{{ form.as_p }}
-    		
+    		<hr class="head-border">
     			<input class = "btn btn-primary btn-sm" type="submit" value="Update" />
     			
     		</center>
+        </form>
 			</form>
 		</div>
 </div>
