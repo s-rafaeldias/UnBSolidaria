@@ -66,7 +66,7 @@ class Dia(models.Model):
 
 class Trabalho(models.Model):
     titulo = models.CharField(max_length=45)
-    descricao = models.CharField(max_length=240)
+    descricao = models.TextField(max_length=240)
     data_inicio = models.DateField(auto_now=False, auto_now_add=False)
     data_fim = models.DateField(auto_now=False, auto_now_add=False)
     vagas = models.IntegerField(default=0)

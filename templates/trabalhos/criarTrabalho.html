@@ -1,12 +1,20 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block content %}
-
-<form action="" method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save" />
-</form>
-
-
+<div class = "panel panel-primary">
+   	<div class = "panel-heading">
+    	<h4 class = "panel-title">Criar trabalho</h4>
+  	</div>
+  	 <div href = "#" class = "list-group-item">
+  	 <hr class="head-border">
+  	<center> 
+		<form action="" method="post">{% csrf_token %}
+   		 {{ form.as_p }}
+   		 <hr class="head-border">
+   			<input class = "btn btn-primary btn-sm" type="submit" value="Save" /></center>
+		</form>
+	</center>
+	</div>
+</div>
 
 {% endblock content %}

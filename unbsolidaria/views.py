@@ -131,7 +131,7 @@ class TrabalhosView(LoginRequiredMixin, generic.ListView):
     redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/listaTrabalhos.html'
     context_object_name = 'lista_trabalhos'
-    paginate_by = 5
+    paginate_by = 5	
 
     def get_queryset(self):
         return Trabalho.objects.all()
