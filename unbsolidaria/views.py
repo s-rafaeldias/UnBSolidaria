@@ -131,7 +131,7 @@ class TrabalhoCreate(LoginRequiredMixin, generic.CreateView):
     redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/criarTrabalho.html'
     model = Trabalho
-    fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'dias']
+    fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'dias', 'organizacao']
     success_url = '/listaTrabalhos'
 
 class TrabalhoUpdate(LoginRequiredMixin, generic.UpdateView):
