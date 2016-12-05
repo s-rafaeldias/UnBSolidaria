@@ -1,14 +1,5 @@
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
-from django.shortcuts import render_to_response
-from django.utils.decorators import method_decorator
 from .models import Noticia, FAQ, Trabalho
-from django.shortcuts import get_object_or_404
-from django.template import RequestContext
-from django.views import generic
-from .forms import ContactForm
-from django.contrib import messages
 from django.core.mail import send_mail
 from django.http import BadHeaderError
 from django.http import HttpResponse
@@ -21,10 +12,8 @@ from .forms import ContactForm, UserForm
 from django.views.generic import View
 from django.contrib.auth import authenticate, login
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
-from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic.detail import DetailView
-from django.utils import timezone
+
 
 # Create your views here.
 
@@ -136,13 +125,14 @@ class TrabalhosView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         return Trabalho.objects.all()
 
+
 class TrabalhoCreate(LoginRequiredMixin, generic.CreateView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/criarTrabalho.html'
-    model= Trabalho
-    fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'dias', 'organizacao']
-    success_url='/listaTrabalhos'
+    model = Trabalho
+    fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'dias']
+    success_url = '/listaTrabalhos'
 
 class TrabalhoUpdate(LoginRequiredMixin, generic.UpdateView):
     login_url = '/login/'
@@ -150,7 +140,8 @@ class TrabalhoUpdate(LoginRequiredMixin, generic.UpdateView):
     template_name = '../templates/trabalhos/editarTrabalho.html'
     model = Trabalho
     fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'dias']
-    success_url='/listaTrabalhos'
+    success_url = '/listaTrabalhos'
+
 
 class TrabalhoDelete(LoginRequiredMixin, generic.DeleteView):
     login_url = '/login/'
@@ -159,15 +150,17 @@ class TrabalhoDelete(LoginRequiredMixin, generic.DeleteView):
     model = Trabalho
     success_url = reverse_lazy('lista-trabalhos')
 
+
 class TrabalhoDetailView(LoginRequiredMixin, generic.DetailView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/visualizarTrabalho.html'
-    model=Trabalho
+    model = Trabalho
 
     def get_context_data(self, **kwargs):
         context = super(TrabalhoDetailView, self).get_context_data(**kwargs)
         return context
+
 #######################################################################################
 class TrabalhoUsuarioCreate(generic.CreateView):
     template_name = '../templates/trabalhoUsuario/new.html'
@@ -189,3 +182,4 @@ class TrabalhoUsuarioDelete(LoginRequiredMixin, generic.DeleteView):
     template_name = '../templates/trabalhoUsuario/delete.html'
     model = UsuarioTrabalho
     success_url = reverse_lazy('lista-trabalhos')
+
