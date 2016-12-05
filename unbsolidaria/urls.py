@@ -20,7 +20,7 @@ urlpatterns = [
 
     url(r'^registrar/$', views.UserFormView.as_view(), name='registrar'),
     url(r'^user/(?P<pk>\d+)/$', views.UserUpdate.as_view(template_name='user_form.html'), name='user-update'),
-    url(r'user/(?P<pk>\d+)/delete/$', views.UserDelete.as_view(success_url='../'), name='user-delete'),
+    url(r'^user/(?P<pk>\d+)/delete/$', views.UserDelete.as_view(success_url='../'), name='user-delete'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': '../'}, name='logout'),
 ]
