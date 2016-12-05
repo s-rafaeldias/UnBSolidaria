@@ -98,7 +98,7 @@
 }
 
 .noticia .texto, .pergunta .texto{
-    text-align: justify;
+    text-align: center;
     color:#27ad60;
 }
 
