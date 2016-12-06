@@ -108,7 +108,7 @@ AUTH_USER_MODEL = 'unbsolidaria.User'
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'America/Sao_paulo'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 

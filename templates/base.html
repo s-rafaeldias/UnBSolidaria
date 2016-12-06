@@ -129,6 +129,14 @@
                 <li>
                     <a href="{% url 'user-delete' user.id %}">Excluir usuário</a>
                 </li>
+                 <li>
+                    <a href="{% url 'lista-trabalhos' %}">Trabalhos</a>
+                </li>
+                {% if user.type == 1%}
+                <li>
+                    <a href="{% url 'meus-trabalhos' user.id %}">Meus Trabalhos</a>
+                </li>
+				{% endif%}
                 <li>
                     <a href="{% url 'logout' %}">Logout</a>
                 </li>

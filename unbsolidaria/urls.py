@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^faq/$', views.faq, name="faq"),
 
     url(r'^listaTrabalhos/$', views.TrabalhosView.as_view(), name="lista-trabalhos"),
+    url(r'^meusTrabalhos/(?P<pk>\d+)/$', views.MeusTrabalhosView.as_view(), name="meus-trabalhos"),
     url(r'^criarTrabalho/$', views.TrabalhoCreate.as_view(), name="criar-trabalho"),
     url(r'^editarTrabalho/(?P<pk>\d+)/$', views.TrabalhoUpdate.as_view(), name="editar-trabalho"),
     url(r'^deletarTrabalho/(?P<pk>\d+)/$', views.TrabalhoDelete.as_view(), name="deletar-trabalho"),

@@ -8,7 +8,7 @@
    	<div id="trabalhos" class = "panel-body">
 		<div class = "list-group">
   			<a href = "#" class = "list-group-item active">
-     			<h3 class = "panel-title">{{trabalho.titulo}}</h3>
+     			<h3 class = "panel-title">{{object.titulo}}</h3>
 			</a>
 		<div href = "#" class = "list-group-item">
 			<h1>{{ object.headline }}</h1>
@@ -20,15 +20,30 @@
 			<p>Quantidade de vagas: {{ object.vagas }}</p>
 			<hr class="head-border">
 			<p>Data Inicio: {{ object.data_inicio }}</p>
-			<hr class="head-border">
-			<p>Data Fim: {{ object.data_fim }}</p>
+			{% if user.type == 1%}
+				{% if user.id == object.organizacao_id %}
+					<hr class="head-border">
+					<p>Data Fim: {{ object.data_fim }}</p>
+				{% endif %}
+   			{% endif %}
 
 			</div>
 		 <center> 
 <hr class="head-border">
-      <a href="/listaTrabalhos"><input type="button" class = "btn btn-primary btn-sm" value="Voltar"></a>
-       <a href="/editarTrabalho/{{trabalho.id}}"><button class = "btn btn-primary btn-sm">Editar</button></a>
-     <a href="/deletarTrabalho/{{trabalho.id}}"><input type="button" class = "btn btn-primary btn-sm" value="Excluir"></a>
+      <a href="{% url 'lista-trabalhos'%}"><input type="button" class = "btn btn-primary btn-sm" value="Voltar"></a>
+	{% if user.type == 1%}
+		{% if user.id == object.organizacao_id %}
+        <a href="{% url 'editar-trabalho' object.id %}"><button class = "btn btn-primary btn-sm">Editar</button></a>
+     	<a href="{% url 'deletar-trabalho' object.id %}"><input type="button" class = "btn btn-primary btn-sm" value="Excluir"></a>
+    	<a href="{% url 'lista-voluntarios' object.id %}"><input type="button" class = "btn btn-primary btn-sm" value="Voluntarios"></a>
+     	{% else %}
+     	<a href="{% url 'lista-voluntarios' object.organizacao_id %}"><input type="button" class = "btn btn-primary btn-sm" value="Voluntarios"></a>
+     	{% endif %}
+    {% endif %}
+
+     {% if user.type == 0%}
+     <a href="{% url 'entrar-trabalho' object.id %}"><input type="button" class = "btn btn-primary btn-sm" value="Inscreva-se"></a>
+     {% endif %}
        </center> 
 		</div>
 	</div>
