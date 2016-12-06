@@ -148,13 +148,22 @@ class TrabalhosView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         return Trabalho.objects.all()
 
+class MeusTrabalhosView(LoginRequiredMixin, generic.ListView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
+    template_name = '../templates/trabalhos/meusTrabalhos.html'
+    context_object_name = 'lista_trabalhos'
+    paginate_by = 5	
+
+    def get_queryset(self):
+        return Trabalho.objects.all()
 
 class TrabalhoCreate(LoginRequiredMixin, generic.CreateView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/criarTrabalho.html'
     model = Trabalho
-    fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'dias', 'organizacao']
+    fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'organizacao']
     success_url = '/listaTrabalhos'
 
     def get(self, request, *args, **kwargs):
@@ -169,7 +178,7 @@ class TrabalhoUpdate(LoginRequiredMixin, generic.UpdateView):
     redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/editarTrabalho.html'
     model = Trabalho
-    fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'dias']
+    fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim']
     success_url = '/listaTrabalhos'
 
     def get(self, request, *args, **kwargs):

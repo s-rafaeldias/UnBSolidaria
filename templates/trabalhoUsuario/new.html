@@ -7,9 +7,13 @@
     <input id="id_organizacao" type="hidden" name="organizacao" value="{{ trabalho.organizacao.id }}">
     <input id="id_trabalho" type="hidden" name="trabalho" value="{{ trabalho.id }}">
     <input id="id_voluntario" type="hidden" name="voluntario" value="{{ user.id }}">
-
-    <a style="color:black">Inscrever-se no trabalho {{ trabalho.titulo }}</a>
-    <input type="submit" value="Save" />
+    <hr class="head-border">
+    <center><a style="color:black">Inscrever-se no trabalho "{{ trabalho.titulo }}"?</a>
+    <hr class="head-border">
+    <a href="{% url 'lista-trabalhos'%}"><input type="button" class = "btn btn-primary btn-sm" value="Não"></a>
+    <input class = "btn btn-primary btn-sm" type="submit" value="Sim" />
+     <hr class="head-border">
+     </center>
 </form>
 
 {% endblock content %}
