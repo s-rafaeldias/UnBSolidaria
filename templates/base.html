@@ -78,18 +78,12 @@
   <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
 
   <nav class="navbar navbar-inverse navbar-static-top" role="navigation" id="menu">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <!-- MENU LINKS -->
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav" id="navigation">
+    <div class="container"> 
+        <div class="navbar-header">
+            <p class="navbar-brand">UnB Solidária</p>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav" id="navigation">
         {% if user.is_authenticated == False%}
           <li>
             <a href="{% url 'index' %}">Inicio</a>
@@ -132,14 +126,15 @@
                 <li>
                     <a href="{% url 'logout' %}">Logout</a>
                 </li>
-                <li>
-                    {{ request.user }}
-                </li>
+                
             {% endif %}
         </ul>
-      </div>
+            <ul class="nav navbar-nav navbar-right">
+              <p>{{ request.user }}</p>
+            </ul>
+        </div>
     </div>
-  </nav>
+</nav>
 
   <!-- NAVBAR END -->
 
