@@ -2916,7 +2916,7 @@ input[type="button"].btn-block {
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 160px;
+  min-width: 300px;
   padding: 5px 0;
   margin: 2px 0 0;
   list-style: none;
@@ -3436,9 +3436,6 @@ textarea.input-group-sm > .input-group-btn > .btn {
  .nav >  p{
   position: relative;
   display: block;
-  padding: 10px 15px;
-  margin: 0px;
-
  }
 
 .nav > li > a {
@@ -3650,7 +3647,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   border-bottom-color: #a6340c;
 }
 .nav-tabs .dropdown-menu {
-  margin-top: -1px;
+  margin-top: 0px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
