@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^faq/$', views.faq, name="faq"),
 
     url(r'^listaTrabalhos/$', views.TrabalhosView.as_view(), name="lista-trabalhos"),
+    url(r'^meusTrabalhos/$', views.MeusTrabalhosView.as_view(), name="meus-trabalhos"),
     url(r'^criarTrabalho/$', views.TrabalhoCreate.as_view(), name="criar-trabalho"),
     url(r'^editarTrabalho/(?P<pk>\d+)/$', views.TrabalhoUpdate.as_view(), name="editar-trabalho"),
     url(r'^deletarTrabalho/(?P<pk>\d+)/$', views.TrabalhoDelete.as_view(), name="deletar-trabalho"),
@@ -20,8 +21,8 @@ urlpatterns = [
     url(r'^listaVoluntarios/(?P<pk>\d+)/$', views.TrabalhoUsuarioView.as_view(), name='lista-voluntarios'),
 
     url(r'^registrar/$', views.UserFormView.as_view(), name='registrar'),
-    url(r'^user/(?P<pk>\d+)/$', views.UserUpdate.as_view(template_name='user_form.html'), name='user-update'),
-    url(r'^user/(?P<pk>\d+)/delete/$', views.UserDelete.as_view(success_url='../'), name='user-delete'),
+    url(r'^user/edit/$', views.UserUpdate.as_view(template_name='user_form.html'), name='user-update'),
+    url(r'^user/delete/$', views.UserDelete.as_view(success_url='../'), name='user-delete'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': '../'}, name='logout'),
 ]

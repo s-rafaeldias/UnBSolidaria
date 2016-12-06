@@ -111,6 +111,13 @@
                  <li>
                      <a href="{% url 'faq' %}">FAQ</a>
                 </li>
+                 <li>
+                    <a href="{% url 'lista-trabalhos' %}">Trabalhos</a>
+                </li>
+                {% if user.type == 1%}
+                <li>
+                    <a href="{% url 'meus-trabalhos'%}">Meus Trabalhos</a>
+                </li>
         </ul>
             <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
@@ -130,10 +137,10 @@
                                         <p class="text-left"><strong>Nombre Apellido</strong></p>
                                         <p class="text-left small">correoElectronico@email.com</p>
                                         <p class="text-left">
-                                            <a href="{% url 'user-update' user.id %}" class="btn btn-primary btn-block btn-sm">Editar</a>
+                                            <a href="{% url 'user-update'%}" class="btn btn-primary btn-block btn-sm">Editar</a>
                                         </p>
                                         <p class="text-left">
-                                            <a href="{% url 'user-delete' user.id %}" class="btn btn-primary btn-block btn-sm">Excluir perfil</a>
+                                            <a href="{% url 'user-delete'%}" class="btn btn-primary btn-block btn-sm">Excluir perfil</a>
                                         </p>
                                     </div>
                                 </div>
@@ -145,7 +152,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <p>
-                                            <a href="{% url 'logout' %}" class="btn btn-danger btn-block">Cerrar Sesion</a>
+                                            <a href="{% url 'logout' %}" class="btn btn-danger btn-block">Encerrar Sessão</a>
                                         </p>
                                     </div>
                                 </div>

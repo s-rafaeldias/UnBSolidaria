@@ -68,6 +68,9 @@ class UserUpdate(LoginRequiredMixin, UpdateView):
     fields = ['first_name', 'last_name', 'username', 'email', 'cpf', 'cnpj', 'telephone', 'type',
               'gender', 'description']
 
+    def get_object(self, queryset=None):
+        return self.request.user
+
 
 class UserDelete(LoginRequiredMixin, generic.DeleteView):
     login_url = '/login/'
@@ -75,6 +78,10 @@ class UserDelete(LoginRequiredMixin, generic.DeleteView):
     template_name = '../templates/trabalhos/deletarTrabalho.html'
     model = User
     success_url = reverse_lazy('../')
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
 
 def contato(request):
     if request.method == 'GET':
@@ -113,10 +120,10 @@ def faq(request):
 
     return render_to_response('faq/lista.html', {'perguntas': perguntas}, context_instance=RequestContext(request))
 
+
 class DetailsNoticia(generic.DeleteView):
     model = Noticia
     template_name = 'noticia/noticia.html'
-
 
 
 def noticias(request):
@@ -135,6 +142,7 @@ def noticias(request):
 
     return render_to_response('noticia/lista.html', {'noticias': noticias}, context_instance=RequestContext(request))
 
+
 #######################################################################################
 class TrabalhosView(LoginRequiredMixin, generic.ListView):
     login_url = '/login/'
@@ -147,21 +155,53 @@ class TrabalhosView(LoginRequiredMixin, generic.ListView):
         return Trabalho.objects.all()
 
 
+class MeusTrabalhosView(LoginRequiredMixin, generic.ListView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
+    template_name = '../templates/trabalhos/meusTrabalhos.html'
+    context_object_name = 'lista_trabalhos'
+    paginate_by = 5
+
+    def get(self, request, *args, **kwargs):
+        if self.request.user.type == 1:
+            return super(MeusTrabalhosView, self).get(request, *args, **kwargs)
+        else:
+            return redirect('/listaTrabalhos')
+
+    def get_queryset(self):
+        return Trabalho.objects.all()
+
+
 class TrabalhoCreate(LoginRequiredMixin, generic.CreateView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/criarTrabalho.html'
     model = Trabalho
-    fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'dias', 'organizacao']
+    fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'organizacao']
     success_url = '/listaTrabalhos'
+
+    def get(self, request, *args, **kwargs):
+        if self.request.user.type == 1:
+            return super(TrabalhoCreate, self).get(request, *args, **kwargs)
+        else:
+            return redirect('/listaTrabalhos')
+
 
 class TrabalhoUpdate(LoginRequiredMixin, generic.UpdateView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/editarTrabalho.html'
     model = Trabalho
-    fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'dias']
+    fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim']
     success_url = '/listaTrabalhos'
+
+    def get(self, request, *args, **kwargs):
+        if self.request.user.type == 1:
+            return super(TrabalhoUpdate, self).get(request, *args, **kwargs)
+        else:
+            return redirect('/listaTrabalhos')
+
+
 
 
 class TrabalhoDelete(LoginRequiredMixin, generic.DeleteView):
@@ -170,6 +210,12 @@ class TrabalhoDelete(LoginRequiredMixin, generic.DeleteView):
     template_name = '../templates/trabalhos/deletarTrabalho.html'
     model = Trabalho
     success_url = reverse_lazy('lista-trabalhos')
+
+    def get(self, request, *args, **kwargs):
+        if self.request.user.type == 1:
+            return super(TrabalhoDelete, self).get(request, *args, **kwargs)
+        else:
+            return redirect('/listaTrabalhos')
 
 
 class TrabalhoDetailView(LoginRequiredMixin, generic.DetailView):
@@ -181,6 +227,7 @@ class TrabalhoDetailView(LoginRequiredMixin, generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(TrabalhoDetailView, self).get_context_data(**kwargs)
         return context
+
 
 #######################################################################################
 class TrabalhoUsuarioCreate(generic.CreateView):
@@ -195,6 +242,7 @@ class TrabalhoUsuarioCreate(generic.CreateView):
         context['trabalho'] = Trabalho.objects.get(pk=teste)
         return context
 
+
 class TrabalhoUsuarioUpdate(LoginRequiredMixin, generic.UpdateView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
@@ -202,6 +250,7 @@ class TrabalhoUsuarioUpdate(LoginRequiredMixin, generic.UpdateView):
     model = UsuarioTrabalho
     fields = ['organizacao', 'trabalho', 'voluntario']
     success_url='/listaTrabalhos'
+
 
 class TrabalhoUsuarioDelete(LoginRequiredMixin, generic.DeleteView):
     login_url = '/login/'
