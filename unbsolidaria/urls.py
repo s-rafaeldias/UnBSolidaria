@@ -19,6 +19,8 @@ urlpatterns = [
 
     url(r'^entrarTrabalho/(?P<pk>\d+)/$', views.TrabalhoUsuarioCreate.as_view(), name='entrar-trabalho'),
     url(r'^listaVoluntarios/(?P<pk>\d+)/$', views.TrabalhoUsuarioView.as_view(), name='lista-voluntarios'),
+    url(r'^contribuicaoTrabalhos/$', views.ContribuicaoTrabalhosView, name="contribuicao-trabalhos"),
+
 
     url(r'^registrar/$', views.UserFormView.as_view(), name='registrar'),
     url(r'^user/edit/$', views.UserUpdate.as_view(template_name='user_form.html'), name='user-update'),
