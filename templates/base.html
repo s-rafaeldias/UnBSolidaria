@@ -124,17 +124,17 @@
                      <a href="{% url 'faq' %}">FAQ</a>
                 </li>
                 <li>
-                     <a href="{% url 'user-update' user.id %}">Editar</a>
+                     <a href="{% url 'user-update'%}">Editar</a>
                  </li>
                 <li>
-                    <a href="{% url 'user-delete' user.id %}">Excluir usuário</a>
+                    <a href="{% url 'user-delete'%}">Excluir usuário</a>
                 </li>
                  <li>
                     <a href="{% url 'lista-trabalhos' %}">Trabalhos</a>
                 </li>
                 {% if user.type == 1%}
                 <li>
-                    <a href="{% url 'meus-trabalhos' user.id %}">Meus Trabalhos</a>
+                    <a href="{% url 'meus-trabalhos'%}">Meus Trabalhos</a>
                 </li>
 				{% endif%}
                 <li>

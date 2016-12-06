@@ -68,6 +68,9 @@ class UserUpdate(LoginRequiredMixin, UpdateView):
     fields = ['first_name', 'last_name', 'username', 'email', 'cpf', 'cnpj', 'telephone', 'type',
               'gender', 'description']
 
+    def get_object(self, queryset=None):
+        return self.request.user
+
 
 class UserDelete(LoginRequiredMixin, generic.DeleteView):
     login_url = '/login/'
@@ -75,6 +78,9 @@ class UserDelete(LoginRequiredMixin, generic.DeleteView):
     template_name = '../templates/trabalhos/deletarTrabalho.html'
     model = User
     success_url = reverse_lazy('../')
+
+    def get_object(self, queryset=None):
+        return self.request.user
 
 
 def contato(request):
@@ -148,15 +154,23 @@ class TrabalhosView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         return Trabalho.objects.all()
 
+
 class MeusTrabalhosView(LoginRequiredMixin, generic.ListView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/meusTrabalhos.html'
     context_object_name = 'lista_trabalhos'
-    paginate_by = 5	
+    paginate_by = 5
+
+    def get(self, request, *args, **kwargs):
+        if self.request.user.type == 1:
+            return super(MeusTrabalhosView, self).get(request, *args, **kwargs)
+        else:
+            return redirect('/listaTrabalhos')
 
     def get_queryset(self):
         return Trabalho.objects.all()
+
 
 class TrabalhoCreate(LoginRequiredMixin, generic.CreateView):
     login_url = '/login/'
@@ -170,7 +184,7 @@ class TrabalhoCreate(LoginRequiredMixin, generic.CreateView):
         if self.request.user.type == 1:
             return super(TrabalhoCreate, self).get(request, *args, **kwargs)
         else:
-            return redirect('../listaTrabalhos')
+            return redirect('/listaTrabalhos')
 
 
 class TrabalhoUpdate(LoginRequiredMixin, generic.UpdateView):
@@ -185,7 +199,7 @@ class TrabalhoUpdate(LoginRequiredMixin, generic.UpdateView):
         if self.request.user.type == 1:
             return super(TrabalhoUpdate, self).get(request, *args, **kwargs)
         else:
-            return redirect('../listaTrabalhos')
+            return redirect('/listaTrabalhos')
 
 
 
@@ -201,7 +215,7 @@ class TrabalhoDelete(LoginRequiredMixin, generic.DeleteView):
         if self.request.user.type == 1:
             return super(TrabalhoDelete, self).get(request, *args, **kwargs)
         else:
-            return redirect('../listaTrabalhos')
+            return redirect('/listaTrabalhos')
 
 
 class TrabalhoDetailView(LoginRequiredMixin, generic.DetailView):

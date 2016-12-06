@@ -28,9 +28,7 @@
       </div>
         {% endif %}
       {% endfor %}
-      {% if user.id == trabalho.organizacao_id %}
-        <center> <a href="/criarTrabalho"><button class = "btn btn-primary btn-sm">Novo trabalho</button></a></center>
-    {% endif %} 
+    <a href="{% url 'criar-trabalho'%}"><button class = "btn btn-primary btn-sm">Novo trabalho</button></a>
    <hr class="head-border">
   </div>
 </div>
