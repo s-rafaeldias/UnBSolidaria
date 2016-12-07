@@ -3,6 +3,8 @@
 {% block content %}
 
 <!-- Trabalhos voluntário -->
+<div id="trabalho">
+  
 
 <div class = "panel panel-primary">
    <div class = "panel-heading">
@@ -10,8 +12,8 @@
    </div>
    <div id="trabalhos" class = "panel-body">
 
-		<div class = "list-group">
-  		<a href = "#" class = "list-group-item active"><h3 class = "panel-title">Trabalhos  </h3></a>
+    <div class = "list-group">
+      <a href = "#" class = "list-group-item active"><h3 class = "panel-title">Trabalhos  </h3></a>
 
       {% for voluntario in lista_voluntarios %}
 
@@ -25,7 +27,7 @@
 </div>
 
 
-			<!-- paginacao -->
+      <!-- paginacao -->
 <center>
 
   {% if is_paginated %}
@@ -54,6 +56,7 @@
   </center>
 <hr class="head-border">
       <!-- fim paginacao -->
+</div>
 </div>
 
 

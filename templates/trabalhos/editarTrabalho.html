@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block content %}
+<div id="trabalho">
 <div class = "panel panel-primary">
    	<div class = "panel-heading">
     <h4 class = "panel-title">Editar trabalho</h4>
@@ -15,14 +16,16 @@
       <hr class="head-border">
       <center>
 			<form action="" method="post">{% csrf_token %}
-			
-    			{{ form.as_p }}
-    		<hr class="head-border">
-    			<input class = "btn btn-primary btn-sm" type="submit" value="Update" />
+			   <div class="control-label col-sm-2">
+    			{{ form.as_p }} 
+         </div>
+    			<input class = "btn btn-primary btn-sm" type="submit" value="Atualizar" />
     			
     		</center>
         </form>
 			</form>
 		</div>
 </div>
+</div>
+
 {% endblock content %}
