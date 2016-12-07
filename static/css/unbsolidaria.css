@@ -12,8 +12,8 @@
 }
 
 #noticias .btn-default{
-    color:#7d7a7a;
-    background-color:#ebebeb;
+    color:#0b132b;
+    background-color:#fffffa;
     cursor:not-allowed;
 }
 
@@ -59,7 +59,6 @@
     vertical-align: middle;
     cursor: pointer;
     background-image: none;
-    border: 1px solid transparent;
     white-space: nowrap;
     padding: 6px 12px;
     font-size: 14px;
@@ -77,29 +76,28 @@
     background-color: #443e44;
 }
 
-.noticia{
+.noticia, .pergunta{
     min-height: 300px;
-    color:#27ad60;
-    border: solid 1px #fff;
+    background-color:#fffffa;
     margin: 20px;
     padding: 10px;
 }
 
-.noticia h2{
-    color:#fff;
+.noticia h2, .pergunta h3{
+    color:#0b132b;
     font-weight: 400;
     font-size: 50px;
     border : none;
 }
 
-.noticia p, .pergunta p{
-    color:#968e8e;
+.noticia p, .pergunta p .leia a{
+    color:#0b132b;
     text-align: center;
 }
 
 .noticia .texto, .pergunta .texto{
-    text-align: center;
-    color:#27ad60;
+    text-align: justify;
+    color:#0b132b;
 }
 
 .noticia .leia{
