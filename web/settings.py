@@ -76,12 +76,9 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'django.template.context_processors.static',
                 'django.template.context_processors.request',
-<<<<<<< HEAD
                 'django.template.context_processors.media',
                 'django.template.context_processors.static',
                 'django.contrib.auth.context_processors.auth',
-=======
->>>>>>> 6dc2ae372fbf3ab24e27074278918fd72fa61259
                 'django.contrib.messages.context_processors.messages',
             ],
         },
