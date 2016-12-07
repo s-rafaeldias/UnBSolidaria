@@ -172,6 +172,11 @@ class MeusTrabalhosView(LoginRequiredMixin, generic.ListView):
         return Trabalho.objects.all()
 
 
+
+def ContribuicaoTrabalhosView(request):
+        return render_to_response('trabalhos/contribuicaoTrabalhos.html', {'contribuicao_trabalhos': UsuarioTrabalho.objects.all(), 'lista_trabalhos': Trabalho.objects.all() }, context_instance=RequestContext(request))
+
+
 class TrabalhoCreate(LoginRequiredMixin, generic.CreateView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
@@ -200,8 +205,6 @@ class TrabalhoUpdate(LoginRequiredMixin, generic.UpdateView):
             return super(TrabalhoUpdate, self).get(request, *args, **kwargs)
         else:
             return redirect('/listaTrabalhos')
-
-
 
 
 class TrabalhoDelete(LoginRequiredMixin, generic.DeleteView):
@@ -271,3 +274,4 @@ class TrabalhoUsuarioView(LoginRequiredMixin, generic.ListView):
         teste = self.kwargs['pk']
         print teste
         return UsuarioTrabalho.objects.all().filter(trabalho_id=teste)
+

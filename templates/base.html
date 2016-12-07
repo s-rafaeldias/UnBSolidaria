@@ -118,7 +118,12 @@
                 <li>
                     <a href="{% url 'meus-trabalhos'%}">Meus Trabalhos</a>
                 </li>
-				{% endif%}
+				        {% endif%}
+                {% if user.type == 0%}
+                <li>
+                    <a href="{% url 'contribuicao-trabalhos'%}">Contribuições</a>
+                </li>
+                {% endif%}
                 <li>
                     <a href="/report_builder">Gerador de Relatórios</a>
                 </li>
