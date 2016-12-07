@@ -124,9 +124,11 @@
                     <a href="{% url 'contribuicao-trabalhos'%}">Contribuições</a>
                 </li>
                 {% endif%}
-                <li>
-                    <a href="/report_builder">Gerador de Relatórios</a>
-                </li>
+                {% if user.type == 3 %}
+                  <li>
+                      <a href="/report_builder">Gerador de Relatórios</a>
+                  </li>
+                {% endif %}
                 <li>
                     <a href="{% url 'logout' %}">Logout</a>
                 </li>
@@ -149,8 +151,8 @@
                                         </p>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class="text-left"><strong>Nombre Apellido</strong></p>
-                                        <p class="text-left small">correoElectronico@email.com</p>
+                                        <p class="text-left"><strong>{{request.user.username}}</strong></p>
+                                        <p class="text-left small">{{request.user.email}}</p>
                                         <p class="text-left">
                                             <a href="{% url 'user-update'%}" class="btn btn-primary btn-block btn-sm">Editar</a>
                                         </p>
