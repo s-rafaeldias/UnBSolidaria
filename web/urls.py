@@ -20,4 +20,10 @@ from django.contrib import admin
 urlpatterns = [
     url(r'', include("unbsolidaria.urls")),
     url(r'^admin/', admin.site.urls),
+<<<<<<< HEAD
+    url(r'^report_builder/', include('report_builder.urls')),
+
+=======
+    url(r'^admin_tools/', include('admin_tools.urls')),
+>>>>>>> 6dc2ae372fbf3ab24e27074278918fd72fa61259
 ]

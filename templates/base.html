@@ -118,7 +118,14 @@
                 <li>
                     <a href="{% url 'meus-trabalhos'%}">Meus Trabalhos</a>
                 </li>
-                {% endif %}
+                {% if user.type == 0%}
+                <li>
+                    <a href="{% url 'contribuicao-trabalhos'%}">Contribuições</a>
+                </li>
+                {% endif%}
+                <li>
+                    <a href="/report_builder">Gerador de Relatórios</a>
+                </li>
         </ul>
             <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
