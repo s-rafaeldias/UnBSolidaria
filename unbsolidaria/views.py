@@ -14,6 +14,7 @@ from django.views.generic import View
 from django.contrib.auth import authenticate, login
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 from django.core.urlresolvers import reverse_lazy
+import django_filters
 
 # Create your views here.
 
@@ -275,3 +276,39 @@ class TrabalhoUsuarioView(LoginRequiredMixin, generic.ListView):
         print teste
         return UsuarioTrabalho.objects.all().filter(trabalho_id=teste)
 
+######################################################################################################
+
+class UserFilter(django_filters.FilterSet):
+    class Meta:
+        model = User
+        fields = {
+            'gender': ['exact'],
+            'type': ['exact']
+        }
+
+class TrabalhoFilter(django_filters.FilterSet):
+    class Meta:
+        model = Trabalho
+        fields = {
+            'vagas': ['exact']
+        }
+
+def filters(request):
+    # f = UserFilter(request.GET, queryset=User.objects.all())
+    return render(request, 'filtros/filter.html')
+
+def user_filters(request):
+    f = UserFilter(request.GET, queryset=User.objects.all())
+    # f = UserFilter(request.GET, queryset=User.objects.all())
+    return render(request, 'filtros/user.html', {'filter': f})
+
+def trab_user_filters(request):
+    f = UserFilter(request.GET, queryset=User.objects.all())
+    g = TrabalhoFilter(request.GET, queryset=Trabalho.objects.all())
+    # f = UserFilter(request.GET, queryset=User.objects.all())
+    return render(request, 'filtros/trab_user.html', {'filter': f, 'filter2': g})
+
+def trabalho_filters(request):
+    g = TrabalhoFilter(request.GET, queryset=Trabalho.objects.all())
+    # f = UserFilter(request.GET, queryset=User.objects.all())
+    return render(request, 'filtros/trab.html', {'filter': g})

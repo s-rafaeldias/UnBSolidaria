@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br><br>
+    <form action="" method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+    </form>
+    {% for obj in filter.qs %}
+        {{ obj.first_name }} {{ obj.last_name }}<br />
+    {% endfor %}
+{% endblock %}
