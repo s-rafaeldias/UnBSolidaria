@@ -283,14 +283,28 @@ class UserFilter(django_filters.FilterSet):
         model = User
         fields = {
             'gender': ['exact'],
-            'type': ['exact']
+            'type': ['exact'],
+            'last_login': ['gt'],
+            'date_joined': ['gt'],                        
         }
 
 class TrabalhoFilter(django_filters.FilterSet):
     class Meta:
         model = Trabalho
         fields = {
-            'vagas': ['exact']
+            'vagas': ['exact'],
+            'organizacao': ['exact'],
+            'data_inicio': ['exact'],
+            'data_fim': ['exact'],
+        }
+
+class UsuarioTrabalhoFilter(django_filters.FilterSet):
+    class Meta:
+        model = UsuarioTrabalho
+        fields = {
+            'organizacao': ['exact'],
+            'trabalho': ['exact'],
+            'voluntario': ['exact'],
         }
 
 def filters(request):
@@ -303,10 +317,9 @@ def user_filters(request):
     return render(request, 'filtros/user.html', {'filter': f})
 
 def trab_user_filters(request):
-    f = UserFilter(request.GET, queryset=User.objects.all())
-    g = TrabalhoFilter(request.GET, queryset=Trabalho.objects.all())
+    f = UsuarioTrabalhoFilter(request.GET, queryset=UsuarioTrabalho.objects.all())
     # f = UserFilter(request.GET, queryset=User.objects.all())
-    return render(request, 'filtros/trab_user.html', {'filter': f, 'filter2': g})
+    return render(request, 'filtros/trab_user.html', {'filter': f})
 
 def trabalho_filters(request):
     g = TrabalhoFilter(request.GET, queryset=Trabalho.objects.all())
