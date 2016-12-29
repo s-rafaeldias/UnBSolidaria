@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView, DeleteView
-from .models import Noticia, FAQ, Trabalho, User, Organizacao, Voluntario
+from .models import Noticia, FAQ, Trabalho, User
 from django.core.mail import send_mail
 from django.http import BadHeaderError
 from django.http import HttpResponse
@@ -9,7 +9,7 @@ from django.shortcuts import render_to_response
 from .models import Noticia, FAQ,  UsuarioTrabalho
 from django.template import RequestContext
 from django.views import generic
-from .forms import ContactForm, UserForm, OrganizacaoForm, VoluntarioForm
+from .forms import ContactForm, UserForm
 from django.views.generic import View
 from django.contrib.auth import authenticate, login
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
@@ -26,36 +26,27 @@ class IndexView(generic.ListView):
         return Noticia.objects.all()
 
 
-class OrganizacaoFormView(View):
+class UserFormView(View):
     form_class = UserForm
-    org_form_class = OrganizacaoForm
-    template_name = '../templates/cadastro/organizacao_form.html'
+    template_name = '../templates/user_form.html'
 
     # mostrar um form em branco
     def get(self, request):
         form = self.form_class(None)
-	form_org = self.org_form_class(None)
-
-        return render(request, self.template_name, {'form': form, 'form_org': form_org})
+        return render(request, self.template_name, {'form': form})
 
     # processar informacoes
     def post(self, request):
         form = self.form_class(request.POST)
-   	org_form = self.org_form_class(request.POST)
 
         if form.is_valid():
-	    
             user = form.save(commit=False)  # cria um objeto, porem n coloca no banco ainda
+
             # normaliza
-	    user.type = 1
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             user.set_password(password)
             user.save()
-	    if org_form.is_valid():
-	    	org_user = org_form.save(commit=False)  # cria um objeto, porem n coloca no banco ainda
-		org_user.organizacao_fk = user.id
-	    	org_user.save()
 
             # returna objeto se esta tudo certo com as credenciais
             user = authenticate(username=username, password=password)
@@ -64,53 +55,10 @@ class OrganizacaoFormView(View):
 
                 if user.is_active:  # analisa se o usuario esta ativo, ou seja, n esta banido nem nada
                     login(request, user)
-                    return redirect('../../')
+                    return redirect('../')
 
         return render(request, self.template_name,
-                      {'form': form, 'org_form': org_form})  # se o usuario nao for valido, returna ele pro formulario de novo
-
-class VoluntarioFormView(View):
-    form_class = UserForm
-    vol_form_class = VoluntarioForm
-    template_name = '../templates/cadastro/voluntario_form.html'
-
-    # mostrar um form em branco
-    def get(self, request):
-        form = self.form_class(None)
-	form_vol = self.vol_form_class(None)
-
-        return render(request, self.template_name, {'form': form, 'form_vol': form_vol})
-
-     # processar informacoes
-    def post(self, request):
-        form = self.form_class(request.POST)
-   	vol_form = self.vol_form_class(request.POST)
-
-        if form.is_valid():
-
-            user = form.save(commit=False )  # cria um objeto, porem n coloca no banco ainda
-         # normaliza
-	    user.type = 0
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user.set_password(password)
-            user.save()
-
-            if vol_form.is_valid():
-	    	vol_user = vol_form.save(commit=False)  # cria um objeto, porem n coloca no banco ainda
-		vol_user.voluntario_fk = user.id
-  	    	vol_user.save()
-            # returna objeto se esta tudo certo com as credenciais
-            user = authenticate(username=username, password=password)
-
-            if user is not None:
-
-                if user.is_active:  # analisa se o usuario esta ativo, ou seja, n esta banido nem nada
-                    login(request, user)
-                    return redirect('../../')
-
-        return render(request, self.template_name,
-                      {'form': form, 'vol_form': vol_form})  # se o usuario nao for valido, returna ele pro formulario de novo
+                      {'form': form})  # se o usuario nao for valido, returna ele pro formulario de novo
 
 
 class UserUpdate(LoginRequiredMixin, UpdateView):
