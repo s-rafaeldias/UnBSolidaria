@@ -8,3 +8,5 @@ openpyxl==2.3.5
 python-dateutil==2.6.0
 six==1.10.0
 django-admin-tools
+django-filter
+
