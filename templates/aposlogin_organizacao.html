@@ -1,0 +1,353 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<!-- ThreeSixty Creativity Website Template -->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Organizacao - Pos login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ThreeSixty Bootstrap Template">
+    <meta name="author" content="Fabian Bentz Webdesign">
+
+    <!-- google web fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,300italic,500,400italic,700' rel='stylesheet' type='text/css'>
+
+    <!-- CSS Styles -->
+
+    <!-- bootstrap css -->
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+
+    <!-- custom css -->
+    <link href="{% static "css/custom.css" %}" rel="stylesheet">
+
+    <!-- standart theme css -->
+    <link rel="stylesheet" id="theme" href="{% static "css/theme1.css" %}" type="text/css" />
+
+    <!-- Font Awesome Icons css -->
+    <link rel="stylesheet" href="{% static "font-awesome/css/font-awesome.min.css" %}">
+
+    <!-- BxSlider and Sequence Slider css -->
+    <link rel="stylesheet" href="{% static "css/jquery.bxslider.css" %}" type="text/css" />
+    <link rel="stylesheet" media="screen" href="{% static "css/sequence-slider.css" %}" />
+
+    <!-- Magnific Popup core CSS file -->
+<link rel="stylesheet" href="{% static "css/magnific-popup.css" %}">
+
+    <!-- Color Switch Panel css -->
+    <link rel="stylesheet" href="{% static "css/color.switch.css" %}" type="text/css" />
+
+    <!-- Back to Top Button css -->
+    <link rel="stylesheet" href="{% static "css/top.css" %}" type="text/css" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="{% static "js/html5shiv.js" %}"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+  <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+	<link rel="apple-touch-icon" href="{% static "img/apple-touch-icon.png" %}">
+	<link rel="apple-touch-icon" sizes="72x72" href="{% static "img/apple-touch-icon-72x72.png" %}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{% static "img/apple-touch-icon-114x114.png" %}">
+
+
+	<!-- Your Google Analytics Code Here!! -->
+
+
+  </head>
+
+<body>
+
+<!-- START PRIMARY LAYOUT
+======================== -->
+
+<!-- Back to Top Button (visible after scrolling 1200px down) Change Styles at the top.css file -->
+
+<div class="button-top" id="top-bt">
+
+  <a href="#about"><i class="fa fa-sort-desc fa-3x"></i></a>
+
+</div>
+
+<!-- Back to Top Button END -->
+
+<!-- NAVBAR -->
+
+	   
+<!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation" id="menu">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+           <!-- MENU LINKS -->
+           <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav" id="navigation">
+                <li><a href="#about">About</a></li>
+                <li><a href="#service">Service</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#price">Price</a></li>
+                <li><a href="#clients">Clients</a></li>
+                <li><a href="#facts">Facts</a></li>
+                <li><a href="#contact">Contact</a></li>
+				  <li><a href="#contact">Sair</a></li>
+              </ul>
+          </div>
+        </div>
+</nav>
+
+<!-- NAVBAR END -->
+
+	
+<!-- Solicitações de vonluntários -->
+<div class = "panel panel-primary">
+   <div class = "panel-heading">
+      <h4 class = "panel-title">Solicitações de Voluntários </h4>
+   </div>
+ 	
+  	 <a href = "#" class = "list-group-item">
+	   
+      <h4 class = "list-group-item-heading">
+		  <h4 class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#sandra" aria-expanded="false" aria-controls="sandra">
+		  <img width="64px" height="64px" src = "https://img.buzzfeed.com/buzzfeed-static/static/2015-04/7/14/enhanced/webdr09/anigif_enhanced-17646-1428431456-5.gif" alt = "Generic placeholder image">
+			 Sandra se voluntariou para contribuir com o Trabalho 1
+			
+     	  </h4> 
+	  </h4>
+		 
+       <div id="sandra" class="collapse" role="tabpanel" aria-labelledby="sandra">
+			Boa tarde, gostaria de contribuir com o trabalho de vocês elegantemente!
+      </div>
+	  <p class = "btn btn-primary btn-sm"  role = "button">Visitar Voluntário </p>	  
+ 	 	<button type = "button" class = "btn btn-primary btn-sm">
+      		<span class = "glyphicon glyphicon-thumbs-up"></span>
+  	 	</button>
+		 
+		<button type = "button" class = "btn btn-primary btn-sm">
+     		<span class = "glyphicon glyphicon-thumbs-down"></span> 
+   		</button>
+	 </a>
+		
+  	 <a href = "#" class = "list-group-item">
+      <h4 class = "list-group-item-heading" >
+		<h4 class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#cap" aria-expanded="false" aria-controls="cap">
+		   <img width="64px" height="64px"  src = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSGSqZeWxV6czAqR-wLZOPJ9R2pLe7vsQDyf4g2mO0iE-B1VWvxdja8phM" 
+                  alt = "KKKKKKKKK">
+         Capivara se voluntariou para contribuir com o Trabalho 1	
+      	</h4>
+	  </h4>
+	   
+       <div id="cap" class="collapse" role="tabpanel" aria-labelledby="cap">
+        Como sou o ser mais legal do universo, gostaria lhes ajudar no projeto de vocês.
+      </div>
+		 
+ 		<p class = "btn btn-primary btn-sm"  role = "button">Visitar Voluntário </p>
+ 		<button type = "button" class = "btn btn-primary btn-sm">
+     		<span class = "glyphicon glyphicon-thumbs-up"></span>
+  	 	</button>
+		<button type = "button" class = "btn btn-primary btn-sm">
+     		<span class = "glyphicon glyphicon-thumbs-down"></span>
+   		</button>
+	 </a>
+	<a href = "#" class = "list-group-item">
+      <h4 class = "list-group-item-heading" >
+		<h4 class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#cap1" aria-expanded="false" aria-controls="cap1">
+		   <img width="64px" height="64px"  src = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSGSqZeWxV6czAqR-wLZOPJ9R2pLe7vsQDyf4g2mO0iE-B1VWvxdja8phM" 
+                  alt = "KKKKKKKKK">
+         Capivara se voluntariou para contribuir com o Trabalho 2	
+      	</h4>
+	  </h4>
+	   
+       <div id="cap1" class="collapse" role="tabpanel" aria-labelledby="cap1">
+        Como sou o ser mais legal do universo, gostaria lhes ajudar no projeto de vocês.
+      </div>
+		 
+ 		<p class = "btn btn-primary btn-sm"  role = "button">Visitar Voluntário </p>
+ 		<button type = "button" class = "btn btn-primary btn-sm">
+     		<span class = "glyphicon glyphicon-thumbs-up"></span>
+  	 	</button>
+		<button type = "button" class = "btn btn-primary btn-sm">
+     		<span class = "glyphicon glyphicon-thumbs-down"></span>
+   		</button>
+	 </a>	
+</div>
+	
+
+<!-- Fim Solicitações de vonluntários -->
+
+	  
+<!-- Trabalhos voluntário -->
+		  
+<div class = "panel panel-primary">
+   <div class = "panel-heading">
+      <h4 class = "panel-title">Trabalhos Voluntários</h4>
+   </div>
+   
+   <div class = "panel-body">
+		<div class = "list-group">
+  		<a href = "#" class = "list-group-item active">
+     		<h3 class = "panel-title">Trabalhos em andamento</h3>
+   		</a>
+   
+  		<a href = "#" class = "list-group-item">
+     		<h4 class = "list-group-item-heading">
+      	 	  	Trabalho 1
+     		</h4>
+      
+      		<p class = "list-group-item-text">
+     	  	  Subtítulo do 1º trabalho.
+     		</p>
+	 	   <h4 class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="false" aria-controls="collapse1">
+			  <p class = "btn btn-primary btn-sm"  role = "button">Leia mais </p>
+  			</h4>
+
+     		<div id="collapse1" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+    	  		Descrição sobre o trabalho aqui.
+    		</div>
+  		</a>
+   
+   		<a href = "#" class = "list-group-item">
+     		<h4 class = "list-group-item-heading" >
+        		Trabalho 2
+      		</h4>
+      
+      		<p class = "list-group-item-text">
+        		Subtítulo do 2º trabalho.
+     		</p>
+	       <h4 class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
+		  		<p class = "btn btn-primary btn-sm"  role = "button">Leia mais </p>
+  	 		</h4>
+    
+     		<div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+        		Descrição sobre o trabalho aqui.
+     		</div>
+   		</a>
+	</div>
+	   
+	  <div class = "list-group">
+   		<a href = "#" class = "list-group-item active">
+      		 <h3 class = "panel-title">Trabalhos Realizados</h3>
+ 		</a>
+   
+   
+   		<a href = "#" class="list-group-item">
+      		<h4 class = "list-group-item-heading">
+		  		<img width="64px" height="64px" src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3xb9UkNCcz0iWTmlelfkXL8CCE-akby-A2ZuCmC3wKBTfQB-_ng" 
+            	alt = "Generic placeholder image">
+         		Trabalho realizado 1
+    		</h4>
+      
+     	 <p class = "list-group-item-text">
+         	Breve descrição sobre trabalho realizado (link?)
+     	 </p>
+  		</a>
+   
+  		<a href = "#" class = "list-group-item">
+      		<h4 class = "list-group-item-heading">
+		 		<img width="64px" height="64px" src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3xb9UkNCcz0iWTmlelfkXL8CCE-akby-A2ZuCmC3wKBTfQB-_ng" 
+           		alt = "Generic placeholder image">
+				Trabalho realizado 2</h4>
+     		<p class = "list-group-item-text"> Breve descrição sobre trabalho realizado (link?)</p>
+    	</a>
+	</div>
+	</div>
+</div>
+<!-- Fim Trabalhos voluntário -->
+		  
+
+<!-- SEQUENCE SLIDER Change Styles at the sequence-slider.css file -->
+<div id="top-slider">
+	<div class="slider-bg"></div>
+		   <div class="container">
+
+           <div id="sequence">
+
+				<img class="sequence-prev" src="{% static "img/button-previous.svg" %}" alt="Previous Frame" />
+				<img class="sequence-next" src="{% static "img/button-next.svg" %}" alt="Next Frame" />
+
+				<ul class="sequence-canvas">
+					<li class="animate-in">
+						<h2 class="title">Bootstrap 3</h2>
+						<h3 class="subtitle">Super Flat and modern One Page Website Template</h3>
+						<img class="slider-image" src="{% static "img/slider/1.png" %}" alt="Image" />
+					</li>
+					<li>
+						<h2 class="title">Responsive Design</h2>
+						<h3 class="subtitle">Looks good on all Devices, clean HTML5 and CSS3 Code</h3>
+						<img class="slider-image" src="{% static "img/slider/2.png" %}" alt="Image" />
+					</li>
+					<li>
+						<h2 class="title">Cross Browser</h2>
+						<h3 class="subtitle">Supports modern browsers, touch devices and responsive designs</h3>
+						<img class="slider-image" src="{% static "img/slider/3.png" %}" alt="Image" />
+					</li>
+				</ul>
+
+				<ul class="sequence-pagination">
+					<li><img src="{% static "img/pagination-dot.svg" %}" alt="Image" /></li>
+					<li><img src="{% static "img/pagination-dot.svg" %}" alt="Image" /></li>
+					<li><img src="{% static "img/pagination-dot.svg" %}" alt="Image" /></li>
+				</ul>
+
+          </div>
+
+    </div>
+</div>
+
+<!-- SEQUENCE SLIDER END -->
+
+
+<!-- JAVASCRIPT
+================================================== -->
+
+<!-- BOOTSTRAP JAVASCRIPT -->
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+
+<!-- CUSTOM JAVASCRIPT -->
+<!-- Custom Functions -->
+<script type="text/javascript" src="{% static "js/functions.js" %}"></script>
+
+<!-- Portfolio with mixitup filter and prettyphoto -->
+<script type="text/javascript" src="{% static "js/jquery.mixitup.min.js" %}"></script>
+<!-- Magnific Popup core JS file -->
+<script type="text/javascript" src="{% static "js/magnific.js" %}"></script>
+
+<!-- BxSlider -->
+<script type="text/javascript" src="{% static "js/jquery.bxslider.min.js" %}"></script>
+
+<!-- Sequence Slider -->
+<script type="text/javascript" src="{% static "js/jquery.sequence-min.js" %}"></script>
+
+<!-- Parallax Background -->
+<script type="text/javascript" src="{% static "js/nbw-parallax.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jquery.inview.js" %}"></script>
+
+<!-- Smooth Scrolling -->
+<script type="text/javascript" src="{% static "js/smoothscroll.js" %}"></script>
+
+<!-- Sticky Navigation -->
+<script type="text/javascript" src="{% static "js/jquery.sticky.js" %}"></script>
+
+<!-- Style Switcher -->
+<script type="text/javascript" src="{% static "js/jquery.style-switcher.js" %}"></script>
+
+<!-- Clients Slider -->
+<script type="text/javascript" src="{% static "js/jquery.flexisel.js" %}"></script>
+
+<!-- Retina JS -->
+<script type="text/javascript" src="{% static "js/retina-1.1.0.min.js" %}"></script>
+
+
+</body>
+</html>
