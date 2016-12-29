@@ -328,50 +328,50 @@ class TrabalhoUsuarioView(LoginRequiredMixin, generic.ListView):
 
 ######################################################################################################
 
-class UserFilter(django_filters.FilterSet):
-    class Meta:
-        model = User
-        fields = {
-            'gender': ['exact'],
-            'type': ['exact'],
-            'last_login': ['gt'],
-            'date_joined': ['gt'],                        
-        }
+# class UserFilter(django_filters.FilterSet):
+#     class Meta:
+#         model = User
+#         fields = {
+#             'gender': ['exact'],
+#             'type': ['exact'],
+#             'last_login': ['gt'],
+#             'date_joined': ['gt'],                        
+#         }
 
-class TrabalhoFilter(django_filters.FilterSet):
-    class Meta:
-        model = Trabalho
-        fields = {
-            'vagas': ['exact'],
-            'organizacao': ['exact'],
-            'data_inicio': ['exact'],
-            'data_fim': ['exact'],
-        }
+# class TrabalhoFilter(django_filters.FilterSet):
+#     class Meta:
+#         model = Trabalho
+#         fields = {
+#             'vagas': ['exact'],
+#             'organizacao': ['exact'],
+#             'data_inicio': ['exact'],
+#             'data_fim': ['exact'],
+#         }
 
-class UsuarioTrabalhoFilter(django_filters.FilterSet):
-    class Meta:
-        model = UsuarioTrabalho
-        fields = {
-            'organizacao': ['exact'],
-            'trabalho': ['exact'],
-            'voluntario': ['exact'],
-        }
+# class UsuarioTrabalhoFilter(django_filters.FilterSet):
+#     class Meta:
+#         model = UsuarioTrabalho
+#         fields = {
+#             'organizacao': ['exact'],
+#             'trabalho': ['exact'],
+#             'voluntario': ['exact'],
+#         }
 
-def filters(request):
-    # f = UserFilter(request.GET, queryset=User.objects.all())
-    return render(request, 'filtros/filter.html')
+# def filters(request):
+#     # f = UserFilter(request.GET, queryset=User.objects.all())
+#     return render(request, 'filtros/filter.html')
 
-def user_filters(request):
-    f = UserFilter(request.GET, queryset=User.objects.all())
-    # f = UserFilter(request.GET, queryset=User.objects.all())
-    return render(request, 'filtros/user.html', {'filter': f})
+# def user_filters(request):
+#     f = UserFilter(request.GET, queryset=User.objects.all())
+#     # f = UserFilter(request.GET, queryset=User.objects.all())
+#     return render(request, 'filtros/user.html', {'filter': f})
 
-def trab_user_filters(request):
-    f = UsuarioTrabalhoFilter(request.GET, queryset=UsuarioTrabalho.objects.all())
-    # f = UserFilter(request.GET, queryset=User.objects.all())
-    return render(request, 'filtros/trab_user.html', {'filter': f})
+# def trab_user_filters(request):
+#     f = UsuarioTrabalhoFilter(request.GET, queryset=UsuarioTrabalho.objects.all())
+#     # f = UserFilter(request.GET, queryset=User.objects.all())
+#     return render(request, 'filtros/trab_user.html', {'filter': f})
 
-def trabalho_filters(request):
-    g = TrabalhoFilter(request.GET, queryset=Trabalho.objects.all())
-    # f = UserFilter(request.GET, queryset=User.objects.all())
-    return render(request, 'filtros/trab.html', {'filter': g})
+# def trabalho_filters(request):
+#     g = TrabalhoFilter(request.GET, queryset=Trabalho.objects.all())
+#     # f = UserFilter(request.GET, queryset=User.objects.all())
+#     return render(request, 'filtros/trab.html', {'filter': g})
