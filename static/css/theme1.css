@@ -372,9 +372,8 @@
 /* 9. Contact
 -------------- */
    
-    #contact {
+    #contact, #login, #registro, #trabalho {
 	    background: #3a506b;
-	    padding: 120px 0px ;
 	    display: block;
         width: 100%;
         overflow: hidden;
@@ -384,7 +383,7 @@
 	    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.9);
     }
     
-    #contact h1 {
+    #contact h1, #login h1, #registro h1, #trabalho h1 {
 	    color: #fff;
     }
     

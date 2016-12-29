@@ -2,18 +2,25 @@
 {% load staticfiles %}
 {% block content %}
 
-<form action="" method="post">{% csrf_token %}
+<div id="trabalho">
+
+    
+    
+
+<form class="form-horizontal col-md-2 col-md-offset-5" action="" method="post">{% csrf_token %}
 
     <input id="id_organizacao" type="hidden" name="organizacao" value="{{ trabalho.organizacao.id }}">
     <input id="id_trabalho" type="hidden" name="trabalho" value="{{ trabalho.id }}">
     <input id="id_voluntario" type="hidden" name="voluntario" value="{{ user.id }}">
-    <hr class="head-border">
+<div class="panel">
     <center><a style="color:black">Inscrever-se no trabalho "{{ trabalho.titulo }}"?</a>
     <hr class="head-border">
     <a href="{% url 'lista-trabalhos'%}"><input type="button" class = "btn btn-primary btn-sm" value="Não"></a>
     <input class = "btn btn-primary btn-sm" type="submit" value="Sim" />
      <hr class="head-border">
      </center>
+</div>
 </form>
+</div>
 
 {% endblock content %}
