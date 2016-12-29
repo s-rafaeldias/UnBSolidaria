@@ -118,7 +118,6 @@
                 <li>
                     <a href="{% url 'meus-trabalhos'%}">Meus Trabalhos</a>
                 </li>
-				        {% endif%}
                 {% if user.type == 0%}
                 <li>
                     <a href="{% url 'contribuicao-trabalhos'%}">Contribuições</a>
@@ -126,12 +125,6 @@
                 {% endif%}
                 <li>
                     <a href="/report_builder">Gerador de Relatórios</a>
-                </li>
-                <li>
-                    <a href="{% url 'logout' %}">Logout</a>
-                </li>
-                <li>
-                    {{ request.user }}
                 </li>
         </ul>
             <ul class="nav navbar-nav navbar-right">

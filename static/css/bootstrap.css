@@ -265,11 +265,11 @@ html {
 }
 body {
   font-family: 'Roboto', sans-serif;
-  background: transparent;
+  background-color: #3a506b;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.428571429;
-  color: #443e44;
+  color: #fffffa;
   -webkit-font-smoothing: antialiased;
 
 }
@@ -1918,7 +1918,7 @@ textarea.input-lg {
 }
 @media (min-width: 768px) {
   .form-horizontal .control-label {
-    text-align: right;
+    text-align: center;
   }
 }
 .btn {
@@ -2017,8 +2017,8 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
   color: #ffffff;
-  background-color: #e67e22 ;
-  border-color: #e67e22 ;
+  background-color: #cad2c5;
+  border-color: #cad2c5;
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -2119,8 +2119,8 @@ fieldset[disabled] .btn-danger.active {
 }
 .btn-success {
   color: #ffffff;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #8BC34A;
+  border-color: transparent;
 }
 .btn-success:hover,
 .btn-success:focus,
@@ -4736,7 +4736,7 @@ a.thumbnail.active {
   display: block;
   padding: 10px 15px;
   margin-bottom: -1px;
-  background-color: #ffffff;
+  background-color: #3a506b;
   border: 1px solid #dddddd;
 }
 .list-group-item:first-child {
@@ -4801,6 +4801,7 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 .panel-body {
   padding: 15px;
+  color: #3a506b;
 }
 .panel-body:before,
 .panel-body:after {

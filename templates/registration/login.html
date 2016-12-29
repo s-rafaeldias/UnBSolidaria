@@ -1,28 +1,26 @@
 {% extends '../templates/base.html' %}
 {% block content %}
-<div class="container-fluid">
-
-    <div class="row">
-        <div class="panel panel-default ">
-            <div class="panel-body">
-                <h3>Login</h3>
-                {% if error_message %}
-                    <p><strong>{{ error_message }}</strong></p>
-                {% endif %}
-                <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% include '../templates/form_template.html' %}
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-success">Submit</button>
-                        </div>
+<div id="login">
+    <div class="container">
+        <div class="row">
+            
+        <h1>Login</h1>
+        <hr class="head-border-grey">
+        {% if error_message %}
+            <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+        <div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 form">
+            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% include '../templates/form_template.html' %}
+                <div class="form-group">
+                    <div class="col-md-2 col-md-offset-5">
+                        <button type="submit" class="btn btn-success">Enviar</button>
                     </div>
-                </form>
-
-            </div>
+                </div>
+            </form>
         </div>
-
+        </div>
     </div>
-
 </div>
 {% endblock content %}

@@ -2,14 +2,20 @@
     z-index: 100000 !important;
 }
 
-#contact{
+#contact, #login{
     padding:0 !important;
 }
 
-#noticias, #perguntas{
+#noticias, #perguntas, #registro, #login, #trabalho{
     min-height: 500px;
     background-color: #3a506b;
 }
+
+.form-horizontal p{
+    color: #0b132b;
+    margin: 15px;
+}
+
 
 #noticias .btn-default{
     color:#0b132b;
@@ -76,7 +82,7 @@
     background-color: #443e44;
 }
 
-.noticia, .pergunta{
+.noticia, .pergunta, .trabalho{
     min-height: 300px;
     background-color:#fffffa;
     margin: 20px;
@@ -90,7 +96,18 @@
     border : none;
 }
 
-.noticia p, .pergunta p .leia a{
+.leia a{
+    color:#5bc0be;
+    text-align: center;
+    margin: 30px;
+}
+
+.leia a:hover{
+    color:#039BE5;
+    text-align: center;
+}
+
+.noticia p, .pergunta p{
     color:#0b132b;
     text-align: center;
 }
