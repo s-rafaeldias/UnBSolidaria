@@ -1,0 +1,48 @@
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+{% extends "base.html" %}
+
+{% block content %}
+<br><br>
+    <form action="" method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+    </form>
+
+    <table>
+      <tr>
+        <th>Título</th>
+        <th>Organização</th>
+        <th>Data de Ínicio</th>
+        <th>Data de Término</th>
+        <th>Vagas</th>
+      </tr>
+        {% for obj in filter.qs %}
+      <tr>
+        <td>{{ obj.titulo }}</td>
+        <td>{{ obj.organizacao }}</td>
+        <td>{{ obj.data_inicio }}</td>
+        <td>{{ obj.data_fim }}</td>
+        <td>{{ obj.vagas }}</td>      
+      </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
