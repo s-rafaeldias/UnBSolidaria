@@ -122,6 +122,7 @@
                 <li>
                     <a href="{% url 'meus-trabalhos'%}">Meus Trabalhos</a>
                 </li>
+		{% endif %}
                 {% if user.type == 0%}
                 <li>
                     <a href="{% url 'contribuicao-trabalhos'%}">Contribuições</a>

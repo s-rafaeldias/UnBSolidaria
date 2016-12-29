@@ -28,8 +28,8 @@ urlpatterns = [
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': '../'}, name='logout'),
 
-    url(r'^filtros$', views.filters),
-    url(r'^filtros/user$', views.user_filters),
-    url(r'^filtros/trab$', views.trabalho_filters),
-    url(r'^filtros/trab_user$', views.trab_user_filters),
+#    url(r'^filtros$', views.filters),
+#    url(r'^filtros/user$', views.user_filters),
+#    url(r'^filtros/trab$', views.trabalho_filters),
+#    url(r'^filtros/trab_user$', views.trab_user_filters),
 ]
