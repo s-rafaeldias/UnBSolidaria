@@ -7,23 +7,23 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 # Tabela de extend do User
 class User(AbstractUser):
+    description = models.CharField(max_length=45, blank=True, null=True)
+    telephone = models.CharField(max_length=45, blank=True, null=True)
+    type = models.IntegerField( default=2 )
 
+class Organizacao(models.Model):
+    cnpj = models.CharField(max_length=45, blank=True, null=True)
+    organizacao_fk = models.IntegerField( default=-1 )
+
+class Voluntario(models.Model):
     GENRE_CHOICES = (
         ('m', 'Masculino'),
         ('f', 'Feminino'),
     )
 
-    TYPE_CHOICES = (
-        (0, 'Voluntario'),
-        (1, 'Organizacao'),
-    )
     cpf = models.CharField(max_length=45, blank=True, null=True)
-    cnpj = models.CharField(max_length=45, blank=True, null=True)
-    description = models.CharField(max_length=45, blank=True, null=True)
-    type = models.IntegerField(choices=TYPE_CHOICES, default=3)
     gender = models.CharField(max_length=1, blank=True, null=True, choices=GENRE_CHOICES)
-    telephone = models.CharField(max_length=45, blank=True, null=True)
-
+    voluntario_fk = models.IntegerField( default=-1 )
 
 # Tabela de Noticias
 class Noticia(models.Model):

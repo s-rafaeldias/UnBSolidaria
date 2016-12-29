@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from models import User, Trabalho
+from models import User, Organizacao, Voluntario, Trabalho
 from django import forms
 
 class ContactForm(forms.Form):
@@ -15,8 +15,19 @@ class ContactForm(forms.Form):
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
-
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password', 'cpf', 'cnpj', 'telephone', 'type',
-                  'gender', 'description']
+        fields = ['first_name', 'last_name', 'username', 'email', 'password', 'telephone', 'description']
+
+
+class OrganizacaoForm(forms.ModelForm):
+    class Meta:
+        model = Organizacao
+        fields = ['cnpj']
+
+
+
+class VoluntarioForm(forms.ModelForm):
+    class Meta:
+        model = Voluntario
+        fields = ['cpf', 'gender']
