@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'web.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'lp_2016_2',
-        'USER': 'lp-2016-2',
-        'PASSWORD': 'espPdMbW',
+        'NAME': 'unbsolidaria',
+        'USER': 'root',
+        'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '3306',
     }

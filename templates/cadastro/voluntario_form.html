@@ -1,23 +1,27 @@
 {% extends '../templates/base.html' %}
 {% block content %}
-<div id="registro">
-    <div class="container">
-    
-                <h1>Criar nova conta</h1>
-                 <hr class="head-border-grey">
-                {% if error_message %}
-                    <p><strong>{{ error_message }}</strong></p>
-                {% endif %}
-                <form class="form-horizontal" role="form">
-                    {% csrf_token %}
-                    {% include '../templates/cadastro/voluntario_form_template.html' %}
-                    <div class="form-group">
-                        <div class="col-md-2 col-md-offset-5">
-                            <button type="submit" class="btn btn-success">Submit</button>
+<div class="container-fluid">
+
+    <div id="registro">
+        <div class="container">
+        
+                    <h1>Criar nova conta</h1>
+                     <hr class="head-border-grey">
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include '../templates/cadastro/voluntario_form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-md-2 col-md-offset-5">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+        </div>
     </div>
+
 </div>
 {% endblock content %}
 
