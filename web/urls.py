@@ -15,7 +15,12 @@ Including another URLconf
 3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import url, include
+from unbsolidaria import views
+from rest_framework import routers
 from django.contrib import admin
+
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
     url(r'', include("unbsolidaria.urls")),
@@ -23,4 +28,7 @@ urlpatterns = [
 
     url(r'^report_builder/', include('report_builder.urls')),
     url(r'^admin_tools/', include('admin_tools.urls')),
+
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
