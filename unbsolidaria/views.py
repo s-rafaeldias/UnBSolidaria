@@ -391,5 +391,5 @@ class TrabalhoViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
-    queryset = Trabalho.objects.all().order_by('-date_joined')
+    queryset = Trabalho.objects.all()
     serializer_class = TrabalhoSerializer
