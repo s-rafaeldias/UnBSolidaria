@@ -37,17 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'unbsolidaria',
     'report_builder',
-    'django_filters',
-    'rest_framework',
-    'rest_framework.authtoken',
-    'rest_auth',
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'rest_auth.registration',
-]
+    'django_filters'
 
-SITE_ID = 1
+]
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
