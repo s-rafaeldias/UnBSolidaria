@@ -3,7 +3,7 @@ from . import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    # Urls para usuarios nao logados
+    # Urls para usuarios nao logados 
     url(r'^$', views.IndexView.as_view(), name="index"),
     url(r'^noticias/$', views.noticias, name="noticias"),
     url(r'^noticias/(?P<pk>\d+)$', views.DetailsNoticia.as_view(), name='leiamais'),
