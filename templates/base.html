@@ -86,13 +86,13 @@
             <ul class="nav navbar-nav" id="navigation">
         {% if user.is_authenticated == False%}
           <li>
-            <a href="{% url 'contato' %}">Contato</a>
-          </li>
-          <li>
             <a href="{% url 'noticias' %}">Notícias</a>
           </li>
           <li>
             <a href="{% url 'faq' %}">FAQ</a>
+          </li>
+          <li>
+            <a href="{% url 'contato' %}">Contato</a>
           </li>
           <li>
              <a data-toggle="dropdown">Registrar <span class="caret"></span></a>
@@ -135,9 +135,6 @@
                 {% endif %}
                 <li>
                     <a href="{% url 'logout' %}">Logout</a>
-                </li>
-                <li>
-                    {{ request.user }}
                 </li>
         </ul>
             <ul class="nav navbar-nav navbar-right">

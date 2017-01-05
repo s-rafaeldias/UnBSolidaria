@@ -3,23 +3,20 @@
 
 {% block content %}
 
-<div id="noticias">
-
- <div class="container">
-
-    <div class="noticia center-block">
-
-       <h2>{{noticia.titulo}}</h2>
-       <p>{{noticia.subtitulo}}</p>
-       <hr class="head-border-grey">
-        <div class="texto">
-            {{noticia.texto}}
-       </div>
-
-    </div>
-	<a href="{% url 'noticias' %}">Voltar para lista de noticias.</a>
-
- </div>
+<div class="container">
+	<div id="noticias">
+		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+			<div class="post-heading">
+				<h1>{{noticia.titulo}}</h1>
+       			<h2 class="subheading">{{noticia.subtitulo}}</h2>
+       			<span class="meta">Postado dia {{noticia.dataNoticia}}</span>
+       		</div>
+		</div>
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <p>{{noticia.texto}}</p>
+        </div>
+	</div>
 </div>
 
 {% endblock content %}
+
