@@ -48,7 +48,7 @@ class OrganizacaoFormView(View):
             user = form.save(commit=False)  # cria um objeto, porem n coloca no banco ainda
 
             # normaliza
-            user.type = 1
+            user.tipo = 1
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             user.set_password(password)
@@ -90,7 +90,7 @@ class VoluntarioFormView(View):
 
             user = form.save(commit=False )  # cria um objeto, porem n coloca no banco ainda
             # normaliza
-            user.type = 0
+            user.tipo = 0
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             user.set_password(password)
@@ -115,9 +115,10 @@ class VoluntarioFormView(View):
 class UserUpdate(LoginRequiredMixin, UpdateView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
+    template_name = '../templates/cadastro/editUser.html'
     model = User
-    fields = ['first_name', 'last_name', 'username', 'email', 'cpf', 'cnpj', 'telephone', 'type',
-              'gender', 'description']
+    fields = ['first_name', 'last_name', 'username', 'email', 'telefone', 
+               'descricao']
 
     def get_object(self, queryset=None):
         return self.request.user
@@ -128,7 +129,7 @@ class UserDelete(LoginRequiredMixin, generic.DeleteView):
     redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/deletarTrabalho.html'
     model = User
-    success_url = reverse_lazy('../')
+    success_url = reverse_lazy('../../')
 
     def get_object(self, queryset=None):
         return self.request.user
@@ -214,7 +215,7 @@ class MeusTrabalhosView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
 
     def get(self, request, *args, **kwargs):
-        if self.request.user.type == 1:
+        if self.request.user.tipo == 1:
             return super(MeusTrabalhosView, self).get(request, *args, **kwargs)
         else:
             return redirect('/listaTrabalhos')
@@ -237,7 +238,7 @@ class TrabalhoCreate(LoginRequiredMixin, generic.CreateView):
     success_url = '/listaTrabalhos'
 
     def get(self, request, *args, **kwargs):
-        if self.request.user.type == 1:
+        if self.request.user.tipo == 1:
             return super(TrabalhoCreate, self).get(request, *args, **kwargs)
         else:
             return redirect('/listaTrabalhos')
@@ -252,7 +253,7 @@ class TrabalhoUpdate(LoginRequiredMixin, generic.UpdateView):
     success_url = '/listaTrabalhos'
 
     def get(self, request, *args, **kwargs):
-        if self.request.user.type == 1:
+        if self.request.user.tipo == 1:
             return super(TrabalhoUpdate, self).get(request, *args, **kwargs)
         else:
             return redirect('/listaTrabalhos')
@@ -266,7 +267,7 @@ class TrabalhoDelete(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy('lista-trabalhos')
 
     def get(self, request, *args, **kwargs):
-        if self.request.user.type == 1:
+        if self.request.user.tipo == 1:
             return super(TrabalhoDelete, self).get(request, *args, **kwargs)
         else:
             return redirect('/listaTrabalhos')
@@ -332,8 +333,8 @@ class TrabalhoUsuarioView(LoginRequiredMixin, generic.ListView):
 #     class Meta:
 #         model = User
 #         fields = {
-#             'gender': ['exact'],
-#             'type': ['exact'],
+#             'sexo': ['exact'],
+#             'tipo': ['exact'],
 #             'last_login': ['gt'],
 #             'date_joined': ['gt'],                        
 #         }

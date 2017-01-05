@@ -17,9 +17,7 @@
 			<p>{{ object.content }}</p>
 			<p>Titulo: {{ object.titulo }}</p>
 			<hr class="head-border">
-
-
-			<p>Organizacão: {{ object.first_name }}</p>
+			<p>Organizacão: {{ trabalho.first_name }} {{ trabalho.last_name }}</p>
 			<hr class="head-border">
 	
 			<p>Descricao: {{ object.descricao }}</p>
@@ -27,7 +25,9 @@
 			<p>Quantidade de vagas: {{ object.vagas }}</p>
 			<hr class="head-border">
 			<p>Data Inicio: {{ object.data_inicio }}</p>
-			{% if user.type == 1%}
+			<hr class="head-border">
+			<p>Contato: {{ trabalho.telefone }}</p>
+			{% if user.tipo == 1%}
 				{% if user.id == object.organizacao_id %}
 					<hr class="head-border">
 					<p>Data Fim: {{ object.data_fim }}</p>
@@ -38,7 +38,7 @@
 		 <center> 
 <hr class="head-border">
       <a href="{% url 'lista-trabalhos'%}"><input type="button" class = "btn btn-primary btn-sm" value="Voltar"></a>
-	{% if user.type == 1%}
+	{% if user.tipo == 1%}
 		{% if user.id == object.organizacao_id %}
         <a href="{% url 'editar-trabalho' object.id %}"><button class = "btn btn-primary btn-sm">Editar</button></a>
      	<a href="{% url 'deletar-trabalho' object.id %}"><input type="button" class = "btn btn-primary btn-sm" value="Excluir"></a>
@@ -48,7 +48,7 @@
      	{% endif %}
     {% endif %}
 
-     {% if user.type == 0%}
+     {% if user.tipo == 0%}
      <a href="{% url 'entrar-trabalho' object.id %}"><input type="button" class = "btn btn-primary btn-sm" value="Inscreva-se"></a>
      {% endif %}
        </center> 

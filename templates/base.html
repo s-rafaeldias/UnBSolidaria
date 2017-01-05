@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <title>Unb Solidaria</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ThreeSixty Bootstrap Template">
+  <meta name="descricao" content="ThreeSixty Bootstrap Template">
   <meta name="author" content="Fabian Bentz Webdesign">
 
   <!-- google web fonts -->
@@ -118,17 +118,17 @@
                  <li>
                     <a href="{% url 'lista-trabalhos' %}">Trabalhos</a>
                 </li>
-                {% if user.type == 1%}
+                {% if user.tipo == 1%}
                 <li>
                     <a href="{% url 'meus-trabalhos'%}">Meus Trabalhos</a>
                 </li>
 		{% endif %}
-                {% if user.type == 0%}
+                {% if user.tipo == 0%}
                 <li>
                     <a href="{% url 'contribuicao-trabalhos'%}">Contribuições</a>
                 </li>
                 {% endif%}
-                {% if user.type == 3 %}
+                {% if user.tipo == 3 %}
                   <li>
                       <a href="/report_builder">Gerador de Relatórios</a>
                   </li>
