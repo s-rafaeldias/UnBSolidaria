@@ -3,28 +3,22 @@
 
 {% block content %}
 
-<div id="noticias">
-  <div class="container" role="listbox">
+<div class="container" role="listbox">
+  <div id="noticias">
     {% for noticia in noticias %}
     <div class="row">
-      <div class="content">
-        <!-- <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide"> -->
-        <div class="container">
-          <div class="noticia">
-            <h2>{{noticia.titulo}}</h2>
-            <p>{{noticia.subtitulo}}</p>
-            <hr class="head-border-grey">
-            <div class="texto">
-              {{ noticia.texto|truncatechars:500 }} 
-            </div>
-            <div class="leia">
-              <a class ='btn btn-default' href="{% url 'leiamais' noticia.id%}"> Leia mais</a>
-            </div>
-          </div>
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+       <div class="post-preview">
+          <a href="{% url 'leiamais' noticia.id%}">
+            <h2 class="post-title">{{noticia.titulo}}</h2>
+            <h3 class="post-subtitle">{{noticia.subtitulo}}</h3>
+          </a>
+          <p class="post-meta">Postado dia {{noticia.dataNoticia}}</p>
         </div>
       </div>
     </div>
     {% endfor %}
-     </div>
-   </div>
-   {% endblock content %}
+  </div>
+</div>
+
+{% endblock content %}

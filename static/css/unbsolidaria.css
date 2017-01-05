@@ -8,7 +8,6 @@
 
 #noticias, #perguntas, #registro, #login, #trabalho{
     min-height: 500px;
-    background-color: #3a506b;
 }
 
 .form-horizontal p{
@@ -19,8 +18,7 @@
 
 #noticias .btn-default{
     color:#0b132b;
-    background-color:#fffffa;
-    cursor:not-allowed;
+    background-color:#2c3e50;
 }
 
 #noticias .btn-default:hover{
@@ -84,7 +82,6 @@
 
 .noticia, .pergunta, .trabalho{
     min-height: 300px;
-    background-color:#fffffa;
     margin: 20px;
     padding: 10px;
 }
@@ -107,9 +104,15 @@
     text-align: center;
 }
 
-.noticia p, .pergunta p{
+.pergunta p{
     color:#0b132b;
-    text-align: center;
+    text-align: justify;
+}
+
+#noticias p{
+    color:#0b132b;
+    text-align: justify;
+    margin: 25px;
 }
 
 .noticia .texto, .pergunta .texto{
@@ -122,9 +125,102 @@
 }
 
 .pergunta h3{
-    color:#fff;
+    color:#2c3e50;
 }
 
 .fundo{
-    background-color: #2c3e50;
+    background-color: #fffffa;
+}
+
+
+.portfolio-item {
+    margin-bottom: 25px;
+}
+
+.faqHeader {
+    font-size: 27px;
+    margin: 20px;
+}
+
+
+.post-preview > a {
+  color: #2c3e50;
+}
+.post-preview > a:hover,
+.post-preview > a:focus {
+  text-decoration: none;
+  color: #8BC34A;
+}
+.post-preview > a > .post-title {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border: none;
+}
+.post-preview > a > .post-subtitle {
+  margin: 0;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.post-preview > .post-meta {
+  color: #777777;
+  font-size: 18px;
+  font-style: italic;
+  margin-top: 0;
+}
+.post-preview > .post-meta > a {
+  text-decoration: none;
+  color: #333333;
+}
+.post-preview > .post-meta > a:hover,
+.post-preview > .post-meta > a:focus {
+  color: #0085A1;
+  text-decoration: underline;
+}
+@media only screen and (min-width: 768px) {
+  .post-preview > a > .post-title {
+    font-size: 36px;
+  }
+}
+
+#contact h1, #contact p{
+    text-align: center;
+    text-transform: uppercase;
+    margin: 25px;
+}
+
+.post-heading{
+  padding: 100px 0 50px;
+  color: #2c3e50;
+}
+
+.post-heading h1 {
+  font-size: 35px;
+}
+.post-heading .subheading, .post-heading .meta {
+  line-height: 1.1;
+  display: block;
+}
+.post-heading .subheading {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  margin: 10px 0 30px;
+  font-weight: 600;
+}
+.post-heading .meta {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 20px;
+}
+.post-heading .meta a {
+  color: #333333;
+}
+@media only screen and (min-width: 768px) {
+  .intro-header .post-heading h1 {
+    font-size: 55px;
+  }
+  .intro-header .post-heading .subheading {
+    font-size: 30px;
+  }
 }

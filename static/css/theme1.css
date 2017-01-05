@@ -373,7 +373,7 @@
 -------------- */
    
     #contact, #login, #registro, #trabalho {
-	    background: #3a506b;
+	    background: #fffffa;
 	    display: block;
         width: 100%;
         overflow: hidden;
@@ -384,7 +384,7 @@
     }
     
     #contact h1, #login h1, #registro h1, #trabalho h1 {
-	    color: #fff;
+	    color: #3a506b;
     }
     
     .requi {
@@ -486,7 +486,7 @@
 -------------- */
  
     .head p {
-	    color: #fff;
+	    color: #3a506b;
     }
     
     @media only screen and (max-width: 767px) {
