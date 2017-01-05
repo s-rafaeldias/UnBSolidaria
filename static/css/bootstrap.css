@@ -269,7 +269,7 @@ body {
   font-size: 14px;
   font-weight: 500;
   line-height: 1.428571429;
-  color: #fffffa;
+  color: #0b132b;
   -webkit-font-smoothing: antialiased;
 
 }
@@ -415,7 +415,6 @@ h6,
 .h6 {
   font-family: 'Roboto', sans-serif !important;
   font-weight: 500;
-  color: inherit;
 }
 h1 small,
 h2 small,
@@ -4736,8 +4735,6 @@ a.thumbnail.active {
   display: block;
   padding: 10px 15px;
   margin-bottom: -1px;
-  background-color: #3a506b;
-  border: 1px solid #dddddd;
 }
 .list-group-item:first-child {
   border-top-right-radius: 4px;
