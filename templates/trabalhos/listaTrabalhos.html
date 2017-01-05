@@ -3,69 +3,48 @@
 {% block content %}
 
 <!-- Trabalhos voluntário -->
-
-<div id="trabalho">
-
-<div class = "panel panel-primary">
-   <div class = "panel-heading">
-      <h4 class = "panel-title">Trabalhos Voluntários</h4>
-   </div>
-   <div id="trabalhos" class = "panel-body">
-
-		<div class = "list-group">
-  		<a href = "#" class = "list-group-item active"><h3 class = "panel-title">Trabalhos  </h3></a>  
-
-      {% for trabalho in lista_trabalhos %}
-
-      <div href = "#" class = "list-group-item">
-        
-     		<h4 class = "list-group-item-heading">
-        <!-- <img width="64px" height="64px" src = {{trabalho.image}}.url alt = "Generic placeholder image">-->
-      	 	  	{{trabalho.titulo}}  
-        </h4> 
-     	<hr class="head-border">
-      
-        <p>Descrição: {{trabalho.descricao}}</p>
-        <a href="/visualizarTrabalho/{{trabalho.id}}"><button class = "btn btn-primary btn-sm">Visualizar Trabalho</button></a>
+<div id="trabalho" class="container">
+    <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+      <h2>Trabalhos Voluntários</h2>
+    </div>
+    <div class="row jobs">
+        <div class=".col-md-8 ">
+          <div class="job-posts table-responsive">
+            {% for trabalho in lista_trabalhos %}
+              <table class="table">
+      	 	  	  <tr>
+                  <td class="tbl-title"><h4>{{trabalho.titulo}}</h4></td>
+                  <td><span>Descrição: {{trabalho.descricao}}</span></td>
+                  <td><a href="/visualizarTrabalho/{{trabalho.id}}">Visualizar Trabalho</a></td>
+                </tr>  
+              </table> 
+          {% endfor %}
+        </div>
       </div>
- 
-      {% endfor %}
-
-     
-  </div>
-</div>
- 
-
+    </div>
 			<!-- paginacao -->
-<center>
-
-  {% if is_paginated %}
-
-    <div class="paginacao">
-        <span class="paginacao-links">
-       
+    {% if is_paginated %}
+        <div class="paginacao">
+          <span class="paginacao-links">
             {% if page_obj.has_previous %}
-            <th align="left">
-              <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-black" >
+              <th align="left">
+                <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-black" >
                 Anterior</a>
               </th>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <th align="left">
-              <a href="?page={{ page_obj.next_page_number }}" class="btn btn-black" >
+              {% endif %}
+              {% if page_obj.has_next %}
+              <th align="left">
+                <a href="?page={{ page_obj.next_page_number }}" class="btn btn-black" >
                 Proxima</a>
               </th>
-            {% endif %}
-             <span class="page-current">
+              {% endif %}
+              <span class="page-current">
                 P&aacute;gina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
-            </span>
-        </span>
-    </div>
-  {% endif %}
-  </center>
-<hr class="head-border">
-      <!-- fim paginacao -->
+              </span>
+          </span>
+        </div>
+    {% endif %}
 </div>
-</div>
+
 
 {% endblock content %}

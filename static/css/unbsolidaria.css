@@ -224,3 +224,98 @@
     font-size: 30px;
   }
 }
+
+.table{
+  margin-left: 40px;
+}
+.table tr.hide-jobs{
+  display: none;
+}
+.table tr td h4{
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.table tr td{
+  padding:6px;
+}
+.table tr td h4 span{
+  font-weight: 300;
+  font-size: 14px
+}
+.table tr td p i{
+  color: #00AEEF
+}
+.table tr td p{
+  font-size: 13px
+}
+.table tr td a{
+  color: #fff;
+  background: #00AEEF;
+  padding:12px 15px;
+  border-radius: 5px;
+  font-size: 13px;
+  text-decoration: none;
+
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.table tr:hover td a:hover{
+  background: #fff;
+  color: #00AEEF;
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
+  border-top: 0px;
+  vertical-align: middle;
+  padding: 15px
+}
+.table > tbody > tr > td.tbl-logo{
+  padding-right: 0px
+}
+.table > tbody > tr > td.tbl-apply{
+  padding-right: 10px;
+  padding-left: 0px;
+}
+.table > tbody > tr > td.tbl-title{
+  padding-left: 5px
+}
+.table tr.odd{
+  background: #F9F9F9;
+}
+.table tr.even{
+  background: #F4FFFF;
+}
+
+.page-title {
+  padding-top: 70px;
+}
+.page-title h5{
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 0
+}
+.page-title h2 {
+  font-weight: 800;
+  margin-top: 5px;
+  text-transform: uppercase;
+  color: #0b132b;
+}
+.page-title h2 span{
+  color: #00ADEF;
+}
+.page-title p {
+  color: #666666;
+  line-height: 30px;
+  padding: 0 25%;
+  margin-top: 16px;
+}
+
+.jobs{
+  margin-bottom: 60px
+}
+.jobs{
+  margin-top: 50px
+}
