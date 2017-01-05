@@ -375,21 +375,3 @@ class TrabalhoUsuarioView(LoginRequiredMixin, generic.ListView):
 #     g = TrabalhoFilter(request.GET, queryset=Trabalho.objects.all())
 #     # f = UserFilter(request.GET, queryset=User.objects.all())
 #     return render(request, 'filtros/trab.html', {'filter': g})
-
-from rest_framework import viewsets
-from unbsolidaria.serializers import UserSerializer, TrabalhoSerializer
-
-
-class UserViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
-
-class TrabalhoViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = Trabalho.objects.all()
-    serializer_class = TrabalhoSerializer

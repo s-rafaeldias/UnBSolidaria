@@ -16,12 +16,13 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from unbsolidaria import views
-from rest_framework import routers
+from unbsolidaria.api import TrabalhoResource, OrganizacaoResource
 from django.contrib import admin
+from tastypie.api import Api
 
-router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'trabalhos', views.TrabalhoViewSet)
+v1_api = Api(api_name='v1')
+v1_api.register(OrganizacaoResource())
+v1_api.register(TrabalhoResource())
 
 urlpatterns = [
     url(r'', include("unbsolidaria.urls")),
@@ -30,6 +31,5 @@ urlpatterns = [
     url(r'^report_builder/', include('report_builder.urls')),
     url(r'^admin_tools/', include('admin_tools.urls')),
 
-    url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api/', include(v1_api.urls)),
 ]

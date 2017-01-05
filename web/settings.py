@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'unbsolidaria',
     'report_builder',
-    'django_filters'
-
+    'django_filters',
+    'tastypie'
 ]
 
 MIDDLEWARE_CLASSES = [
