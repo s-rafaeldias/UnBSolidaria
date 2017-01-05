@@ -45,25 +45,25 @@ tr:nth-child(even) {
         <td>{{ obj.first_name }}</td>
         <td>{{ obj.last_name }}</td>
         <td>{{ obj.email }}</td>
-        {% if obj.type == 0 %}
+        {% if obj.tipo == 0 %}
             <td>Voluntário</td>
         {% else %}
             <td>Organização</td>
         {% endif %}
-        {% if obj.type == 1 %}
+        {% if obj.tipo == 1 %}
             <td>---------</td>
-        {% elif obj.gender == 'm' %}
+        {% elif obj.sexo == 'm' %}
             <td>Homem</td>    
         {% else %}
             <td>Mulher</td>    
         {% endif %}    
         <td>{{ obj.date_joined }}</td>
-        {% if obj.type == 0 %}
+        {% if obj.tipo == 0 %}
             <td>{{ obj.cpf }}</td>
         {% else %}
             <td>{{ obj.cnpj }}</td>
         {% endif %}
-        <td>{{ obj.telephone }}</td>      
+        <td>{{ obj.telefone }}</td>      
       </tr>
         {% endfor %}
     </table>

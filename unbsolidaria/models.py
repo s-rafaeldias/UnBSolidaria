@@ -1,5 +1,4 @@
 from __future__ import unicode_literals
-
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -7,9 +6,9 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 # Tabela de extend do User
 class User(AbstractUser):
-    description = models.CharField(max_length=45, blank=True, null=True)
-    telephone = models.CharField(max_length=45, blank=True, null=True)
-    type = models.IntegerField( default=2 )
+    descricao = models.CharField(max_length=45, blank=True, null=True)
+    telefone = models.CharField(max_length=45, blank=True, null=True)
+    tipo = models.IntegerField( default=2 )
 
 class Organizacao(models.Model):
     cnpj = models.CharField(max_length=45, blank=True, null=True)
@@ -22,7 +21,7 @@ class Voluntario(models.Model):
     )
 
     cpf = models.CharField(max_length=45, blank=True, null=True)
-    gender = models.CharField(max_length=1, blank=True, null=True, choices=GENRE_CHOICES)
+    sexo = models.CharField(max_length=1, blank=True, null=True, choices=GENRE_CHOICES)
     voluntario_fk = models.IntegerField( default=-1 )
 
 # Tabela de Noticias
@@ -69,7 +68,7 @@ class Trabalho(models.Model):
     descricao = models.TextField(max_length=240)
     data_inicio = models.DateField(auto_now=False, auto_now_add=False)
     data_fim = models.DateField(auto_now=False, auto_now_add=False)
-    vagas = models.IntegerField(default=0)
+    vagas = models.PositiveIntegerField(default=0)
     dias = models.ManyToManyField(Dia)
     organizacao = models.ForeignKey(User, related_name="dono")
     voluntarios = models.ManyToManyField(User, through='UsuarioTrabalho', through_fields=('trabalho', 'voluntario'))

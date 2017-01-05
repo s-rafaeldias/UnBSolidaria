@@ -23,8 +23,8 @@ urlpatterns = [
 
     url(r'^registrar/Organizacao/$', views.OrganizacaoFormView.as_view(), name='registrar-organizacao'),
     url(r'^registrar/Voluntario/$', views.VoluntarioFormView.as_view(), name='registrar-voluntario'),
-    url(r'^user/edit/$', views.UserUpdate.as_view(template_name='user_form.html'), name='user-update'),
-    url(r'^user/delete/$', views.UserDelete.as_view(success_url='../'), name='user-delete'),
+    url(r'^user/edit/$', views.UserUpdate.as_view(success_url='../../'), name='user-update'),
+    url(r'^user/delete/$', views.UserDelete.as_view(success_url='../../'), name='user-delete'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': '../'}, name='logout'),
 
