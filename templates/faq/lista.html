@@ -3,17 +3,24 @@
 
 {% block content %}
 
-<div id="perguntas">
-  <div class="container" role="listbox">
+<div class="container" role="listbox">
+  <div id="perguntas" class="panel-group">
     {% for pergunta in perguntas %}
     <div class="row">
       <div class="content"> 
         <div class="container">
           <div class="pergunta">
-            <h3 style="color: black">{{pergunta.pergunta}}</h3>
-            <hr class="head-border-grey">
-            <div class="center">
-              {{ pergunta.resposta }} 
+           <div class="panel panel-default">
+            <div class="panel-heading">
+            <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">{{pergunta.pergunta}}</a>
+            </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in">
+              <div class="panel-body">
+                <p>{{ pergunta.resposta }}</p>
+              </div>
+            </div> 
             </div>
           </div>
         </div>
@@ -24,3 +31,5 @@
    </div>
 
    {% endblock content %}
+
+            
