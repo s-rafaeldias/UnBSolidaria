@@ -81,8 +81,9 @@ class Trabalho(models.Model):
 
 
 class Endereco(models.Model):
-    descricao = models.CharField(max_length=120)
+    endereco = models.CharField(max_length=120)
     cep = models.CharField(max_length=11)
+    usuario_fk = models.IntegerField( default=-1 )
 
     def __unicode__(self):
         return self.cep
