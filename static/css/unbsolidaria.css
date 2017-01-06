@@ -7,7 +7,7 @@
 }
 
 #noticias, #perguntas, #registro, #login, #trabalho{
-    min-height: 500px;
+    min-height: 100vh;
 }
 
 .form-horizontal p{

@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="trabalho" class="container">
+<div id="trabalho">
+
+<div class="container">
+    
     
     <form action="" method="get">
         {{ filter.form.as_p }}
@@ -26,6 +29,7 @@
       </tr>
         {% endfor %}
     </table>
+</div>
 </div>
 
 {% endblock %}
