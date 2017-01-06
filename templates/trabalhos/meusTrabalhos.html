@@ -3,38 +3,28 @@
 {% block content %}
 
 <!-- Trabalhos voluntário -->
-<div id="trabalho">
-
-<div class = "card">
-   <div class = "">
-      <h4 class = "">Trabalhos Voluntários</h4>
-   </div>
-   <div id="trabalhos" class = "col-md-6 portfolio-item">
-
-		<div class = "list-group">
-  		<a href = "#" class = "list-group-item active"><h3 class = "panel-title"> {{ user.first_name }} {{ user.last_name }} </h3></a>  
-
-      {% for trabalho in lista_trabalhos %}
-        {% if user.id == trabalho.organizacao_id %}
-      <div href = "#" class = "list-group-item">
-        
-     		<h4 class = "list-group-item-heading">
-        <!-- <img width="64px" height="64px" src = {{trabalho.image}}.url alt = "Generic placeholder image">-->
-      	 	  	{{trabalho.titulo}}  
-        </h4> 
-     	<hr class="head-border">
-      
-        <p>Descrição: {{trabalho.descricao}}</p>
-        <a href="/visualizarTrabalho/{{trabalho.id}}"><button class = "btn btn-primary btn-sm">Visualizar Trabalho</button></a>
+<div id="trabalho" class="container">
+  <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+      <h2>Meus Trabalhos</h2>
+    </div>
+    <div class="row jobs">
+        <div class=".col-md-8 ">
+          <div class="job-posts table-responsive">
+             {% for trabalho in lista_trabalhos %}
+              {% if user.id == trabalho.organizacao_id %}
+              <table class="table">
+                <tr>
+                  <td class="tbl-title"><h4>{{trabalho.titulo}}</h4></td>
+                  <td><span>Descrição: {{trabalho.descricao}}</span></td>
+                  <td><a href="/visualizarTrabalho/{{trabalho.id}}">Visualizar Trabalho</a></td>
+                </tr>  
+              </table> 
+              {% endif %}
+            {% endfor %}
+        </div>
       </div>
-        {% endif %}
-      {% endfor %}
+    </div>
     <a href="{% url 'criar-trabalho'%}"><button class = "btn btn-primary btn-sm">Novo trabalho</button></a>
-   <hr class="head-border">
-  </div>
-</div>
- 
-
 			<!-- paginacao -->
 <center>
 
@@ -64,7 +54,6 @@
   </center>
 <hr class="head-border">
       <!-- fim paginacao -->
-</div>
 </div>
 
 {% endblock content %}
