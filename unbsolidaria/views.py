@@ -358,9 +358,7 @@ class UserFilter(django_filters.FilterSet):
         model = User
         fields = {
             # 'sexo': ['exact'],
-            'tipo': ['exact'],
-            'last_login': ['gt'],
-            'date_joined': ['gt'],                        
+            'tipo': ['exact'],                     
         }
 
 class TrabalhoFilter(django_filters.FilterSet):
@@ -383,12 +381,10 @@ class UsuarioTrabalhoFilter(django_filters.FilterSet):
         }
 
 def filters(request):
-    # f = UserFilter(request.GET, queryset=User.objects.all())
     return render(request, 'filtros/filter.html')
 
 def user_filters(request):
     f = UserFilter(request.GET, queryset=User.objects.all())
-    # f = UserFilter(request.GET, queryset=User.objects.all())
     return render(request, 'filtros/user.html', {'filter': f})
 
 def trab_user_filters(request):
@@ -398,7 +394,6 @@ def trab_user_filters(request):
 
 def trabalho_filters(request):
     g = TrabalhoFilter(request.GET, queryset=Trabalho.objects.all())
-    # f = UserFilter(request.GET, queryset=User.objects.all())
     return render(request, 'filtros/trab.html', {'filter': g})
 
 from rest_framework import viewsets
@@ -448,28 +443,3 @@ def get_user(request):
         return JsonResponse(postdata)
 
 # curl -H "Content-Type: application/json" -X POST -d '{"username":"admin","password":"xyz"}' http://localhost:8000/get_user/
-
-
-    # if request.method == 'POST':
-    #     request=request.POST
-    #     email=request.get("email")
-    #     postdata={'email':email}
-    #     return render(request, postdata)
-
-    #     form = ContactForm()
-    # else:
-    #     form = ContactForm(request.POST)
-    #     if form.is_valid():
-    #         subject = form.cleaned_data['subject']
-    #         from_email = form.cleaned_data['from_email']
-    #         message = form.cleaned_data['message']
-    #         try:
-    #             send_mail(subject, message, from_email,
-    #                       ['rafaeltbt@gmail.com'])
-    #             form = ContactForm()
-    #         except BadHeaderError:
-    #             return HttpResponse('Invalid header found.')
-    #     return render_to_response("contato/contato.html", {'form': form,
-    #                                                        'mensagem': 'Email enviado com sucesso!'},
-    #                               context_instance=RequestContext(request))
-    # return render(request, "contato/contato.html", {'form': form})
