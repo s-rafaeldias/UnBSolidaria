@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^noticias/(?P<pk>\d+)$', views.DetailsNoticia.as_view(), name='leiamais'),
     url(r'^contato/$', views.contato, name="contato"),
     url(r'^faq/$', views.faq, name="faq"),
+    url(r'^get_user/$', views.get_user, name="get_user"),
 
     url(r'^listaTrabalhos/$', views.TrabalhosView.as_view(), name="lista-trabalhos"),
     url(r'^meusTrabalhos/$', views.MeusTrabalhosView.as_view(), name="meus-trabalhos"),
@@ -28,8 +29,8 @@ urlpatterns = [
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': '../'}, name='logout'),
 
-#    url(r'^filtros$', views.filters),
-#    url(r'^filtros/user$', views.user_filters),
-#    url(r'^filtros/trab$', views.trabalho_filters),
-#    url(r'^filtros/trab_user$', views.trab_user_filters),
+    url(r'^filtros$', views.filters),
+    url(r'^filtros/user$', views.user_filters),
+    url(r'^filtros/trab$', views.trabalho_filters),
+    url(r'^filtros/trab_user$', views.trab_user_filters),
 ]

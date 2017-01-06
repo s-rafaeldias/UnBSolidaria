@@ -327,55 +327,55 @@ class TrabalhoUsuarioView(LoginRequiredMixin, generic.ListView):
         print teste
         return UsuarioTrabalho.objects.all().filter(trabalho_id=teste)
 
-######################################################################################################
+################################################################################
 
-# class UserFilter(django_filters.FilterSet):
-#     class Meta:
-#         model = User
-#         fields = {
-#             'sexo': ['exact'],
-#             'tipo': ['exact'],
-#             'last_login': ['gt'],
-#             'date_joined': ['gt'],                        
-#         }
+class UserFilter(django_filters.FilterSet):
+    class Meta:
+        model = User
+        fields = {
+            # 'sexo': ['exact'],
+            'tipo': ['exact'],
+            'last_login': ['gt'],
+            'date_joined': ['gt'],                        
+        }
 
-# class TrabalhoFilter(django_filters.FilterSet):
-#     class Meta:
-#         model = Trabalho
-#         fields = {
-#             'vagas': ['exact'],
-#             'organizacao': ['exact'],
-#             'data_inicio': ['exact'],
-#             'data_fim': ['exact'],
-#         }
+class TrabalhoFilter(django_filters.FilterSet):
+    class Meta:
+        model = Trabalho
+        fields = {
+            'vagas': ['exact'],
+            'organizacao': ['exact'],
+            'data_inicio': ['exact'],
+            'data_fim': ['exact'],
+        }
 
-# class UsuarioTrabalhoFilter(django_filters.FilterSet):
-#     class Meta:
-#         model = UsuarioTrabalho
-#         fields = {
-#             'organizacao': ['exact'],
-#             'trabalho': ['exact'],
-#             'voluntario': ['exact'],
-#         }
+class UsuarioTrabalhoFilter(django_filters.FilterSet):
+    class Meta:
+        model = UsuarioTrabalho
+        fields = {
+            'organizacao': ['exact'],
+            'trabalho': ['exact'],
+            'voluntario': ['exact'],
+        }
 
-# def filters(request):
-#     # f = UserFilter(request.GET, queryset=User.objects.all())
-#     return render(request, 'filtros/filter.html')
+def filters(request):
+    # f = UserFilter(request.GET, queryset=User.objects.all())
+    return render(request, 'filtros/filter.html')
 
-# def user_filters(request):
-#     f = UserFilter(request.GET, queryset=User.objects.all())
-#     # f = UserFilter(request.GET, queryset=User.objects.all())
-#     return render(request, 'filtros/user.html', {'filter': f})
+def user_filters(request):
+    f = UserFilter(request.GET, queryset=User.objects.all())
+    # f = UserFilter(request.GET, queryset=User.objects.all())
+    return render(request, 'filtros/user.html', {'filter': f})
 
-# def trab_user_filters(request):
-#     f = UsuarioTrabalhoFilter(request.GET, queryset=UsuarioTrabalho.objects.all())
-#     # f = UserFilter(request.GET, queryset=User.objects.all())
-#     return render(request, 'filtros/trab_user.html', {'filter': f})
+def trab_user_filters(request):
+    f = UsuarioTrabalhoFilter(request.GET, queryset=UsuarioTrabalho.objects.all())
+    # f = UserFilter(request.GET, queryset=User.objects.all())
+    return render(request, 'filtros/trab_user.html', {'filter': f})
 
-# def trabalho_filters(request):
-#     g = TrabalhoFilter(request.GET, queryset=Trabalho.objects.all())
-#     # f = UserFilter(request.GET, queryset=User.objects.all())
-#     return render(request, 'filtros/trab.html', {'filter': g})
+def trabalho_filters(request):
+    g = TrabalhoFilter(request.GET, queryset=Trabalho.objects.all())
+    # f = UserFilter(request.GET, queryset=User.objects.all())
+    return render(request, 'filtros/trab.html', {'filter': g})
 
 from rest_framework import viewsets
 from unbsolidaria.serializers import UserSerializer, TrabalhoSerializer, NoticiaSerializer
@@ -401,3 +401,51 @@ class NoticiaViewSet(viewsets.ModelViewSet):
     """
     queryset = Noticia.objects.all()
     serializer_class = NoticiaSerializer
+
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+
+@csrf_exempt
+def get_user(request):
+    if request.method == 'POST':
+        request = request.body
+        msg = json.loads(request)
+        username = msg.get('username')
+        user = User.objects.get(username = username)
+
+        if user.tipo == 1:
+            org = Organizacao.objects.get(organizacao_fk = user.id)
+            postdata={'id':user.id, 'first_name':user.first_name, 'last_name':user.last_name, 'username':user.username,'tipo':user.tipo, 'descricao':user.descricao,'telefone':user.telefone,'cpf':[],'cnpj':org.cnpj,'sexo':[],'email':user.email}
+        else:
+            vol = Voluntario.objects.get(voluntario_fk = user.id)
+            postdata={'id':user.id, 'first_name':user.first_name, 'last_name':user.last_name, 'username':user.username,'tipo':user.tipo, 'descricao':user.descricao,'telefone':user.telefone,'cpf':vol.cpf,'cnpj':[],'sexo':vol.sexo,'email':user.email}
+
+        return JsonResponse(postdata)
+
+# curl -H "Content-Type: application/json" -X POST -d '{"username":"admin","password":"xyz"}' http://localhost:8000/get_user/
+
+
+    # if request.method == 'POST':
+    #     request=request.POST
+    #     email=request.get("email")
+    #     postdata={'email':email}
+    #     return render(request, postdata)
+
+    #     form = ContactForm()
+    # else:
+    #     form = ContactForm(request.POST)
+    #     if form.is_valid():
+    #         subject = form.cleaned_data['subject']
+    #         from_email = form.cleaned_data['from_email']
+    #         message = form.cleaned_data['message']
+    #         try:
+    #             send_mail(subject, message, from_email,
+    #                       ['rafaeltbt@gmail.com'])
+    #             form = ContactForm()
+    #         except BadHeaderError:
+    #             return HttpResponse('Invalid header found.')
+    #     return render_to_response("contato/contato.html", {'form': form,
+    #                                                        'mensagem': 'Email enviado com sucesso!'},
+    #                               context_instance=RequestContext(request))
+    # return render(request, "contato/contato.html", {'form': form})
