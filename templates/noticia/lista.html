@@ -21,4 +21,28 @@
   </div>
 </div>
 
+  <!-- paginacao -->
+    {% if is_paginated %}
+        <div class="paginacao">
+          <span class="paginacao-links">
+            {% if page_obj.has_previous %}
+              <th align="left">
+                <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-black" >
+                Anterior</a>
+              </th>
+              {% endif %}
+              {% if page_obj.has_next %}
+              <th align="left">
+                <a href="?page={{ page_obj.next_page_number }}" class="btn btn-black" >
+                Proxima</a>
+              </th>
+              {% endif %}
+              <span class="page-current">
+                P&aacute;gina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+              </span>
+          </span>
+        </div>
+    {% endif %}
+</div>
+
 {% endblock content %}
