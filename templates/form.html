@@ -9,11 +9,11 @@
                 {% if error_message %}
                     <p><strong>{{ error_message }}</strong></p>
                 {% endif %}
-                <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                <form >
                     {% csrf_token %}
                     {% include '../templates/cadastro/organizacao_form_template.html' %}
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
+                        <div class="col-sm-6 form-group">
                             <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                     </div>

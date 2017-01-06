@@ -7,7 +7,7 @@
 }
 
 #noticias, #perguntas, #registro, #login, #trabalho{
-    min-height: 500px;
+    min-height: 100vh;
 }
 
 .form-horizontal p{
@@ -280,7 +280,8 @@
   padding-left: 0px;
 }
 .table > tbody > tr > td.tbl-title{
-  padding-left: 5px
+  padding-left: 5px;
+  width: 200px;
 }
 .table tr.odd{
   background: #F9F9F9;
@@ -368,4 +369,27 @@ input[type="password"] {
   background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
   background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
   background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+
+
+
+.tabela_trabalho {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+}
+
+.tabela_trabalho td, .tabela_trabalho th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.tabela_trabalho tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.descricao{
+  width: 800px;
+  margin: 20px;
 }

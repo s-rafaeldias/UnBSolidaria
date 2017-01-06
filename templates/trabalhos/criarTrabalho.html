@@ -2,25 +2,37 @@
 {% load staticfiles %}
 {% block content %}
 <div id="trabalho">
-  <div class = "container">
-    <div class = "row">
-      <h1>Criar trabalho</h1>
-      <hr class="head-border-grey">
-    </div>
-    <center>
+ <div class = "container">
+   <div class = "row">
+     <h1>Criar trabalho</h1>
+     <hr class="head-border-grey">
+   </div>
+   <center>
     <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      <div class="form-group">
-        <div class="col-sm-2 control-label col-md-2">{{ form }}</div>
+     <input name="csrfmiddlewaretoken" value="MLHGaJJo1UxhdvtRfbiRYv81koVyLche" type="hidden">
+     <div class="form-group">
+      <div class="col-sm-2 control-label col-md-2">
+        <label for="id_titulo">Titulo:</label><input id="id_titulo" maxlength="45" name="titulo" type="text">
+        <label for="id_descricao">Descricao:</label><textarea cols="40" id="id_descricao" maxlength="140" name="descricao" rows="10"></textarea>
+        <label for="id_vagas">Vagas:</label><input id="id_vagas" min="0" name="vagas" value="0" type="number">
+        <label for="id_data_inicio">Data inicio:</label><input id="id_data_inicio" name="data_inicio" type="text">
+        <label for="id_data_fim">Data fim:</label><input id="id_data_fim" name="data_fim" type="text">
+        <label for="id_organizacao">Organizacao:</label><select id="id_organizacao" name="organizacao">
+          <option value="" selected="selected">---------</option>
+          <option value="1">fernando</option>
+          <option value="2">org</option>
+          <option value="3">felipesmith</option>
+          <option value="4">opatudobom</option>
+          </select>
       </div>
-        <div class="form-group">
-            <div class="col-md-2 col-md-offset-5">
-              <button type="submit" class="btn btn-success">Enviar</button>
-            </div>
-        </div>
-    </form>
-  </center>
-  </div>
+     </div>
+     <div class="form-group">
+         <div class="col-md-2 col-md-offset-5">
+           <button type="submit" class="btn btn-success">Enviar</button>
+         </div>
+     </div>
+   </form>
+ </center>
+ </div>
 </div>
-
 {% endblock content %}

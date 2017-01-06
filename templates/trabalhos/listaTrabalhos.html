@@ -8,13 +8,13 @@
       <h2>Trabalhos Voluntários</h2>
     </div>
     <div class="row jobs">
-        <div class=".col-md-8 ">
-          <div class="job-posts table-responsive">
+        <div class="col-md-12">
+          <div class="table-responsive">
             {% for trabalho in lista_trabalhos %}
               <table class="table">
       	 	  	  <tr>
                   <td class="tbl-title"><h4>{{trabalho.titulo}}</h4></td>
-                  <td><span>Descrição: {{trabalho.descricao}}</span></td>
+                  <td class="descricao"><span>Descrição: {{trabalho.descricao}}</span></td>
                   <td><a href="/visualizarTrabalho/{{trabalho.id}}">Visualizar Trabalho</a></td>
                 </tr>  
               </table> 

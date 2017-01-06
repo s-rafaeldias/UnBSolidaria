@@ -1,32 +1,17 @@
-<head>
-<style>
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 90%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-</style>
-</head>
 {% extends "base.html" %}
 
 {% block content %}
-<br><br>
+<div id="trabalho">
+
+<div class="container">
+    
+    
     <form action="" method="get">
         {{ filter.form.as_p }}
         <input type="submit" />
     </form>
 
-    <table>
+    <table class="tabela_trabalho">
       <tr>
         <th>Título</th>
         <th>Organização</th>
@@ -44,5 +29,7 @@ tr:nth-child(even) {
       </tr>
         {% endfor %}
     </table>
+</div>
+</div>
 
 {% endblock %}

@@ -32,7 +32,9 @@ class VoluntarioForm(forms.ModelForm):
         fields = ['cpf', 'sexo']
 
 
+
 class EnderecoForm(forms.ModelForm):
     class Meta:
         model = Endereco
         fields = ['endereco', 'cep']
+
