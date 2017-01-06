@@ -22,6 +22,7 @@ from django.contrib import admin
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'trabalhos', views.TrabalhoViewSet)
+router.register(r'news', views.NoticiaViewSet)
 
 urlpatterns = [
     url(r'', include("unbsolidaria.urls")),
@@ -31,5 +32,6 @@ urlpatterns = [
     url(r'^admin_tools/', include('admin_tools.urls')),
 
     url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+	url(r'^rest-auth/', include('rest_auth.urls')),
+	url(r'^rest-auth/registration/', include('rest_auth.registration.urls'))
 ]
