@@ -280,7 +280,8 @@
   padding-left: 0px;
 }
 .table > tbody > tr > td.tbl-title{
-  padding-left: 5px
+  padding-left: 5px;
+  width: 200px;
 }
 .table tr.odd{
   background: #F9F9F9;
@@ -386,4 +387,9 @@ input[type="password"] {
 
 .tabela_trabalho tr:nth-child(even) {
     background-color: #dddddd;
+}
+
+.descricao{
+  width: 800px;
+  margin: 20px;
 }
