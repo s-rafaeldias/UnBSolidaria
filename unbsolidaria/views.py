@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView, DeleteView
-from .models import Noticia, FAQ, Trabalho, User, Organizacao, Voluntario
+from .models import Noticia, FAQ, Trabalho, User, Organizacao, Voluntario, Endereco
 from django.core.mail import send_mail
 from django.http import BadHeaderError
 from django.http import HttpResponse
@@ -9,7 +9,7 @@ from django.shortcuts import render_to_response
 from .models import Noticia, FAQ,  UsuarioTrabalho
 from django.template import RequestContext
 from django.views import generic
-from .forms import ContactForm, UserForm, OrganizacaoForm, VoluntarioForm
+from .forms import ContactForm, UserForm, OrganizacaoForm, VoluntarioForm, EnderecoForm
 from django.views.generic import View
 from django.contrib.auth import authenticate, login
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
@@ -30,19 +30,22 @@ class IndexView(generic.ListView):
 class OrganizacaoFormView(View):
     form_class = UserForm
     org_form_class = OrganizacaoForm
+    endereco_class = EnderecoForm
     template_name = '../templates/cadastro/organizacao_form.html'    
 
     # mostrar um form em branco
     def get(self, request):
         form = self.form_class(None)
         form_org = self.org_form_class(None)
+        endereco = self.endereco_class(None)
 
-        return render(request, self.template_name, {'form': form, 'form_org': form_org})
+        return render(request, self.template_name, {'form': form, 'form_org': form_org, 'endereco': endereco})
 
     # processar informacoes
     def post(self, request):
         form = self.form_class(request.POST)
         org_form = self.org_form_class(request.POST)
+        endereco = self.endereco_class(request.POST)
 
         if form.is_valid():
             user = form.save(commit=False)  # cria um objeto, porem n coloca no banco ainda
@@ -57,6 +60,10 @@ class OrganizacaoFormView(View):
                 org_user = org_form.save(commit=False)  # cria um objeto, porem n coloca no banco ainda
                 org_user.organizacao_fk = user.id
                 org_user.save()
+            if endereco.is_valid():
+                end_user = endereco.save(commit=False)  # cria um objeto, porem n coloca no banco ainda
+                end_user.usuario_fk = user.id
+                end_user.save()
 
             # returna objeto se esta tudo certo com as credenciais
             user = authenticate(username=username, password=password)
@@ -67,24 +74,27 @@ class OrganizacaoFormView(View):
                     login(request, user)
                     return redirect('../../')
 
-        return render(request, self.template_name, {'form': form, 'org_form': org_form})  # se o usuario nao for valido, returna ele pro formulario de novo
+        return render(request, self.template_name, {'form': form, 'org_form': org_form, 'endereco': endereco})  # se o usuario nao for valido, returna ele pro formulario de novo
 
 class VoluntarioFormView(View):
     form_class = UserForm
     vol_form_class = VoluntarioForm
+    endereco_class = EnderecoForm
     template_name = '../templates/cadastro/voluntario_form.html'
 
     # mostrar um form em branco
     def get(self, request):
         form = self.form_class(None)
         form_vol = self.vol_form_class(None)
+        endereco = self.endereco_class(None)
 
-        return render(request, self.template_name, {'form': form, 'form_vol': form_vol})
+        return render(request, self.template_name, {'form': form, 'form_vol': form_vol, 'endereco': endereco})
 
      # processar informacoes
     def post(self, request):
         form = self.form_class(request.POST)
         vol_form = self.vol_form_class(request.POST)
+        endereco = self.endereco_class(request.POST)
 
         if form.is_valid():
 
@@ -100,7 +110,10 @@ class VoluntarioFormView(View):
                 vol_user = vol_form.save(commit=False)  # cria um objeto, porem n coloca no banco ainda
                 vol_user.voluntario_fk = user.id
                 vol_user.save()
-
+            if endereco.is_valid():
+                end_user = endereco.save(commit=False)  # cria um objeto, porem n coloca no banco ainda
+                end_user.usuario_fk = user.id
+                end_user.save()
             user = authenticate(username=username, password=password)
 
             if user is not None:
@@ -109,7 +122,7 @@ class VoluntarioFormView(View):
                     login(request, user)
                     return redirect('../../')
 
-        return render(request, self.template_name, {'form': form, 'vol_form': vol_form})  # se o usuario nao for valido, returna ele pro formulario de novo
+        return render(request, self.template_name, {'form': form, 'vol_form': vol_form, 'endereco': endereco})  # se o usuario nao for valido, returna ele pro formulario de novo
 
 
 class UserUpdate(LoginRequiredMixin, UpdateView):
@@ -135,6 +148,17 @@ class UserDelete(LoginRequiredMixin, generic.DeleteView):
         return self.request.user
 
 
+class PerfilUsuarioView(LoginRequiredMixin, generic.DetailView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
+    template_name = '../templates/cadastro/perfil.html'
+    model = User
+
+    def get_context_data(self, **kwargs):
+        context = super(PerfilUsuarioView, self).get_context_data(**kwargs)
+        return context
+
+#######################################################################################
 def contato(request):
     if request.method == 'GET':
         form = ContactForm()
@@ -327,55 +351,55 @@ class TrabalhoUsuarioView(LoginRequiredMixin, generic.ListView):
         print teste
         return UsuarioTrabalho.objects.all().filter(trabalho_id=teste)
 
-######################################################################################################
+################################################################################
 
-# class UserFilter(django_filters.FilterSet):
-#     class Meta:
-#         model = User
-#         fields = {
-#             'sexo': ['exact'],
-#             'tipo': ['exact'],
-#             'last_login': ['gt'],
-#             'date_joined': ['gt'],                        
-#         }
+class UserFilter(django_filters.FilterSet):
+    class Meta:
+        model = User
+        fields = {
+            # 'sexo': ['exact'],
+            'tipo': ['exact'],
+            'last_login': ['gt'],
+            'date_joined': ['gt'],                        
+        }
 
-# class TrabalhoFilter(django_filters.FilterSet):
-#     class Meta:
-#         model = Trabalho
-#         fields = {
-#             'vagas': ['exact'],
-#             'organizacao': ['exact'],
-#             'data_inicio': ['exact'],
-#             'data_fim': ['exact'],
-#         }
+class TrabalhoFilter(django_filters.FilterSet):
+    class Meta:
+        model = Trabalho
+        fields = {
+            'vagas': ['exact'],
+            'organizacao': ['exact'],
+            'data_inicio': ['exact'],
+            'data_fim': ['exact'],
+        }
 
-# class UsuarioTrabalhoFilter(django_filters.FilterSet):
-#     class Meta:
-#         model = UsuarioTrabalho
-#         fields = {
-#             'organizacao': ['exact'],
-#             'trabalho': ['exact'],
-#             'voluntario': ['exact'],
-#         }
+class UsuarioTrabalhoFilter(django_filters.FilterSet):
+    class Meta:
+        model = UsuarioTrabalho
+        fields = {
+            'organizacao': ['exact'],
+            'trabalho': ['exact'],
+            'voluntario': ['exact'],
+        }
 
-# def filters(request):
-#     # f = UserFilter(request.GET, queryset=User.objects.all())
-#     return render(request, 'filtros/filter.html')
+def filters(request):
+    # f = UserFilter(request.GET, queryset=User.objects.all())
+    return render(request, 'filtros/filter.html')
 
-# def user_filters(request):
-#     f = UserFilter(request.GET, queryset=User.objects.all())
-#     # f = UserFilter(request.GET, queryset=User.objects.all())
-#     return render(request, 'filtros/user.html', {'filter': f})
+def user_filters(request):
+    f = UserFilter(request.GET, queryset=User.objects.all())
+    # f = UserFilter(request.GET, queryset=User.objects.all())
+    return render(request, 'filtros/user.html', {'filter': f})
 
-# def trab_user_filters(request):
-#     f = UsuarioTrabalhoFilter(request.GET, queryset=UsuarioTrabalho.objects.all())
-#     # f = UserFilter(request.GET, queryset=User.objects.all())
-#     return render(request, 'filtros/trab_user.html', {'filter': f})
+def trab_user_filters(request):
+    f = UsuarioTrabalhoFilter(request.GET, queryset=UsuarioTrabalho.objects.all())
+    # f = UserFilter(request.GET, queryset=User.objects.all())
+    return render(request, 'filtros/trab_user.html', {'filter': f})
 
-# def trabalho_filters(request):
-#     g = TrabalhoFilter(request.GET, queryset=Trabalho.objects.all())
-#     # f = UserFilter(request.GET, queryset=User.objects.all())
-#     return render(request, 'filtros/trab.html', {'filter': g})
+def trabalho_filters(request):
+    g = TrabalhoFilter(request.GET, queryset=Trabalho.objects.all())
+    # f = UserFilter(request.GET, queryset=User.objects.all())
+    return render(request, 'filtros/trab.html', {'filter': g})
 
 from rest_framework import viewsets
 from unbsolidaria.serializers import UserSerializer, TrabalhoSerializer, NoticiaSerializer
@@ -401,3 +425,51 @@ class NoticiaViewSet(viewsets.ModelViewSet):
     """
     queryset = Noticia.objects.all()
     serializer_class = NoticiaSerializer
+
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+
+@csrf_exempt
+def get_user(request):
+    if request.method == 'POST':
+        request = request.body
+        msg = json.loads(request)
+        username = msg.get('username')
+        user = User.objects.get(username = username)
+
+        if user.tipo == 1:
+            org = Organizacao.objects.get(organizacao_fk = user.id)
+            postdata={'id':user.id, 'first_name':user.first_name, 'last_name':user.last_name, 'username':user.username,'tipo':user.tipo, 'descricao':user.descricao,'telefone':user.telefone,'cpf':[],'cnpj':org.cnpj,'sexo':[],'email':user.email}
+        else:
+            vol = Voluntario.objects.get(voluntario_fk = user.id)
+            postdata={'id':user.id, 'first_name':user.first_name, 'last_name':user.last_name, 'username':user.username,'tipo':user.tipo, 'descricao':user.descricao,'telefone':user.telefone,'cpf':vol.cpf,'cnpj':[],'sexo':vol.sexo,'email':user.email}
+
+        return JsonResponse(postdata)
+
+# curl -H "Content-Type: application/json" -X POST -d '{"username":"admin","password":"xyz"}' http://localhost:8000/get_user/
+
+
+    # if request.method == 'POST':
+    #     request=request.POST
+    #     email=request.get("email")
+    #     postdata={'email':email}
+    #     return render(request, postdata)
+
+    #     form = ContactForm()
+    # else:
+    #     form = ContactForm(request.POST)
+    #     if form.is_valid():
+    #         subject = form.cleaned_data['subject']
+    #         from_email = form.cleaned_data['from_email']
+    #         message = form.cleaned_data['message']
+    #         try:
+    #             send_mail(subject, message, from_email,
+    #                       ['rafaeltbt@gmail.com'])
+    #             form = ContactForm()
+    #         except BadHeaderError:
+    #             return HttpResponse('Invalid header found.')
+    #     return render_to_response("contato/contato.html", {'form': form,
+    #                                                        'mensagem': 'Email enviado com sucesso!'},
+    #                               context_instance=RequestContext(request))
+    # return render(request, "contato/contato.html", {'form': form})

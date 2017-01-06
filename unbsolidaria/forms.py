@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from models import User, Organizacao, Voluntario, Trabalho
+from models import User, Organizacao, Voluntario, Trabalho, Endereco
 from django import forms
 
 class ContactForm(forms.Form):
@@ -26,8 +26,15 @@ class OrganizacaoForm(forms.ModelForm):
         fields = ['cnpj']
 
 
-
 class VoluntarioForm(forms.ModelForm):
     class Meta:
         model = Voluntario
         fields = ['cpf', 'sexo']
+
+
+
+class EnderecoForm(forms.ModelForm):
+    class Meta:
+        model = Endereco
+        fields = ['endereco', 'cep']
+
