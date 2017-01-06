@@ -22,18 +22,24 @@ tr:nth-child(even) {
 {% block content %}
 <br><br>
     <form action="" method="get">
-        {{ filter.form.as_p }}
+        <label for="id_tipo">Tipo:</label>
+        <select id="id_tipo" name="tipo" step="any" type="number">
+            <option value="" selected="selected">---------</option>
+            <option value="0">Voluntários</option>
+            <option value="1">Organizações</option>
+            <option value="2">Administradores</option>
+        </select>
         <input type="submit" />
     </form>
 
     <table>
       <tr>
-        <th>username</th>
+        <th>Username</th>
         <th>Primeiro Nome</th>
         <th>Último Nome</th>
         <th>Email</th>
         <th>Tipo</th>
-        <!-- <th>Sexo</th> -->
+        <th>Sexo</th>
         <th>Data do Cadastro</th>
         <th>CPF/CNPJ</th>
         <th>Telefone</th>
@@ -42,28 +48,41 @@ tr:nth-child(even) {
         {% for obj in filter.qs %}
       <tr>
         <td>{{ obj.username }}</td>
-        <td>{{ obj.first_name }}</td>
-        <td>{{ obj.last_name }}</td>
+        {% if obj.tipo == 2 %}
+            <td>---------</td>
+            <td>---------</td>
+        {% else %}
+            <td>{{ obj.first_name }}</td>
+            <td>{{ obj.last_name }}</td>
+        {% endif %}
         <td>{{ obj.email }}</td>
         {% if obj.tipo == 0 %}
             <td>Voluntário</td>
+        {% elif obj.tipo == 1 %}
+            <td>Organização</td>    
         {% else %}
-            <td>Organização</td>
+            <td>Administrador</td>
         {% endif %}
-<!--         {% if obj.tipo == 1 %}
+        {% if obj.tipo == 1 or obj.tipo == 2 %}
             <td>---------</td>
         {% elif obj.sexo == 'm' %}
             <td>Homem</td>    
         {% else %}
             <td>Mulher</td>    
-        {% endif %}     -->
+        {% endif %}    
         <td>{{ obj.date_joined }}</td>
-        {% if obj.tipo == 0 %}
+        {% if obj.tipo == 2 %}
+            <td>---------</td>
+        {% elif obj.tipo == 0 %}
             <td>{{ obj.cpf }}</td>
         {% else %}
             <td>{{ obj.cnpj }}</td>
         {% endif %}
-        <td>{{ obj.telefone }}</td>      
+        {% if obj.tipo == 2 %}
+            <td>---------</td>
+        {% else %}
+            <td>{{ obj.telefone }}</td>      
+        {% endif %}
       </tr>
         {% endfor %}
     </table>
