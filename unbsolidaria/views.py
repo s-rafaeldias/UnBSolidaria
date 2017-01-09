@@ -462,7 +462,7 @@ def set_user(request):
             org_form.organizacao_fk = user.id
             org_form.cnpj = msg.get('cnpj')
             org_form.save()
-            return render(request, "/base.html") # HttpResponse é uma possibilidade??
+            return render(request, "/base.html") # HttpResponse eh uma possibilidade??
         else:
             vol_form = VoluntarioForm().save(commit=False)
             vol_form.voluntario_fk = user.id
