@@ -15,7 +15,7 @@ class FAQAdmin(admin.ModelAdmin):
 
 admin.site.register(FAQ, FAQAdmin)
 ##########################################################################
-from .models import Noticia
+from .models import Noticia, Organizacao, Voluntario
 
 class NoticiaAdmin(admin.ModelAdmin):
     formfield_overrides = {
@@ -30,6 +30,9 @@ admin.site.register(Trabalho)
 admin.site.register(Dia)
 admin.site.register(Endereco)
 admin.site.register(Tag)
+admin.site.register(Organizacao)
+admin.site.register(Voluntario)
+
 ##########################################################################
 from models import User
 
