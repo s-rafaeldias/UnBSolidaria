@@ -170,7 +170,7 @@ def contato(request):
             message = form.cleaned_data['message']
             try:
                 send_mail(subject, message, from_email,
-                          ['rafaeltbt@gmail.com'])
+                          ['unbsolidariadesenv@gmail.com'])
                 form = ContactForm()
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
@@ -435,11 +435,38 @@ def get_user(request):
 
         if user.tipo == 1:
             org = Organizacao.objects.get(organizacao_fk = user.id)
-            postdata={'id':user.id, 'first_name':user.first_name, 'last_name':user.last_name, 'username':user.username,'tipo':user.tipo, 'descricao':user.descricao,'telefone':user.telefone,'cpf':[],'cnpj':org.cnpj,'sexo':[],'email':user.email}
+            postdata={'id':user.id, 'first_name':user.first_name, 'last_name':user.last_name, 'username':user.username,'tipo':user.tipo, 'descricao':user.descricao,'telefone':user.telefone,'cpf':'','cnpj':org.cnpj,'sexo':'','email':user.email}
         else:
             vol = Voluntario.objects.get(voluntario_fk = user.id)
-            postdata={'id':user.id, 'first_name':user.first_name, 'last_name':user.last_name, 'username':user.username,'tipo':user.tipo, 'descricao':user.descricao,'telefone':user.telefone,'cpf':vol.cpf,'cnpj':[],'sexo':vol.sexo,'email':user.email}
+            postdata={'id':user.id, 'first_name':user.first_name, 'last_name':user.last_name, 'username':user.username,'tipo':user.tipo, 'descricao':user.descricao,'telefone':user.telefone,'cpf':vol.cpf,'cnpj':'','sexo':vol.sexo,'email':user.email}
 
         return JsonResponse(postdata)
 
-# curl -H "Content-Type: application/json" -X POST -d '{"username":"admin","password":"xyz"}' http://localhost:8000/get_user/
+@csrf_exempt
+def set_user(request):
+    if request.method == 'UPDATE':
+        request = request.body
+        msg = json.loads(request)
+        username = msg.get('username')
+        user = User.objects.get(username = username)
+
+        user.first_name = msg.get('first_name')
+        user.last_name = msg.get('last_name')
+        user.tipo = msg.get('tipo')
+        user.descricao = msg.get('descricao')
+        user.telefone = msg.get('telefone')
+        user.save()
+
+        if msg.get('tipo') == 1:
+            org_form = OrganizacaoForm()
+            org_form.organizacao_fk = user.id
+            org_form.cnpj = msg.get('cnpj')
+            org_form.save()
+            return render(request, "/base.html") # HttpResponse é uma possibilidade??
+        else:
+            vol_form = VoluntarioForm().save(commit=False)
+            vol_form.voluntario_fk = user.id
+            vol_form.cpf = msg.get('cpf')
+            vol_form.sexo = msg.get('sexo')
+            vol_form.save()
+            return render(request, "/base.html")
