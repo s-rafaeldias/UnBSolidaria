@@ -5,7 +5,7 @@ from rest_framework import serializers
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('url', 'id', 'username', 'first_name', 'last_name', 'email', 'telefone') # faltando 'tipo', 'descricao','telefone','email'
+        fields = ('url', 'id', 'username', 'first_name', 'last_name', 'email', 'telefone') # faltando 'tipo', 'descricao'
 
 class TrabalhoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

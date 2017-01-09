@@ -170,7 +170,7 @@ def contato(request):
             message = form.cleaned_data['message']
             try:
                 send_mail(subject, message, from_email,
-                          ['rafaeltbt@gmail.com'])
+                          ['unbsolidariadesenv@gmail.com'])
                 form = ContactForm()
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
@@ -441,5 +441,70 @@ def get_user(request):
             postdata={'id':user.id, 'first_name':user.first_name, 'last_name':user.last_name, 'username':user.username,'tipo':user.tipo, 'descricao':user.descricao,'telefone':user.telefone,'cpf':vol.cpf,'cnpj':'','sexo':vol.sexo,'email':user.email}
 
         return JsonResponse(postdata)
+
+# @csrf_exempt
+# def set_user(request):
+#     if request.method == 'POST':
+#         request = request.body
+#         msg = json.loads(request)
+#         username = msg.get('username')
+#         user = User.objects.get(username = username)
+
+#         user.first_name = msg.get('first_name')
+#         user.last_name = msg.get('last_name')
+#         user.tipo = msg.get('tipo')
+#         user.descricao = msg.get('descricao')
+#         user.telefone = msg.get('telefone')
+#         user.email = msg.get('email')
+#         user.save()
+
+#         if msg.get('tipo') == 1:
+#             org_form = Organizacao.form_class().save(commit=False)
+#             org_form.organizacao_fk = user.id
+#             org_form.cnpj = msg.get('cnpj')
+#             return render(request, "/base.html", {'org_form': org_form})
+
+#         else:
+#             vol_form = Voluntario.form_class().save(commit=False)
+#             vol_form.voluntario_fk = user.id
+#             vol_form.cpf = msg.get('cpf')
+#             vol_form.sexo = msg.get('sexo')
+#             return render(request, "/base.html", {'vol_form': vol_form})
+
+    # def post(self, request):
+    #     form = self.form_class(request.POST)
+    #     org_form = self.org_form_class(request.POST)
+    #     endereco = self.endereco_class(request.POST)
+
+    #     if form.is_valid():
+    #         user = form.save(commit=False)  # cria um objeto, porem n coloca no banco ainda
+
+    #         # normaliza
+    #         user.tipo = 1
+    #         username = form.cleaned_data['username']
+    #         password = form.cleaned_data['password']
+    #         user.set_password(password)
+    #         user.save()
+    #         if org_form.is_valid():
+    #             org_user = org_form.save(commit=False)  # cria um objeto, porem n coloca no banco ainda
+    #             org_user.organizacao_fk = user.id
+    #             org_user.save()
+    #         if endereco.is_valid():
+    #             end_user = endereco.save(commit=False)  # cria um objeto, porem n coloca no banco ainda
+    #             end_user.usuario_fk = user.id
+    #             end_user.save()
+
+    #         # returna objeto se esta tudo certo com as credenciais
+    #         user = authenticate(username=username, password=password)
+
+    #         if user is not None:
+
+    #             if user.is_active:  # analisa se o usuario esta ativo, ou seja, n esta banido nem nada
+    #                 login(request, user)
+    #                 return redirect('../../')
+
+    #     return render(request, self.template_name, {'form': form, 'org_form': org_form, 'endereco': endereco})  # se o usuario nao for valido, returna ele pro formulario de novo
+
+
 
 # curl -H "Content-Type: application/json" -X POST -d '{"username":"admin","password":"xyz"}' http://localhost:8000/get_user/
