@@ -435,10 +435,10 @@ def get_user(request):
 
         if user.tipo == 1:
             org = Organizacao.objects.get(organizacao_fk = user.id)
-            postdata={'id':user.id, 'first_name':user.first_name, 'last_name':user.last_name, 'username':user.username,'tipo':user.tipo, 'descricao':user.descricao,'telefone':user.telefone,'cpf':[],'cnpj':org.cnpj,'sexo':[],'email':user.email}
+            postdata={'id':user.id, 'first_name':user.first_name, 'last_name':user.last_name, 'username':user.username,'tipo':user.tipo, 'descricao':user.descricao,'telefone':user.telefone,'cpf':'','cnpj':org.cnpj,'sexo':'','email':user.email}
         else:
             vol = Voluntario.objects.get(voluntario_fk = user.id)
-            postdata={'id':user.id, 'first_name':user.first_name, 'last_name':user.last_name, 'username':user.username,'tipo':user.tipo, 'descricao':user.descricao,'telefone':user.telefone,'cpf':vol.cpf,'cnpj':[],'sexo':vol.sexo,'email':user.email}
+            postdata={'id':user.id, 'first_name':user.first_name, 'last_name':user.last_name, 'username':user.username,'tipo':user.tipo, 'descricao':user.descricao,'telefone':user.telefone,'cpf':vol.cpf,'cnpj':'','sexo':vol.sexo,'email':user.email}
 
         return JsonResponse(postdata)
 
