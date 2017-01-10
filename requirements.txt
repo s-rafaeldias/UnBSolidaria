@@ -11,4 +11,4 @@ django-admin-tools
 django-filter
 django-allauth
 django-rest-auth
-
+django-localflavor

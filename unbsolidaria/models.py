@@ -66,6 +66,8 @@ class Dia(models.Model):
 class Trabalho(models.Model):
     titulo = models.CharField(max_length=45)
     descricao = models.TextField(max_length=140)
+    autor = models.CharField(max_length=50)
+    email = models.EmailField(max_length=70,blank=True)
     data_inicio = models.DateField(auto_now=False, auto_now_add=False)
     data_fim = models.DateField(auto_now=False, auto_now_add=False)
     vagas = models.PositiveIntegerField(default=0)

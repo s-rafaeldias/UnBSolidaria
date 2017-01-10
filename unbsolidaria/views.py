@@ -9,7 +9,7 @@ from django.shortcuts import render_to_response
 from .models import Noticia, FAQ,  UsuarioTrabalho
 from django.template import RequestContext
 from django.views import generic
-from .forms import ContactForm, UserForm, OrganizacaoForm, VoluntarioForm, EnderecoForm
+from .forms import ContactForm, UserForm, OrganizacaoForm, VoluntarioForm, EnderecoForm, TrabalhoForm
 from django.views.generic import View
 from django.contrib.auth import authenticate, login
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
@@ -36,10 +36,10 @@ class OrganizacaoFormView(View):
     # mostrar um form em branco
     def get(self, request):
         form = self.form_class(None)
-        form_org = self.org_form_class(None)
+        org_form = self.org_form_class(None)
         endereco = self.endereco_class(None)
 
-        return render(request, self.template_name, {'form': form, 'form_org': form_org, 'endereco': endereco})
+        return render(request, self.template_name, {'form': form, 'org_form': org_form, 'endereco': endereco})
 
     # processar informacoes
     def post(self, request):
@@ -74,7 +74,8 @@ class OrganizacaoFormView(View):
                     login(request, user)
                     return redirect('../../')
 
-        return render(request, self.template_name, {'form': form, 'org_form': org_form, 'endereco': endereco})  # se o usuario nao for valido, returna ele pro formulario de novo
+        return render(request, self.template_name, {'form': form, 'org_form': org_form, 'endereco': endereco}) # se o usuario nao for valido, returna ele pro formulario de novo
+
 
 class VoluntarioFormView(View):
     form_class = UserForm
@@ -85,10 +86,10 @@ class VoluntarioFormView(View):
     # mostrar um form em branco
     def get(self, request):
         form = self.form_class(None)
-        form_vol = self.vol_form_class(None)
+        vol_form = self.vol_form_class(None)
         endereco = self.endereco_class(None)
 
-        return render(request, self.template_name, {'form': form, 'form_vol': form_vol, 'endereco': endereco})
+        return render(request, self.template_name, {'form': form, 'vol_form': vol_form, 'endereco': endereco})
 
      # processar informacoes
     def post(self, request):
@@ -110,6 +111,7 @@ class VoluntarioFormView(View):
                 vol_user = vol_form.save(commit=False)  # cria um objeto, porem n coloca no banco ainda
                 vol_user.voluntario_fk = user.id
                 vol_user.save()
+
             if endereco.is_valid():
                 end_user = endereco.save(commit=False)  # cria um objeto, porem n coloca no banco ainda
                 end_user.usuario_fk = user.id
@@ -254,18 +256,25 @@ def ContribuicaoTrabalhosView(request):
 
 
 class TrabalhoCreate(LoginRequiredMixin, generic.CreateView):
+    trabalho_class = TrabalhoForm
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/criarTrabalho.html'
-    model = Trabalho
-    fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim', 'organizacao']
     success_url = '/listaTrabalhos'
 
-    def get(self, request, *args, **kwargs):
-        if self.request.user.tipo == 1:
-            return super(TrabalhoCreate, self).get(request, *args, **kwargs)
-        else:
-            return redirect('/listaTrabalhos')
+    def get(self, request):
+        trabalho = self.trabalho_class(None)
+        return render(request, self.template_name, {'trabalho': trabalho})
+
+    def post(self, request):
+        current_user = request.user
+        trabalho = self.trabalho_class(request.POST)
+        if trabalho.is_valid():
+            trab = trabalho.save(commit=False )  # cria um objeto, porem n coloca no banco ainda
+            trab.organizacao_id = current_user.id	
+            trab.save()
+
+	    return render(request, self.template_name, {'trabalho': trabalho})
 
 
 class TrabalhoUpdate(LoginRequiredMixin, generic.UpdateView):
@@ -273,7 +282,7 @@ class TrabalhoUpdate(LoginRequiredMixin, generic.UpdateView):
     redirect_field_name = 'redirect_to'
     template_name = '../templates/trabalhos/editarTrabalho.html'
     model = Trabalho
-    fields = ['titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim']
+    fields = ['autor', 'email','titulo', 'descricao', 'vagas', 'data_inicio', 'data_fim']
     success_url = '/listaTrabalhos'
 
     def get(self, request, *args, **kwargs):

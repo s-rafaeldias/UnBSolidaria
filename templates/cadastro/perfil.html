@@ -18,8 +18,12 @@
 			<hr class="head-border">
 			<p>Descricao: {{ object.descricao }}</p>
 			<hr class="head-border">
-			<p>Contato: {{ object.telefone }}</p>
+			<p>E-mail para contato: {{ object.email }}</p>
 			<hr class="head-border">
+			{% if user.tipo == 1%}
+			<p>Telefone para contato: {{ object.telefone }}</p>
+			<hr class="head-border">
+			{% endif%}
 
 			</div>
 		 <center> 
