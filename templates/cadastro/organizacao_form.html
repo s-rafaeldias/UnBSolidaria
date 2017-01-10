@@ -1,27 +1,26 @@
 {% extends '../templates/base.html' %}
 {% block content %}
+
 <div class="container-fluid">
 
-    <div class="row">
-        <div class="panel panel-default ">
-            <div class="panel-body">
-                <h3>Criar nova conta</h3>
+    <div id="registro">
+        <div class="container">
+        
+                    <h1>Criar nova conta</h1>
+                     <hr class="head-border-grey">
                 {% if error_message %}
                     <p><strong>{{ error_message }}</strong></p>
                 {% endif %}
                 <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% include '../templates/cadastro/organizacao_form_template.html' %}
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-success">Submit</button>
+                     <div class="form-group">
+                            <div class="col-md-2 col-md-offset-5">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
                         </div>
-                    </div>
-                </form>
-
-            </div>
+                    </form>
         </div>
-
     </div>
 
 </div>

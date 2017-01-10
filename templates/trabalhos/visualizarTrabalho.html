@@ -10,9 +10,13 @@
 		<div href = "#" class = "list-group-item">
 			<h1>{{ object.headline }}</h1>
 			<p>{{ object.content }}</p>
-			<p>Titulo: {{ object.titulo }}</p>
+			<p>Autor: {{ object.autor }}</p>
+			<hr class="head-border">
+			<p>E-mail para contato: {{ object.email }}</p>
 			<hr class="head-border">
 			<p>Organizacão: {{ object.organizacao.first_name }} {{ object.organizacao.last_name }}</p>
+			<hr class="head-border">
+			<p>Titulo: {{ object.titulo }}</p>
 			<hr class="head-border">
 			<p>Descricao: {{ object.descricao }}</p>
 			<hr class="head-border">
@@ -20,7 +24,7 @@
 			<hr class="head-border">
 			<p>Data Inicio: {{ object.data_inicio }}</p>
 			{% if user.tipo == 1%}
-				{% if user.id == object.organizacao_id %}
+				{% if user.id == object.organizacao %}
 					<hr class="head-border">
 					<p>Data Fim: {{ object.data_fim }}</p>
 				{% endif %}
@@ -29,24 +33,18 @@
 			</div>
 		 <center> 
 <hr class="head-border">
-      <a href="{% url 'lista-trabalhos'%}"><input type="button" class = "btn btn-primary btn-sm" value="Voltar"></a>
 	{% if user.tipo == 1%}
 		{% if user.id == object.organizacao_id %}
         <a href="{% url 'editar-trabalho' object.id %}"><button class = "btn btn-primary btn-sm">Editar</button></a>
      	<a href="{% url 'deletar-trabalho' object.id %}"><input type="button" class = "btn btn-primary btn-sm" value="Excluir"></a>
-    	<a href="{% url 'lista-voluntarios' object.id %}"><input type="button" class = "btn btn-primary btn-sm" value="Voluntarios"></a>
-    	<a href="{% url 'perfil-usuario' object.organizacao.id %}"><input type="button" class = "btn btn-primary btn-sm" value="Visitar Organizacao"></a>
-     	{% else %}
-     	<a href="{% url 'lista-voluntarios' object.id %}"><input type="button" class = "btn btn-primary btn-sm" value="Voluntarios"></a>
-     	<a href="{% url 'perfil-usuario' object.organizacao.id %}"><input type="button" class = "btn btn-primary btn-sm" value="Visitar Organizacao"></a>
      	{% endif %}
     {% endif %}
 
      {% if user.tipo == 0%}
      <a href="{% url 'entrar-trabalho' object.id %}"><input type="button" class = "btn btn-primary btn-sm" value="Inscreva-se"></a>
-     <a href="{% url 'lista-voluntarios' object.id %}"><input type="button" class = "btn btn-primary btn-sm" value="Voluntarios"></a>
-     <a href="{% url 'perfil-usuario' object.organizacao.id %}"><input type="button" class = "btn btn-primary btn-sm" value="Visitar Organizacao"></a>
      {% endif %}
+     <a href="{% url 'lista-voluntarios' object.id %}"><input type="button" class = "btn btn-primary btn-sm" value="Voluntarios"></a>
+     <a href="{% url 'perfil-usuario' object.organizacao.id %}"><input type="button" class = "btn btn-primary btn-sm" value="Visitar {{ object.organizacao.first_name }} {{ object.organizacao.last_name }}"></a>
        </center> 
 		</div>
 	</div>
