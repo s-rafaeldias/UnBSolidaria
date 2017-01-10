@@ -453,7 +453,7 @@ def get_user(request):
 
 @csrf_exempt
 def set_user(request):
-    if request.method == 'UPDATE':
+    if request.method == 'PUT':
         request = request.body
         msg = json.loads(request)
         username = msg.get('username')
@@ -471,11 +471,11 @@ def set_user(request):
             org_form.organizacao_fk = user.id
             org_form.cnpj = msg.get('cnpj')
             org_form.save()
-            return render(request, "/base.html") # HttpResponse eh uma possibilidade??
+            return JsonResponse({'response': 'ok'})
         else:
             vol_form = VoluntarioForm().save(commit=False)
             vol_form.voluntario_fk = user.id
             vol_form.cpf = msg.get('cpf')
             vol_form.sexo = msg.get('sexo')
             vol_form.save()
-            return render(request, "/base.html")
+            return JsonResponse({'response':'ok'})
